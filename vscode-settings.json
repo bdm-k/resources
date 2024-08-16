@@ -1,0 +1,50 @@
+{
+  "workbench.colorTheme": "Gruvbox Dark Hard",
+  "workbench.iconTheme": "vscode-icons",
+  "explorer.confirmDelete": false,
+  "explorer.sortOrder": "type",
+  "git.openRepositoryInParentFolders": "never",
+
+  // editor
+  "editor.tabSize": 2,
+  "editor.renderWhitespace": "boundary",
+  "editor.cursorBlinking": "solid",
+  "editor.cursorSmoothCaretAnimation": "on",
+  "editor.copyWithSyntaxHighlighting": false,
+  "files.insertFinalNewline": true,
+  "diffEditor.hideUnchangedRegions.enabled": true,
+  "diffEditor.ignoreTrimWhitespace": false,
+
+  // extensions
+  "extensions.ignoreRecommendations": true,
+
+  "cSpell.userWords": [
+    "concat",
+    "cumsum",
+    "headlessui",
+    "linalg",
+    "matplotlib",
+    "ndim",
+    "println",
+    "pyplot",
+    "tailwindcss",
+    "vectorize",
+    "viewsets",
+  ],
+  "cSpell.enableFiletypes": ["!json"],
+
+  "indentRainbow.includedLanguages": [
+    "typescript",
+    "python",
+    "jsonc"
+  ],
+  "indentRainbow.colorOnWhiteSpaceOnly": true,
+
+  "github.copilot.editor.enableAutoCompletions": false,
+
+  // others
+  "files.associations": {
+    "*.pl": "prolog",
+    "*.json": "jsonc"
+  }
+}

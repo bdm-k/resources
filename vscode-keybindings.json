@@ -19,7 +19,6 @@
   { "key": "ctrl+z", "command": "editor.toggleFold", "when": "editorTextFocus && foldingEnabled" }, { "key": "cmd+k cmd+l", "command": "-editor.toggleFold", "when": "editorTextFocus && foldingEnabled" },
 
   // GitHub Copilot
-  { "key": "ctrl+p", "command": "github.copilot.toggleCopilot" },
   { "key": "ctrl+\\", "command": "editor.action.inlineSuggest.trigger", "when": "config.github.copilot.inlineSuggest.enable && editorTextFocus && !editorHasSelection && !inlineSuggestionsVisible" }, { "key": "alt+\\", "command": "-editor.action.inlineSuggest.trigger", "when": "config.github.copilot.inlineSuggest.enable && editorTextFocus && !editorHasSelection && !inlineSuggestionsVisible" },
 
   // misc
