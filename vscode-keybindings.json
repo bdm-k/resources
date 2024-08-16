@@ -1,0 +1,28 @@
+// Place your key bindings in this file to override the defaultsauto[]
+[
+  // workbench navigation
+  { "key": "cmd+[", "command": "workbench.action.previousEditor" }, { "key": "shift+cmd+[", "command": "-workbench.action.previousEditor" },
+  { "key": "cmd+]", "command": "workbench.action.nextEditor" }, { "key": "shift+cmd+]", "command": "-workbench.action.nextEditor" },
+  { "key": "cmd+e", "command": "workbench.action.focusActiveEditorGroup" },
+  { "key": "cmd+o", "command": "outline.focus" },
+
+  // editor navigation
+  { "key": "ctrl+a", "command": "cursorHome", "when": "textInputFocus" }, { "key": "cmd+left", "command": "-cursorHome", "when": "textInputFocus" },
+  { "key": "shift+enter", "command": "editor.action.smartSelect.expand", "when": "editorTextFocus" }, { "key": "ctrl+shift+right", "command": "-editor.action.smartSelect.expand", "when": "editorTextFocus" },
+  { "key": "shift+backspace", "command": "editor.action.smartSelect.shrink", "when": "editorTextFocus" }, { "key": "ctrl+shift+left", "command": "-editor.action.smartSelect.shrink", "when": "editorTextFocus" },
+  { "key": "ctrl+d", "command": "editor.action.revealDefinition", "when": "editorHasDefinitionProvider && editorTextFocus" }, { "key": "f12", "command": "-editor.action.revealDefinition", "when": "editorHasDefinitionProvider && editorTextFocus" },
+  { "key": "ctrl+r", "command": "editor.action.goToReferences", "when": "editorHasReferenceProvider && editorTextFocus && !inReferenceSearchEditor && !isInEmbeddedEditor" }, { "key": "shift+f12", "command": "-editor.action.goToReferences", "when": "editorHasReferenceProvider && editorTextFocus && !inReferenceSearchEditor && !isInEmbeddedEditor" },
+
+  // fold
+  { "key": "ctrl+c", "command": "editor.foldAll", "when": "editorTextFocus && foldingEnabled" }, { "key": "cmd+k cmd+0", "command": "-editor.foldAll", "when": "editorTextFocus && foldingEnabled" },
+  { "key": "ctrl+o", "command": "editor.toggleFoldRecursively", "when": "editorTextFocus && foldingEnabled" }, { "key": "cmd+k shift+cmd+l", "command": "-editor.toggleFoldRecursively", "when": "editorTextFocus && foldingEnabled" },
+  { "key": "ctrl+z", "command": "editor.toggleFold", "when": "editorTextFocus && foldingEnabled" }, { "key": "cmd+k cmd+l", "command": "-editor.toggleFold", "when": "editorTextFocus && foldingEnabled" },
+
+  // GitHub Copilot
+  { "key": "ctrl+p", "command": "github.copilot.toggleCopilot" },
+  { "key": "ctrl+\\", "command": "editor.action.inlineSuggest.trigger", "when": "config.github.copilot.inlineSuggest.enable && editorTextFocus && !editorHasSelection && !inlineSuggestionsVisible" }, { "key": "alt+\\", "command": "-editor.action.inlineSuggest.trigger", "when": "config.github.copilot.inlineSuggest.enable && editorTextFocus && !editorHasSelection && !inlineSuggestionsVisible" },
+
+  // misc
+  { "key": "cmd+t", "command": "editor.action.trimTrailingWhitespace", "when": "editorTextFocus && !editorReadonly" }, { "key": "cmd+k cmd+x", "command": "-editor.action.trimTrailingWhitespace", "when": "editorTextFocus && !editorReadonly" },
+  { "key": "shift+cmd+g", "command": "workbench.view.scm", "when": "workbench.scm.active" }, { "key": "ctrl+shift+g", "command": "-workbench.view.scm", "when": "workbench.scm.active" }
+]
