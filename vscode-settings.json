@@ -29,7 +29,7 @@
     "pyplot",
     "tailwindcss",
     "vectorize",
-    "viewsets",
+    "viewsets"
   ],
   "cSpell.enableFiletypes": ["!json"],
 
