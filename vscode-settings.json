@@ -1,6 +1,7 @@
 {
-  "workbench.colorTheme": "Gruvbox Dark Hard",
+  // workbench
   "workbench.iconTheme": "vscode-icons",
+  "workbench.startupEditor": "none",
   "explorer.confirmDelete": false,
   "explorer.sortOrder": "type",
   "git.openRepositoryInParentFolders": "never",
@@ -11,6 +12,7 @@
   "editor.cursorBlinking": "solid",
   "editor.cursorSmoothCaretAnimation": "on",
   "editor.copyWithSyntaxHighlighting": false,
+  "editor.minimap.enabled": false,
   "files.insertFinalNewline": true,
   "diffEditor.hideUnchangedRegions.enabled": true,
   "diffEditor.ignoreTrimWhitespace": false,
@@ -46,5 +48,6 @@
   "files.associations": {
     "*.pl": "prolog",
     "*.json": "jsonc"
-  }
+  },
+  "window.customTitleBarVisibility": "windowed"
 }
