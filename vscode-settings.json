@@ -13,6 +13,7 @@
   "editor.cursorSmoothCaretAnimation": "on",
   "editor.copyWithSyntaxHighlighting": false,
   "editor.minimap.enabled": false,
+  "editor.inlayHints.enabled": "offUnlessPressed",
   "files.insertFinalNewline": true,
   "diffEditor.hideUnchangedRegions.enabled": true,
   "diffEditor.ignoreTrimWhitespace": false,
