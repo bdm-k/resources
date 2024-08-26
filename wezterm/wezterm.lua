@@ -39,8 +39,6 @@ config.inactive_pane_hsb = {
   brightness = 0.24,
 }
 
-config.window_decorations = "RESIZE"
-
 -- This function returns the suggested title for a tab. It prefers the title
 -- that was set via `tab:set_title()` or `wezterm cli set-tab-title`, but falls
 -- back to the title of the active pane in that tab.

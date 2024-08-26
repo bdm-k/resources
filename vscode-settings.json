@@ -1,5 +1,6 @@
 {
   // workbench
+  "workbench.colorTheme": "Gruvbox Dark Hard",
   "workbench.iconTheme": "vscode-icons",
   "workbench.startupEditor": "none",
   "explorer.confirmDelete": false,
@@ -25,6 +26,7 @@
     "concat",
     "cumsum",
     "headlessui",
+    "karabiner",
     "linalg",
     "matplotlib",
     "ndim",
