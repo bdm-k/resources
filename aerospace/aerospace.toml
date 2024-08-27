@@ -1,0 +1,43 @@
+start-at-login = true
+
+after-login-command = [
+  # Set the initial workspace to 'main'
+  'workspace main'
+]
+
+after-startup-command = [
+  # Start JankyBorders
+  # JankyBorders has a built-in detection of already running process,
+  # so it won't be run twice on AeroSpace restart
+  "exec-and-forget borders active_color=0xfffb7185 width=3.0 hidpi=on"
+]
+
+
+# Normalizations
+enable-normalization-flatten-containers = true
+enable-normalization-opposite-orientation-for-nested-containers = true
+
+
+# Mouse follows focus when focused monitor changes
+on-focused-monitor-changed = ['move-mouse window-lazy-center']
+
+
+# Open ChatGPT as a floating window
+[[on-window-detected]]
+if.app-id = 'com.openai.chat'
+run = ['layout floating']
+
+# Open Dictionary as a floating window
+[[on-window-detected]]
+if.app-id = 'com.apple.Dictionary'
+run = ['layout floating']
+
+
+# Gaps between windows (inner-*) and between monitor edges (outer-*).
+[gaps]
+inner.horizontal = 5
+inner.vertical =   5
+outer.left =       5
+outer.bottom =     5
+outer.top =        5
+outer.right =      5

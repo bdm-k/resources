@@ -162,6 +162,10 @@ config.keys = {
     action = act.ClearScrollback("ScrollbackAndViewport"),
   },
   {
+    key = "h", mods = "OPT",
+    action = act.HideApplication,
+  },
+  {
     key = "phys:p", mods = "CMD|SHIFT",
     action = act.ActivateCommandPalette,
   },
