@@ -38,7 +38,7 @@ const open_app_rule = layer(
 ).manipulators([
   map('w').to$('open -a \'WezTerm\''),
   map('v').to$('open -a \'Visual Studio Code\''),
-  map('s').to$('open -a \'Safari\''),
+  map('b').to$('open -a \'Brave Browser\''),
   map('o').to$('open -a \'Obsidian\''),
   map('g').to$('open -a \'ChatGPT\''),
 ]);
@@ -79,15 +79,17 @@ const aerospace_rule = layer(
   map('6').to$(`${aerospace_bin} move-node-to-workspace comm.`),
 ]);
 
-const safari_rule = rule(
-  'Tab navigation in Safari',
-  ifApp('com.apple.Safari'),
+const brave_rule = rule(
+  'Keyboard shortcuts in Brave Browser',
+  ifApp('com.brave.Browser'),
 ).manipulators([
   // Open previous/next tab
   map('[', 'right_command').to('left_arrow', ['left_command', 'left_option']),
   map(']', 'right_command').to('right_arrow', ['left_command', 'left_option']),
-  // Toggle side bar visibility
-  map('b', 'right_command').to('l', ['left_command', 'left_shift']),
+
+  // Go back/forward
+  map('-', 'left_control').to('[', 'left_command'),
+  map('=', 'left_control').to(']', 'left_command'),
 ]);
 
 
@@ -100,6 +102,6 @@ writeToProfile(
     jis_keyboard_rule,
     open_app_rule,
     aerospace_rule,
-    safari_rule,
+    brave_rule,
   ]
 );
