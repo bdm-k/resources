@@ -33,14 +33,17 @@ const jis_keyboard_rule = rule(
 ]);
 
 // NOTE: Spacebar also triggers aerospace-mode
+const app_switcher_bin =
+  '~/resources/app_switcher/_build/default/bin/main.exe';
 const open_app_rule = layer(
   'spacebar', 'open-app-mode'
 ).manipulators([
-  map('w').to$('open -a \'WezTerm\''),
-  map('v').to$('open -a \'Visual Studio Code\''),
-  map('b').to$('open -a \'Brave Browser\''),
-  map('o').to$('open -a \'Obsidian\''),
-  map('g').to$('open -a \'ChatGPT\''),
+  map('w').to$(`${app_switcher_bin} 'WezTerm'`),
+  map('v').to$(`${app_switcher_bin} 'Visual Studio Code'`),
+  map('b').to$(`${app_switcher_bin} 'Brave Browser'`),
+  map('o').to$(`${app_switcher_bin} 'Obsidian'`),
+  map('g').to$(`${app_switcher_bin} 'ChatGPT'`),
+  map('d').to$(`${app_switcher_bin} 'Dictionary'`),
 ]);
 
 // NOTE: Spacebar also triggers open-app-mode
