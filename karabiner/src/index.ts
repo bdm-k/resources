@@ -51,6 +51,8 @@ const aerospace_bin = '/opt/homebrew/bin/aerospace';
 const aerospace_rule = layer(
   'spacebar', 'aerospace-mode'
 ).manipulators([
+  // Rarely used key bindings are defined in the AeroSpace config
+
   // navigate windows
   map('h').to$(`${aerospace_bin} focus left`),
   map('j').to$(`${aerospace_bin} focus down`),

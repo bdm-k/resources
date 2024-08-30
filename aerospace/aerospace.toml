@@ -41,3 +41,16 @@ outer.left =       5
 outer.bottom =     5
 outer.top =        5
 outer.right =      5
+
+
+# Frequently used key bindings are defined in the Karabiner config
+[mode.main.binding]
+
+# join windows
+alt-shift-left = 'join-with left'
+alt-shift-down = 'join-with down'
+alt-shift-up = 'join-with up'
+alt-shift-right = 'join-with right'
+
+# move the workspace to the next monitor
+alt-shift-m = 'move-workspace-to-monitor --wrap-around next'
