@@ -159,7 +159,10 @@ config.keys = {
   -- Other assignments
   {
     key = "k", mods = "OPT",
-    action = act.ClearScrollback("ScrollbackAndViewport"),
+    action = act.Multiple {
+      act.ClearScrollback("ScrollbackAndViewport"),
+      act.SendKey { key = "L", mods = "CTRL" },
+    }
   },
   {
     key = "h", mods = "OPT",
