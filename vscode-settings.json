@@ -47,6 +47,7 @@
   "indentRainbow.colorOnWhiteSpaceOnly": true,
 
   "github.copilot.editor.enableAutoCompletions": false,
+  "github.copilot.chat.localeOverride": "ja",
 
   // others
   "files.associations": {

@@ -97,6 +97,28 @@ const brave_rule = rule(
   map('=', 'left_control').to(']', 'left_command'),
 ]);
 
+const layout_rule = rule(
+  'My original keyboard layout based on colemak'
+).manipulators([
+  map('d', { optional: 'right_shift' }).to('s'),
+  map('e', { optional: 'right_shift' }).to('f'),
+  map('f', { optional: 'right_shift' }).to('t'),
+  map('g', { optional: 'right_shift' }).to('d'),
+  map('i', { optional: 'left_shift' }).to('u'),
+  map('j', { optional: 'left_shift' }).to('n'),
+  map('k', { optional: 'left_shift' }).to('e'),
+  map('l', { optional: 'left_shift' }).to('i'),
+  map('n', { optional: 'left_shift' }).to('k'),
+  map('o', { optional: 'left_shift' }).to('g'),
+  map('p', { optional: 'left_shift' }).to('y'),
+  map('r', { optional: 'right_shift' }).to('p'),
+  map('s', { optional: 'right_shift' }).to('r'),
+  map('t', { optional: 'right_shift' }).to('semicolon'),
+  map('u', { optional: 'left_shift' }).to('l'),
+  map('y', { optional: 'left_shift' }).to('j'),
+  map('semicolon', { optional: 'left_shift' }).to('o'),
+]);
+
 
 writeToProfile(
   // Use '--dry-run' to print the generated JSON to the console
@@ -108,5 +130,6 @@ writeToProfile(
     open_app_rule,
     aerospace_rule,
     brave_rule,
+    layout_rule,
   ]
 );
