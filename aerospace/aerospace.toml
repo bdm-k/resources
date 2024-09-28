@@ -22,14 +22,17 @@ enable-normalization-opposite-orientation-for-nested-containers = true
 on-focused-monitor-changed = ['move-mouse window-lazy-center']
 
 
-# Open ChatGPT as a floating window
+# Open following apps as a floating window
 [[on-window-detected]]
 if.app-id = 'com.openai.chat'
 run = ['layout floating']
 
-# Open Dictionary as a floating window
 [[on-window-detected]]
 if.app-id = 'com.apple.Dictionary'
+run = ['layout floating']
+
+[[on-window-detected]]
+if.app-id = 'org.python.python'
 run = ['layout floating']
 
 

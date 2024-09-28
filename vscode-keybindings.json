@@ -28,6 +28,8 @@
 
   // GitHub Copilot
   { "key": "ctrl+\\", "command": "editor.action.inlineSuggest.trigger", "when": "config.github.copilot.inlineSuggest.enable && editorTextFocus && !editorHasSelection && !inlineSuggestionsVisible" }, { "key": "alt+\\", "command": "-editor.action.inlineSuggest.trigger", "when": "config.github.copilot.inlineSuggest.enable && editorTextFocus && !editorHasSelection && !inlineSuggestionsVisible" },
+  { "key": "cmd+right", "command": "editor.action.inlineSuggest.commit", "when": "inlineSuggestionHasIndentationLessThanTabSize && inlineSuggestionVisible && !editorHoverFocused && !editorTabMovesFocus && !suggestWidgetVisible" }, { "key": "tab", "command": "-editor.action.inlineSuggest.commit", "when": "inlineSuggestionHasIndentationLessThanTabSize && inlineSuggestionVisible && !editorHoverFocused && !editorTabMovesFocus && !suggestWidgetVisible" },
+  { "key": "tab", "command": "editor.action.inlineSuggest.acceptNextWord", "when": "inlineSuggestionVisible && !editorReadonly" }, { "key": "cmd+right", "command": "-editor.action.inlineSuggest.acceptNextWord", "when": "inlineSuggestionVisible && !editorReadonly" },
 
   // others
   { "key": "cmd+t", "command": "editor.action.trimTrailingWhitespace", "when": "editorTextFocus && !editorReadonly" }, { "key": "cmd+k cmd+x", "command": "-editor.action.trimTrailingWhitespace", "when": "editorTextFocus && !editorReadonly" }
