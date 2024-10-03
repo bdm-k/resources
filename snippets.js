@@ -148,6 +148,7 @@
   { trigger: "set", replacement: "\\{ $0 \\}$1", options: "mA" },
   { trigger: "exists", replacement: "\\exists", options: "mA", priority: 1 },
   { trigger: "mod", replacement: "\\bmod", options: "mA" },
+  { trigger: "circ", replacement: "\\circ", options: "mA" },
 
   { trigger: "LL", replacement: "\\mathcal{L}", options: "mA" },
   { trigger: "HH", replacement: "\\mathcal{H}", options: "mA" },
