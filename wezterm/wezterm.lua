@@ -3,6 +3,14 @@ local act = wezterm.action
 local nerd = wezterm.nerdfonts
 local config = wezterm.config_builder()
 
+-- Setup domains
+config.unix_domains = {
+  {
+    name = "kokus-lab",
+    proxy_command = { "ssh", "-T", "kokus-lab", "wezterm", "cli", "proxy" },
+  }
+}
+
 config.font = wezterm.font("Source Code Pro")
 config.window_frame = {
   font = wezterm.font({

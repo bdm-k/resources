@@ -41,9 +41,10 @@ const open_app_rule = layer(
   map('w').to$(`${app_switcher_bin} 'WezTerm'`),
   map('v').to$(`${app_switcher_bin} 'Visual Studio Code'`),
   map('b').to$(`${app_switcher_bin} 'Brave Browser'`),
-  map('o').to$(`${app_switcher_bin} 'Obsidian'`),
-  map('g').to$(`${app_switcher_bin} 'ChatGPT'`),
+  map(';').to$(`${app_switcher_bin} 'Obsidian'`),
+  map('o').to$(`${app_switcher_bin} 'ChatGPT'`),
   map('d').to$(`${app_switcher_bin} 'Dictionary'`),
+  map('s').to$(`${app_switcher_bin} 'Slack'`),
 ]);
 
 // NOTE: Spacebar also triggers open-app-mode

@@ -1,4 +1,7 @@
 [
+  { trigger: "pro", replacement: "*Proof*.", options: "t"},
+  { trigger: "proe", replacement: "$\\square$", options: "t"},
+
   // Math mode
   { trigger: "mk", replacement: "$$0$", options: "tA" },
   { trigger: "dm", replacement: "$$\n$0\n$$", options: "tAw" },
@@ -59,6 +62,7 @@
   { trigger: "conj", replacement: "^{*}", options: "mA" },
   { trigger: "Re", replacement: "\\mathrm{Re}", options: "mA" },
   { trigger: "Im", replacement: "\\mathrm{Im}", options: "mA" },
+  { trigger: "Ker", replacement: "\\mathrm{Ker}\\;", options: "mA" },
   { trigger: "bf", replacement: "\\mathbf{$0}", options: "mA" },
   { trigger: "rm", replacement: "\\mathrm{$0}$1", options: "mA" },
 
@@ -126,7 +130,7 @@
   { trigger: ">>", replacement: "\\gg", options: "mA" },
   { trigger: "<<", replacement: "\\ll", options: "mA" },
   { trigger: "simm", replacement: "\\sim", options: "mA" },
-  { trigger: "sim=", replacement: "\\simeq", options: "mA" },
+  { trigger: "sim=", replacement: "\\cong", options: "mA" },
   { trigger: "prop", replacement: "\\propto", options: "mA" },
 
   { trigger: "<->", replacement: "\\leftrightarrow ", options: "mA" },
@@ -148,6 +152,7 @@
   { trigger: "set", replacement: "\\{ $0 \\}$1", options: "mA" },
   { trigger: "exists", replacement: "\\exists", options: "mA", priority: 1 },
   { trigger: "mod", replacement: "\\bmod", options: "mA" },
+  { trigger: "mid", replacement: "\\mid", options: "mA" },
   { trigger: "circ", replacement: "\\circ", options: "mA" },
 
   { trigger: "LL", replacement: "\\mathcal{L}", options: "mA" },

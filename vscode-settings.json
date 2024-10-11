@@ -49,6 +49,8 @@
   "github.copilot.editor.enableAutoCompletions": false,
   "github.copilot.chat.localeOverride": "ja",
 
+  "C_Cpp.default.cStandard": "gnu11",
+
   // others
   "files.associations": {
     "*.pl": "prolog",
