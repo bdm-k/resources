@@ -1,6 +1,6 @@
 {
   // workbench
-  "workbench.colorTheme": "Gruvbox Dark Hard",
+  "workbench.colorTheme": "One Dark Pro",
   "workbench.iconTheme": "vscode-icons",
   "workbench.startupEditor": "none",
   "explorer.confirmDelete": false,
@@ -19,6 +19,12 @@
   "files.insertFinalNewline": true,
   "diffEditor.hideUnchangedRegions.enabled": true,
   "diffEditor.ignoreTrimWhitespace": false,
+
+  // This setting is assuming assembly
+  "[plaintext]": {
+    "editor.insertSpaces": false,
+    "editor.tabSize": 8
+  },
 
   // extensions
   "extensions.ignoreRecommendations": true,
