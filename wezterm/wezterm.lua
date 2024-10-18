@@ -148,13 +148,10 @@ config.keys = {
   },
   {
     key = "r", mods = "CMD",
-    action = act.ActivateKeyTable({
-            name = "resize_pane",
-            one_shot = false,
-    }),
+    action = act.ActivateKeyTable({ name = "resize_pane", one_shot = false }),
   },
 
-  -- Assignments related to tab
+  -- Assignments related to Tab
   {
     key = "[", mods = "CMD",
     action = act.ActivateTabRelative(-1),
@@ -162,6 +159,12 @@ config.keys = {
   {
     key = "]", mods = "CMD",
     action = act.ActivateTabRelative(1),
+  },
+
+  -- Assignments for Linux. Adapt some key assignments to macOS style
+  {
+    key = "v", mods = "SUPER",
+    action = act.PasteFrom 'Clipboard',
   },
 
   -- Other assignments
