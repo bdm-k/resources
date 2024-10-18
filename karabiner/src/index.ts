@@ -4,18 +4,47 @@ import {
   layer,
   map,
   ifApp,
+  withCondition,
+  ifDevice,
 } from 'karabiner.ts';
 
 
-const basic_rule = rule(
+const APPLE_INTERNAL_KEYBOARD = { is_built_in_keyboard: true };
+const KEYCHRON_K3_MAX = { vendor_id: 13364, product_id: 2613 };
+
+const JISKeyboardRule = rule(
+  'Physical JIS keyboard with ANSI layout'
+).manipulators([
+  map('international1').to('right_control'),
+  map('japanese_pc_nfer').to('japanese_eisuu'),
+  map('japanese_pc_xfer').to('japanese_kana'),
+
+  withCondition(ifDevice(APPLE_INTERNAL_KEYBOARD))([
+    map('international3', 'optionalAny').to('grave_accent_and_tilde'),
+  ]),
+
+  // Adapt the order of arrow keys to Vim style
+  withCondition(ifDevice(KEYCHRON_K3_MAX))([
+    map('up_arrow', 'optionalAny').to('down_arrow'),
+    map('down_arrow', 'optionalAny').to('up_arrow'),
+  ]),
+]);
+
+const AlternativeEscBackspaceRule = rule(
   'Alternative keybindings for Esc and Backspace'
 ).manipulators([
-  map('return_or_enter', 'left_control').to('escape'),
+  withCondition(ifDevice(APPLE_INTERNAL_KEYBOARD))([
+    map('left_control').to('left_control').toIfAlone('escape'),
+  ]),
+  withCondition(ifDevice(KEYCHRON_K3_MAX))([
+    map('caps_lock').to('left_control').toIfAlone('escape'),
+  ]),
+
   map(';', 'left_control').to('delete_or_backspace'),
 ]);
 
-const arrow_key_rule = rule(
-  'Left ctrl + hjkl to arrow keys'
+const ArrowKeyRule = rule(
+  'Left control + hjkl to arrow keys'
 ).manipulators([
   map('h', 'left_control', 'any').to('left_arrow'),
   map('j', 'left_control', 'any').to('down_arrow'),
@@ -23,69 +52,82 @@ const arrow_key_rule = rule(
   map('l', 'left_control', 'any').to('right_arrow'),
 ]);
 
-const jis_keyboard_rule = rule(
-  'Physical JIS keyboard with ANSI layout'
-).manipulators([
-  map('international1').to('right_control'),
-  map('international3', { optional: 'any' }).to('grave_accent_and_tilde'),
-  map('japanese_pc_nfer').to('japanese_eisuu'),
-  map('japanese_pc_xfer').to('japanese_kana'),
-]);
-
 // NOTE: Spacebar also triggers aerospace-mode
-const app_switcher_bin =
+const APP_SWITCHER_BIN =
   '~/resources/app_switcher/_build/default/bin/main.exe';
-const open_app_rule = layer(
-  'spacebar', 'open-app-mode'
+const AppSwitchRule = layer(
+  'spacebar', 'app-switch-mode'
 ).manipulators([
-  map('w').to$(`${app_switcher_bin} 'WezTerm'`),
-  map('v').to$(`${app_switcher_bin} 'Visual Studio Code'`),
-  map('b').to$(`${app_switcher_bin} 'Brave Browser'`),
-  map(';').to$(`${app_switcher_bin} 'Obsidian'`),
-  map('o').to$(`${app_switcher_bin} 'ChatGPT'`),
-  map('d').to$(`${app_switcher_bin} 'Dictionary'`),
-  map('s').to$(`${app_switcher_bin} 'Slack'`),
+  map('w').to$(`${APP_SWITCHER_BIN} 'WezTerm'`),
+  map('v').to$(`${APP_SWITCHER_BIN} 'Visual Studio Code'`),
+  map('b').to$(`${APP_SWITCHER_BIN} 'Brave Browser'`),
+  map(';').to$(`${APP_SWITCHER_BIN} 'Obsidian'`),
+  map('o').to$(`${APP_SWITCHER_BIN} 'ChatGPT'`),
+  map('g').to$(`${APP_SWITCHER_BIN} 'Dictionary'`),
+  map('d').to$(`${APP_SWITCHER_BIN} 'Slack'`),
 ]);
 
 // NOTE: Spacebar also triggers open-app-mode
-const aerospace_bin = '/opt/homebrew/bin/aerospace';
-const aerospace_rule = layer(
+const AEROSPACE_BIN = '/opt/homebrew/bin/aerospace';
+const AerospaceRule = layer(
   'spacebar', 'aerospace-mode'
 ).manipulators([
   // Rarely used key bindings are defined in the AeroSpace config
 
   // navigate windows
-  map('h').to$(`${aerospace_bin} focus left`),
-  map('j').to$(`${aerospace_bin} focus down`),
-  map('k').to$(`${aerospace_bin} focus up`),
-  map('l').to$(`${aerospace_bin} focus right`),
+  map('h').to$(`${AEROSPACE_BIN} focus left`),
+  map('j').to$(`${AEROSPACE_BIN} focus down`),
+  map('k').to$(`${AEROSPACE_BIN} focus up`),
+  map('l').to$(`${AEROSPACE_BIN} focus right`),
 
   // navigate workspaces
-  map('1').to$(`${aerospace_bin} workspace main`),
-  map('2').to$(`${aerospace_bin} workspace sub`),
-  map('3').to$(`${aerospace_bin} workspace comm.`),
+  map('1').to$(`${AEROSPACE_BIN} workspace main`),
+  map('2').to$(`${AEROSPACE_BIN} workspace sub`),
+  map('3').to$(`${AEROSPACE_BIN} workspace comm.`),
 
   // resize
-  map('-').to$(`${aerospace_bin} resize smart -50`),
-  map('=').to$(`${aerospace_bin} resize smart +50`),
+  map('-').to$(`${AEROSPACE_BIN} resize smart -50`),
+  map('=').to$(`${AEROSPACE_BIN} resize smart +50`),
 
   // change layout
-  map('/').to$(`${aerospace_bin} layout tiles horizontal vertical`),
-  map(',').to$(`${aerospace_bin} layout accordion horizontal vertical`),
+  map('/').to$(`${AEROSPACE_BIN} layout tiles horizontal vertical`),
+  map(',').to$(`${AEROSPACE_BIN} layout accordion horizontal vertical`),
 
   // move windows
-  map('left_arrow').to$(`${aerospace_bin} move left`),
-  map('down_arrow').to$(`${aerospace_bin} move down`),
-  map('up_arrow').to$(`${aerospace_bin} move up`),
-  map('right_arrow').to$(`${aerospace_bin} move right`),
+  map('left_arrow').to$(`${AEROSPACE_BIN} move left`),
+  map('down_arrow').to$(`${AEROSPACE_BIN} move down`),
+  map('up_arrow').to$(`${AEROSPACE_BIN} move up`),
+  map('right_arrow').to$(`${AEROSPACE_BIN} move right`),
 
   // move windows to different workspaces
-  map('4').to$(`${aerospace_bin} move-node-to-workspace main`),
-  map('5').to$(`${aerospace_bin} move-node-to-workspace sub`),
-  map('6').to$(`${aerospace_bin} move-node-to-workspace comm.`),
+  map('4').to$(`${AEROSPACE_BIN} move-node-to-workspace main`),
+  map('5').to$(`${AEROSPACE_BIN} move-node-to-workspace sub`),
+  map('6').to$(`${AEROSPACE_BIN} move-node-to-workspace comm.`),
 ]);
 
-const brave_rule = rule(
+const OriginalLayoutRule = rule(
+  'My original keyboard layout based on colemak'
+).manipulators([
+  map('d', { optional: 'right_shift' }).to('s'),
+  map('e', { optional: 'right_shift' }).to('f'),
+  map('f', { optional: 'right_shift' }).to('t'),
+  map('g', { optional: 'right_shift' }).to('d'),
+  map('i', { optional: 'left_shift'  }).to('u'),
+  map('j', { optional: 'left_shift'  }).to('n'),
+  map('k', { optional: 'left_shift'  }).to('e'),
+  map('l', { optional: 'left_shift'  }).to('i'),
+  map('n', { optional: 'left_shift'  }).to('k'),
+  map('o', { optional: 'left_shift'  }).to('g'),
+  map('p', { optional: 'left_shift'  }).to('y'),
+  map('r', { optional: 'right_shift' }).to('p'),
+  map('s', { optional: 'right_shift' }).to('r'),
+  map('t', { optional: 'right_shift' }).to(';'),
+  map('u', { optional: 'left_shift'  }).to('l'),
+  map('y', { optional: 'left_shift'  }).to('j'),
+  map(';', { optional: 'left_shift'  }).to('o'),
+]);
+
+const BraveRule = rule(
   'Keyboard shortcuts in Brave Browser',
   ifApp('com.brave.Browser'),
 ).manipulators([
@@ -98,39 +140,18 @@ const brave_rule = rule(
   map('=', 'left_control').to(']', 'left_command'),
 ]);
 
-const layout_rule = rule(
-  'My original keyboard layout based on colemak'
-).manipulators([
-  map('d', { optional: 'right_shift' }).to('s'),
-  map('e', { optional: 'right_shift' }).to('f'),
-  map('f', { optional: 'right_shift' }).to('t'),
-  map('g', { optional: 'right_shift' }).to('d'),
-  map('i', { optional: 'left_shift' }).to('u'),
-  map('j', { optional: 'left_shift' }).to('n'),
-  map('k', { optional: 'left_shift' }).to('e'),
-  map('l', { optional: 'left_shift' }).to('i'),
-  map('n', { optional: 'left_shift' }).to('k'),
-  map('o', { optional: 'left_shift' }).to('g'),
-  map('p', { optional: 'left_shift' }).to('y'),
-  map('r', { optional: 'right_shift' }).to('p'),
-  map('s', { optional: 'right_shift' }).to('r'),
-  map('t', { optional: 'right_shift' }).to('semicolon'),
-  map('u', { optional: 'left_shift' }).to('l'),
-  map('y', { optional: 'left_shift' }).to('j'),
-  map('semicolon', { optional: 'left_shift' }).to('o'),
-]);
-
 
 writeToProfile(
   // Use '--dry-run' to print the generated JSON to the console
+  // '--dry-run',
   'Default',
   [
-    basic_rule,
-    arrow_key_rule,
-    jis_keyboard_rule,
-    open_app_rule,
-    aerospace_rule,
-    brave_rule,
-    layout_rule,
+    JISKeyboardRule,
+    AlternativeEscBackspaceRule,
+    ArrowKeyRule,
+    AppSwitchRule,
+    AerospaceRule,
+    OriginalLayoutRule,
+    BraveRule,
   ]
 );
