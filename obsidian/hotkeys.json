@@ -1,0 +1,11 @@
+{
+  "app:toggle-right-sidebar": [
+    { "modifiers": ["Alt", "Mod"], "key": "B" }
+  ],
+  "app:toggle-left-sidebar": [
+    { "modifiers": ["Alt"], "key": "B" }
+  ],
+  "obsidian-latex-suite:latex-suite-select-equation": [
+    { "modifiers": ["Shift"], "key": "Enter" }
+  ]
+}

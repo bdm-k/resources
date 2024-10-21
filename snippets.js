@@ -1,4 +1,7 @@
 [
+  { trigger: "xi", replacement: "`$0`", options: "tA" },
+  { trigger: "xb", replacement: "```\n$0\n```", options: "tA" },
+
   { trigger: "pro", replacement: "*Proof*.", options: "t"},
   { trigger: "proe", replacement: "$\\square$", options: "t"},
 
