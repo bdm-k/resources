@@ -1,6 +1,6 @@
 [
   { trigger: "xi", replacement: "`$0`", options: "tA" },
-  { trigger: "xb", replacement: "```\n$0\n```", options: "tA" },
+  { trigger: "xb", replacement: "```$0\n```", options: "tA" },
 
   { trigger: "pro", replacement: "*Proof*.", options: "t"},
   { trigger: "proe", replacement: "$\\square$", options: "t"},
@@ -72,7 +72,7 @@
   // Linear algebra
   { trigger: /([^\\])(det)/, replacement: "[[0]]\\[[1]]", options: "rmA" },
   { trigger: "trace", replacement: "\\mathrm{Tr}", options: "mA" },
-  
+
   // probability and statistics
   { trigger: "Pr", replacement: "\\mathrm{Pr}[$0]", options: "mA" },
 

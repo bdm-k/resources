@@ -3,10 +3,10 @@
   // tab navigation
   { "key": "cmd+[", "command": "workbench.action.previousEditor" }, { "key": "shift+cmd+[", "command": "-workbench.action.previousEditor" },
   { "key": "cmd+]", "command": "workbench.action.nextEditor" }, { "key": "shift+cmd+]", "command": "-workbench.action.nextEditor" },
-  { "key": "ctrl+p up", "command": "workbench.action.focusAboveGroup" }, { "key": "cmd+k cmd+up", "command": "-workbench.action.focusAboveGroup" },
-  { "key": "ctrl+p down", "command": "workbench.action.focusBelowGroup" }, { "key": "cmd+k cmd+down", "command": "-workbench.action.focusBelowGroup" },
-  { "key": "ctrl+p left", "command": "workbench.action.focusLeftGroup" }, { "key": "cmd+k cmd+left", "command": "-workbench.action.focusLeftGroup" },
-  { "key": "ctrl+p right", "command": "workbench.action.focusRightGroup" }, { "key": "cmd+k cmd+right", "command": "-workbench.action.focusRightGroup" },
+  { "key": "ctrl+y up", "command": "workbench.action.focusAboveGroup" }, { "key": "cmd+k cmd+up", "command": "-workbench.action.focusAboveGroup" },
+  { "key": "ctrl+y down", "command": "workbench.action.focusBelowGroup" }, { "key": "cmd+k cmd+down", "command": "-workbench.action.focusBelowGroup" },
+  { "key": "ctrl+y left", "command": "workbench.action.focusLeftGroup" }, { "key": "cmd+k cmd+left", "command": "-workbench.action.focusLeftGroup" },
+  { "key": "ctrl+y right", "command": "workbench.action.focusRightGroup" }, { "key": "cmd+k cmd+right", "command": "-workbench.action.focusRightGroup" },
 
   // workbench navigation
   { "key": "cmd+e", "command": "workbench.action.focusActiveEditorGroup" },
