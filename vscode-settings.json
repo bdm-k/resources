@@ -62,5 +62,6 @@
     "*.pl": "prolog",
     "*.json": "jsonc"
   },
-  "window.customTitleBarVisibility": "windowed"
+  "window.customTitleBarVisibility": "windowed",
+  "breadcrumbs.enabled": false
 }

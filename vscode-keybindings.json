@@ -1,5 +1,10 @@
 // Place your key bindings in this file to override the defaults
 [
+  // Remove some system (default) key bindings
+  { "key": "cmd+\\", "command": "-workbench.action.splitEditor" },
+  { "key": "ctrl+g", "command": "-workbench.action.gotoLine" },
+  { "key": "ctrl+9", "command": "-workbench.action.openEditorAtIndex9" },
+
   // tab navigation
   { "key": "cmd+[", "command": "workbench.action.previousEditor" }, { "key": "shift+cmd+[", "command": "-workbench.action.previousEditor" },
   { "key": "cmd+]", "command": "workbench.action.nextEditor" }, { "key": "shift+cmd+]", "command": "-workbench.action.nextEditor" },
@@ -10,7 +15,6 @@
 
   // workbench navigation
   { "key": "cmd+e", "command": "workbench.action.focusActiveEditorGroup" },
-  { "key": "cmd+o", "command": "outline.focus" },
   { "key": "shift+cmd+g", "command": "workbench.view.scm", "when": "workbench.scm.active" }, { "key": "ctrl+shift+g", "command": "-workbench.view.scm", "when": "workbench.scm.active" },
 
   // movement
@@ -19,7 +23,23 @@
   { "key": "shift+enter", "command": "editor.action.smartSelect.expand", "when": "editorTextFocus" }, { "key": "ctrl+shift+right", "command": "-editor.action.smartSelect.expand", "when": "editorTextFocus" },
   { "key": "shift+backspace", "command": "editor.action.smartSelect.shrink", "when": "editorTextFocus" }, { "key": "ctrl+shift+left", "command": "-editor.action.smartSelect.shrink", "when": "editorTextFocus" },
   { "key": "ctrl+d", "command": "editor.action.revealDefinition", "when": "editorHasDefinitionProvider && editorTextFocus" }, { "key": "f12", "command": "-editor.action.revealDefinition", "when": "editorHasDefinitionProvider && editorTextFocus" },
+  { "key": "ctrl+t", "command": "editor.action.peekDefinition", "when": "editorHasDefinitionProvider && editorTextFocus && !inReferenceSearchEditor && !isInEmbeddedEditor" }, { "key": "alt+f12", "command": "-editor.action.peekDefinition", "when": "editorHasDefinitionProvider && editorTextFocus && !inReferenceSearchEditor && !isInEmbeddedEditor" },
   { "key": "ctrl+r", "command": "editor.action.goToReferences", "when": "editorHasReferenceProvider && editorTextFocus && !inReferenceSearchEditor && !isInEmbeddedEditor" }, { "key": "shift+f12", "command": "-editor.action.goToReferences", "when": "editorHasReferenceProvider && editorTextFocus && !inReferenceSearchEditor && !isInEmbeddedEditor" },
+  { "key": "cmd+o", "command": "workbench.action.gotoSymbol", "when": "!accessibilityHelpIsShown && !accessibleViewIsShown" }, { "key": "shift+cmd+o", "command": "-workbench.action.gotoSymbol", "when": "!accessibilityHelpIsShown && !accessibleViewIsShown" },
+  { "key": "ctrl+=", "command": "workbench.action.navigateForward", "when": "canNavigateForward" }, { "key": "ctrl+shift+-", "command": "-workbench.action.navigateForward", "when": "canNavigateForward" },
+  { "key": "ctrl+s", "command": "workbench.action.navigateToLastEditLocation" }, { "key": "cmd+k cmd+q", "command": "-workbench.action.navigateToLastEditLocation" },
+
+  // editing
+  { "key": "cmd+t", "command": "editor.action.trimTrailingWhitespace", "when": "editorTextFocus && !editorReadonly" }, { "key": "cmd+k cmd+x", "command": "-editor.action.trimTrailingWhitespace", "when": "editorTextFocus && !editorReadonly" },
+  { "key": "ctrl+x", "command": "editor.action.transposeLetters", "when": "textInputFocus && !editorReadonly" }, { "key": "ctrl+t", "command": "-editor.action.transposeLetters", "when": "textInputFocus && !editorReadonly" },
+  { "key": "cmd+\\", "command": "editor.action.triggerSuggest", "when": "editorHasCompletionItemProvider && textInputFocus && !editorReadonly && !suggestWidgetVisible" }, { "key": "ctrl+space", "command": "-editor.action.triggerSuggest", "when": "editorHasCompletionItemProvider && textInputFocus && !editorReadonly && !suggestWidgetVisible" },
+  { "key": "ctrl+9", "command": "editor.action.jumpToBracket", "when": "editorTextFocus" }, { "key": "shift+cmd+\\", "command": "-editor.action.jumpToBracket", "when": "editorTextFocus" },
+
+  // split editors
+  { "key": "alt+cmd+h", "command": "workbench.action.splitEditorLeft" }, { "key": "cmd+k cmd+\\", "command": "-workbench.action.splitEditorLeft" },
+  { "key": "alt+cmd+e", "command": "workbench.action.splitEditorUp" }, { "key": "cmd+k cmd+\\", "command": "-workbench.action.splitEditorUp" },
+  { "key": "alt+cmd+i", "command": "workbench.action.splitEditorRight" }, { "key": "cmd+k cmd+\\", "command": "-workbench.action.splitEditorRight" },
+  { "key": "alt+cmd+n", "command": "workbench.action.splitEditorDown" }, { "key": "cmd+k cmd+\\", "command": "-workbench.action.splitEditorDown" },
 
   // fold
   { "key": "ctrl+c", "command": "editor.foldAll", "when": "editorTextFocus && foldingEnabled" }, { "key": "cmd+k cmd+0", "command": "-editor.foldAll", "when": "editorTextFocus && foldingEnabled" },
@@ -27,11 +47,8 @@
   { "key": "ctrl+z", "command": "editor.toggleFold", "when": "editorTextFocus && foldingEnabled" }, { "key": "cmd+k cmd+l", "command": "-editor.toggleFold", "when": "editorTextFocus && foldingEnabled" },
 
   // GitHub Copilot
-  { "key": "ctrl+\\", "command": "editor.action.inlineSuggest.trigger", "when": "config.github.copilot.inlineSuggest.enable && editorTextFocus && !editorHasSelection && !inlineSuggestionsVisible" }, { "key": "alt+\\", "command": "-editor.action.inlineSuggest.trigger", "when": "config.github.copilot.inlineSuggest.enable && editorTextFocus && !editorHasSelection && !inlineSuggestionsVisible" },
+  { "key": "ctrl+;", "command": "editor.action.inlineSuggest.trigger", "when": "config.github.copilot.inlineSuggest.enable && editorTextFocus && !editorHasSelection && !inlineSuggestionsVisible" }, { "key": "alt+\\", "command": "-editor.action.inlineSuggest.trigger", "when": "config.github.copilot.inlineSuggest.enable && editorTextFocus && !editorHasSelection && !inlineSuggestionsVisible" },
   { "key": "cmd+right", "command": "editor.action.inlineSuggest.commit", "when": "inlineSuggestionHasIndentationLessThanTabSize && inlineSuggestionVisible && !editorHoverFocused && !editorTabMovesFocus && !suggestWidgetVisible" }, { "key": "tab", "command": "-editor.action.inlineSuggest.commit", "when": "inlineSuggestionHasIndentationLessThanTabSize && inlineSuggestionVisible && !editorHoverFocused && !editorTabMovesFocus && !suggestWidgetVisible" },
   { "key": "tab", "command": "editor.action.inlineSuggest.acceptNextWord", "when": "inlineSuggestionVisible && !editorReadonly" }, { "key": "cmd+right", "command": "-editor.action.inlineSuggest.acceptNextWord", "when": "inlineSuggestionVisible && !editorReadonly" },
-  { "key": "shift+cmd+a", "command": "workbench.panel.chat.view.copilot.focus" }, { "key": "shift+cmd+a", "command": "-notification.acceptPrimaryAction", "when": "notificationFocus || notificationToastsVisible" },
-
-  // others
-  { "key": "cmd+t", "command": "editor.action.trimTrailingWhitespace", "when": "editorTextFocus && !editorReadonly" }, { "key": "cmd+k cmd+x", "command": "-editor.action.trimTrailingWhitespace", "when": "editorTextFocus && !editorReadonly" }
+  { "key": "shift+cmd+a", "command": "workbench.panel.chat.view.copilot.focus" }, { "key": "shift+cmd+a", "command": "-notification.acceptPrimaryAction", "when": "notificationFocus || notificationToastsVisible" }
 ]
