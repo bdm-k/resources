@@ -40,7 +40,7 @@ const AlternativeEscBackspaceRule = rule(
     map('caps_lock').to('left_control').toIfAlone('escape'),
   ]),
 
-  map(';', 'left_control').to('delete_or_backspace'),
+  map('[', 'left_control' ).to('delete_or_backspace'),
 ]);
 
 const ArrowKeyRule = rule(
@@ -108,23 +108,23 @@ const AerospaceRule = layer(
 const OriginalLayoutRule = rule(
   'My original keyboard layout based on colemak'
 ).manipulators([
-  map('d', { optional: 'right_shift' }).to('s'),
-  map('e', { optional: 'right_shift' }).to('f'),
-  map('f', { optional: 'right_shift' }).to('t'),
-  map('g', { optional: 'right_shift' }).to('d'),
-  map('i', { optional: 'left_shift'  }).to('u'),
-  map('j', { optional: 'left_shift'  }).to('n'),
-  map('k', { optional: 'left_shift'  }).to('e'),
-  map('l', { optional: 'left_shift'  }).to('i'),
-  map('n', { optional: 'left_shift'  }).to('k'),
-  map('o', { optional: 'left_shift'  }).to('g'),
-  map('p', { optional: 'left_shift'  }).to('y'),
-  map('r', { optional: 'right_shift' }).to('p'),
-  map('s', { optional: 'right_shift' }).to('r'),
-  map('t', { optional: 'right_shift' }).to(';'),
-  map('u', { optional: 'left_shift'  }).to('l'),
-  map('y', { optional: 'left_shift'  }).to('j'),
-  map(';', { optional: 'left_shift'  }).to('o'),
+  map('d', 'optionalAny').to('s'),
+  map('e', 'optionalAny').to('f'),
+  map('f', 'optionalAny').to('t'),
+  map('g', 'optionalAny').to('d'),
+  map('i', 'optionalAny').to('u'),
+  map('j', 'optionalAny').to('n'),
+  map('k', 'optionalAny').to('e'),
+  map('l', 'optionalAny').to('i'),
+  map('n', 'optionalAny').to('k'),
+  map('o', 'optionalAny').to('g'),
+  map('p', 'optionalAny').to('y'),
+  map('r', 'optionalAny').to('p'),
+  map('s', 'optionalAny').to('r'),
+  map('t', 'optionalAny').to(';'),
+  map('u', 'optionalAny').to('l'),
+  map('y', 'optionalAny').to('j'),
+  map(';', 'optionalAny').to('o'),
 ]);
 
 const BraveRule = rule(

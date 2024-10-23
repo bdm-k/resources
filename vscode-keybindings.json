@@ -43,12 +43,12 @@
 
   // fold
   { "key": "ctrl+c", "command": "editor.foldAll", "when": "editorTextFocus && foldingEnabled" }, { "key": "cmd+k cmd+0", "command": "-editor.foldAll", "when": "editorTextFocus && foldingEnabled" },
-  { "key": "ctrl+o", "command": "editor.toggleFoldRecursively", "when": "editorTextFocus && foldingEnabled" }, { "key": "cmd+k shift+cmd+l", "command": "-editor.toggleFoldRecursively", "when": "editorTextFocus && foldingEnabled" },
+  { "key": "ctrl+g", "command": "editor.toggleFoldRecursively", "when": "editorTextFocus && foldingEnabled" }, { "key": "cmd+k shift+cmd+l", "command": "-editor.toggleFoldRecursively", "when": "editorTextFocus && foldingEnabled" },
   { "key": "ctrl+z", "command": "editor.toggleFold", "when": "editorTextFocus && foldingEnabled" }, { "key": "cmd+k cmd+l", "command": "-editor.toggleFold", "when": "editorTextFocus && foldingEnabled" },
 
   // GitHub Copilot
-  { "key": "ctrl+;", "command": "editor.action.inlineSuggest.trigger", "when": "config.github.copilot.inlineSuggest.enable && editorTextFocus && !editorHasSelection && !inlineSuggestionsVisible" }, { "key": "alt+\\", "command": "-editor.action.inlineSuggest.trigger", "when": "config.github.copilot.inlineSuggest.enable && editorTextFocus && !editorHasSelection && !inlineSuggestionsVisible" },
-  { "key": "cmd+right", "command": "editor.action.inlineSuggest.commit", "when": "inlineSuggestionHasIndentationLessThanTabSize && inlineSuggestionVisible && !editorHoverFocused && !editorTabMovesFocus && !suggestWidgetVisible" }, { "key": "tab", "command": "-editor.action.inlineSuggest.commit", "when": "inlineSuggestionHasIndentationLessThanTabSize && inlineSuggestionVisible && !editorHoverFocused && !editorTabMovesFocus && !suggestWidgetVisible" },
+  { "key": "ctrl+o", "command": "editor.action.inlineSuggest.trigger", "when": "config.github.copilot.inlineSuggest.enable && editorTextFocus && !editorHasSelection && !inlineSuggestionsVisible" }, { "key": "alt+\\", "command": "-editor.action.inlineSuggest.trigger", "when": "config.github.copilot.inlineSuggest.enable && editorTextFocus && !editorHasSelection && !inlineSuggestionsVisible" },
+  { "key": "ctrl+.", "command": "editor.action.inlineSuggest.commit", "when": "inlineSuggestionHasIndentationLessThanTabSize && inlineSuggestionVisible && !editorHoverFocused && !editorTabMovesFocus && !suggestWidgetVisible" }, { "key": "tab", "command": "-editor.action.inlineSuggest.commit", "when": "inlineSuggestionHasIndentationLessThanTabSize && inlineSuggestionVisible && !editorHoverFocused && !editorTabMovesFocus && !suggestWidgetVisible" },
   { "key": "tab", "command": "editor.action.inlineSuggest.acceptNextWord", "when": "inlineSuggestionVisible && !editorReadonly" }, { "key": "cmd+right", "command": "-editor.action.inlineSuggest.acceptNextWord", "when": "inlineSuggestionVisible && !editorReadonly" },
   { "key": "shift+cmd+a", "command": "workbench.panel.chat.view.copilot.focus" }, { "key": "shift+cmd+a", "command": "-notification.acceptPrimaryAction", "when": "notificationFocus || notificationToastsVisible" }
 ]

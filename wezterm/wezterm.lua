@@ -102,6 +102,10 @@ config.keys = {
     action = act.DisableDefaultAssignment,
   },
   {
+    key = "n", mods = "CMD",
+    action = act.DisableDefaultAssignment,
+  },
+  {
     key = "-", mods = "CTRL",
     action = act.DisableDefaultAssignment,
   },
@@ -112,15 +116,15 @@ config.keys = {
 
   -- Assignments related to Pane
   {
-    key = "k", mods = "CMD|OPT",
+    key = "e", mods = "CMD|OPT",
     action = act.SplitPane({ direction = "Up" }),
   },
   {
-    key = "l", mods = "CMD|OPT",
+    key = "i", mods = "CMD|OPT",
     action = act.SplitPane({ direction = "Right" }),
   },
   {
-    key = "j", mods = "CMD|OPT",
+    key = "n", mods = "CMD|OPT",
     action = act.SplitPane({ direction = "Down" }),
   },
   {
@@ -128,19 +132,19 @@ config.keys = {
     action = act.SplitPane({ direction = "Left" }),
   },
   {
-    key = "e", mods = "CMD",
+    key = "x", mods = "CMD",
     action = act.CloseCurrentPane({ confirm = false }),
   },
   {
-    key = "k", mods = "CMD",
+    key = "e", mods = "CMD",
     action = act.ActivatePaneDirection("Up"),
   },
   {
-    key = "l", mods = "CMD",
+    key = "i", mods = "CMD",
     action = act.ActivatePaneDirection("Right"),
   },
   {
-    key = "j", mods = "CMD",
+    key = "n", mods = "CMD",
     action = act.ActivatePaneDirection("Down"),
   },
   {
@@ -207,11 +211,11 @@ table.insert(
 
 config.key_tables = {
   resize_pane = {
-    { key = "k", action = act.AdjustPaneSize({ "Up", 1 }) },
+    { key = "e", action = act.AdjustPaneSize({ "Up", 1 }) },
     { key = "UpArrow", action = act.AdjustPaneSize({ "Up", 10 }) },
-    { key = "l", action = act.AdjustPaneSize({ "Right", 1 }) },
+    { key = "i", action = act.AdjustPaneSize({ "Right", 1 }) },
     { key = "RightArrow", action = act.AdjustPaneSize({ "Right", 10 }) },
-    { key = "j", action = act.AdjustPaneSize({ "Down", 1 }) },
+    { key = "n", action = act.AdjustPaneSize({ "Down", 1 }) },
     { key = "DownArrow", action = act.AdjustPaneSize({ "Down", 10 }) },
     { key = "h", action = act.AdjustPaneSize({ "Left", 1 }) },
     { key = "LeftArrow", action = act.AdjustPaneSize({ "Left", 10 }) },
