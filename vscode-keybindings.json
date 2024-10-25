@@ -5,6 +5,14 @@
   { "key": "ctrl+g", "command": "-workbench.action.gotoLine" },
   { "key": "ctrl+9", "command": "-workbench.action.openEditorAtIndex9" },
 
+  // For Linux environments, define basic macOS-style key bindings
+  { "key": "meta+s", "command": "workbench.action.files.save" }, { "key": "ctrl+s", "command": "-workbench.action.files.save" },
+  { "key": "meta+c", "command": "editor.action.clipboardCopyAction" }, { "key": "ctrl+c", "command": "-editor.action.clipboardCopyAction" },
+  { "key": "meta+v", "command": "editor.action.clipboardPasteAction" }, { "key": "ctrl+v", "command": "-editor.action.clipboardPasteAction" },
+  { "key": "meta+x", "command": "editor.action.clipboardCutAction" }, { "key": "ctrl+x", "command": "-editor.action.clipboardCutAction" },
+  { "key": "meta+z", "command": "undo" }, { "key": "ctrl+z", "command": "-undo" },
+  { "key": "shift+meta+p", "command": "workbench.action.showCommands" }, { "key": "ctrl+shift+p", "command": "-workbench.action.showCommands" },
+
   // tab navigation
   { "key": "cmd+[", "command": "workbench.action.previousEditor" }, { "key": "shift+cmd+[", "command": "-workbench.action.previousEditor" },
   { "key": "cmd+]", "command": "workbench.action.nextEditor" }, { "key": "shift+cmd+]", "command": "-workbench.action.nextEditor" },
