@@ -3,6 +3,13 @@ local act = wezterm.action
 local nerd = wezterm.nerdfonts
 local config = wezterm.config_builder()
 
+local kernel_name = (function()
+  local handle = io.popen("uname -s")
+  local result = handle:read("*a"):gsub("\n$", "")
+  handle:close()
+  return result
+end)()
+
 -- Setup domains
 config.unix_domains = {
   {
@@ -11,13 +18,26 @@ config.unix_domains = {
   }
 }
 
+-- Setup the fonts
 config.font = wezterm.font("Source Code Pro")
-config.window_frame = {
-  font = wezterm.font({
+if kernel_name == "Darwin" then
+  config.window_frame.font = wezterm.font({
     family = "Avenir Next",
     weight = "DemiBold",
-  }),
-}
+  })
+else
+  config.window_frame = {
+    font = wezterm.font({
+      family = "Mulish",
+      weight = "DemiBold",
+    }),
+    font_size = 11.0,
+  }
+end
+
+if kernel_name == "Linux" then
+  config.command_palette_font_size = 12.0
+end
 
 config.color_scheme = "One Half Black (Gogh)"
 local color_scheme_bg = wezterm.color.parse("#000000")
