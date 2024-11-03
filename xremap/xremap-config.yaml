@@ -32,8 +32,8 @@ keymap:
       KEY_YEN-KEY_L: { launch: ["swaymsg", "focus", "right"] }
       # move
       KEY_YEN-KEY_LEFT:  { launch: ["swaymsg", "move", "left" ] }
-      KEY_YEN-KEY_DOWN:  { launch: ["swaymsg", "move", "down" ] }
-      KEY_YEN-KEY_UP:    { launch: ["swaymsg", "move", "up"   ] }
+      KEY_YEN-KEY_UP:    { launch: ["swaymsg", "move", "down" ] }
+      KEY_YEN-KEY_DOWN:  { launch: ["swaymsg", "move", "up"   ] }
       KEY_YEN-KEY_RIGHT: { launch: ["swaymsg", "move", "right"] }
       # workspace
       KEY_YEN-KEY_1: { launch: ["swaymsg", "workspace", "main"  ] }
@@ -43,13 +43,16 @@ keymap:
       KEY_YEN-KEY_5: { launch: ["swaymsg", "move", "container", "to", "workspace", "sub"   ] }
       KEY_YEN-KEY_6: { launch: ["swaymsg", "move", "container", "to", "workspace", "comm." ] }
       # layout
-      KEY_YEN-KEY_COMMA: { launch: ["swaymsg", "layout", "stacking"] }
+      KEY_YEN-KEY_COMMA: { launch: ["swaymsg", "layout", "tabbed"] }
+      KEY_YEN-KEY_DOT:   { launch: ["swaymsg", "splith"] }
       KEY_YEN-KEY_SLASH: { launch: ["swaymsg", "layout", "toggle", "split"] }
+      KEY_YEN-KEY_E:     { launch: ["swaymsg", "fullscreen"] }
       # Enter resize mode
       KEY_YEN-KEY_S: { set_mode: resize }
       # Space-layer: to here
 
       SUPER_R-KEY_Q: { launch: ["swaymsg", "kill"] }
+      SUPER_R-KEY_SPACE: { launch: ["swaymsg", "exec", "rofi -show drun"] }
 
       ALT_L-SHIFT_L-KEY_C: { launch: ["swaymsg", "reload"] }
 

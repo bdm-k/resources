@@ -1,0 +1,85 @@
+configuration {
+  modi: "drun";
+  font: "Mulish Semi-Bold 12";
+  show-icons: true;
+
+  drun-display-format: "{icon}{name}";
+}
+
+@theme "/dev/null"
+
+* {
+  selected-bg: #0860F2A0;
+  selected-fg: #FFFFFF;
+
+  background-color: transparent;
+  text-color: #C3C8D1;
+  border-color: #7F848E80;
+
+  margin:  0;
+  padding: 0;
+  spacing: 0;
+}
+
+window {
+  background-color: #242424;
+
+  location: center;
+  width: 640px;
+  border-radius: 16px;
+}
+
+inputbar {
+  padding: 12px;
+  spacing: 12px; // spacing between the children
+  children: [ icon-search, entry ];
+}
+
+icon-search, entry {
+  vertical-align: 0.5;
+}
+
+icon-search {
+  expand: false;
+  filename: "search";
+  size: 28px;
+}
+
+entry {
+  placeholder: "Search";
+  placeholder-color: #C3C8D180;
+}
+
+element-icon, element-text {
+  vertical-align: 0.5;
+}
+
+listview {
+  padding: 4px 0;
+
+  lines: 10;
+  columns: 1;
+
+  border: 1px 0 0 0;
+  border-color: @bg1;
+}
+
+element {
+  margin: 2px 6px;
+  border-radius: 8px;
+  padding: 6px 12px;
+  spacing: 16px;
+}
+
+element selected.normal {
+  background-color: @selected-bg;
+  text-color: @selected-fg;
+}
+
+element-text {
+  text-color: inherit;
+}
+
+element-icon {
+  size: 22px;
+}
