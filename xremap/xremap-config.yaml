@@ -47,23 +47,20 @@ keymap:
       KEY_YEN-KEY_DOT:   { launch: ["swaymsg", "splith"] }
       KEY_YEN-KEY_SLASH: { launch: ["swaymsg", "layout", "toggle", "split"] }
       KEY_YEN-KEY_E:     { launch: ["swaymsg", "fullscreen"] }
-      # Enter resize mode
-      KEY_YEN-KEY_S: { set_mode: resize }
+      # resize
+      KEY_YEN-KEY_MINUS: { launch: ["swaymsg", "resize", "shrink", "width", "20px"] }
+      KEY_YEN-KEY_EQUAL: { launch: ["swaymsg", "resize", "grow",   "width", "20px"] }
+      KEY_YEN-KEY_9: { launch: ["swaymsg", "resize", "shrink", "height", "15px"] }
+      KEY_YEN-KEY_0: { launch: ["swaymsg", "resize", "grow",   "height", "15px"] }
       # Space-layer: to here
 
       SUPER_R-KEY_Q: { launch: ["swaymsg", "kill"] }
       SUPER_R-KEY_SPACE: { launch: ["swaymsg", "exec", "rofi -show drun"] }
 
+      ALT_L-SHIFT_L-KEY_M: { launch: ["swaymsg", "move", "workspace", "to", "left"] }
       ALT_L-SHIFT_L-KEY_C: { launch: ["swaymsg", "reload"] }
-
-  - name: Sway commands (resize mode)
-    mode: resize
-    remap:
-      KEY_ESC: { set_mode: default }
-      KEY_H: { launch: ["swaymsg", "resize", "shrink", "width", "20px"] }
-      KEY_L: { launch: ["swaymsg", "resize", "grow",   "width", "20px"] }
-      KEY_LEFT:  { launch: ["swaymsg", "resize", "shrink", "width", "100px"] }
-      KEY_RIGHT: { launch: ["swaymsg", "resize", "grow",   "width", "100px"] }
+      # Reload waybar configuration
+      ALT_L-SHIFT_L-KEY_B: { launch: ["killall", "-SIGUSR2", "waybar"] }
 
   - name: Alternative keybinding for Backspace
     remap:
@@ -87,11 +84,14 @@ keymap:
     remap:
       CTRL_L-KEY_MINUS: ALT-KEY_LEFT  # Back
       CTRL_L-KEY_EQUAL: ALT-KEY_RIGHT # Forward
-
       SUPER_R-KEY_RIGHTBRACE: CTRL-KEY_PAGEDOWN # Next tab
       SUPER_R-KEY_LEFTBRACE:  CTRL-KEY_PAGEUP   # Previous tab
-
       SUPER_R-KEY_E: CTRL-KEY_F # Find
+      SUPER_R-KEY_W: CTRL-KEY_W # Close tab
+      SUPER_R-KEY_F: CTRL-KEY_T # New tab
+      SUPER_L-KEY_MINUS: CTRL-KEY_MINUS # Zoom out
+      SUPER_L-KEY_EQUAL: CTRL-KEY_EQUAL # Zoom in
+      SUPER_L-KEY_U: CTRL-KEY_L # Focus location
 
   - name: My original keyboard layout based on colemak
     remap:

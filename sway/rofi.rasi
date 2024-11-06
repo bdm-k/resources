@@ -2,7 +2,7 @@ configuration {
   modi: "drun";
   font: "Mulish Semi-Bold 12";
   show-icons: true;
-
+  display-drun: "Apps";
   drun-display-format: "{icon}{name}";
 }
 
@@ -23,45 +23,32 @@ configuration {
 
 window {
   background-color: #242424;
-
   location: center;
   width: 640px;
+  border: 1px;
   border-radius: 16px;
 }
 
 inputbar {
   padding: 12px;
   spacing: 12px; // spacing between the children
-  children: [ icon-search, entry ];
 }
 
-icon-search, entry {
-  vertical-align: 0.5;
-}
-
-icon-search {
-  expand: false;
-  filename: "search";
-  size: 28px;
+prompt {
+  font: "Mulish Semi-Bold 14";
 }
 
 entry {
+  font: "Mulish Semi-Bold 14";
   placeholder: "Search";
   placeholder-color: #C3C8D180;
 }
 
-element-icon, element-text {
-  vertical-align: 0.5;
-}
-
 listview {
-  padding: 4px 0;
-
   lines: 10;
   columns: 1;
-
+  padding: 4px 0;
   border: 1px 0 0 0;
-  border-color: @bg1;
 }
 
 element {
@@ -82,4 +69,8 @@ element-text {
 
 element-icon {
   size: 22px;
+}
+
+element-icon, element-text {
+  vertical-align: 0.5;
 }

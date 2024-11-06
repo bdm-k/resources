@@ -16,6 +16,7 @@
   { "key": "meta+f", "command": "actions.find", "when": "editorFocus || editorIsOpen" }, { "key": "ctrl+f", "command": "-actions.find", "when": "editorFocus || editorIsOpen" },
   { "key": "meta+p", "command": "workbench.action.quickOpen" }, { "key": "ctrl+p", "command": "-workbench.action.quickOpen" },
   { "key": "shift+meta+p", "command": "workbench.action.showCommands" }, { "key": "ctrl+shift+p", "command": "-workbench.action.showCommands" },
+  { "key": "meta+enter", "command": "editor.action.insertLineAfter", "when": "editorTextFocus && !editorReadonly" }, { "key": "ctrl+enter", "command": "-editor.action.insertLineAfter", "when": "editorTextFocus && !editorReadonly" },
 
   // tab navigation
   { "key": "cmd+[", "command": "workbench.action.previousEditor" }, { "key": "shift+cmd+[", "command": "-workbench.action.previousEditor" },

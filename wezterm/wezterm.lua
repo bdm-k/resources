@@ -21,10 +21,12 @@ config.unix_domains = {
 -- Setup the fonts
 config.font = wezterm.font("Source Code Pro")
 if kernel_name == "Darwin" then
-  config.window_frame.font = wezterm.font({
-    family = "Avenir Next",
-    weight = "DemiBold",
-  })
+  config.window_frame = {
+    font = wezterm.font({
+      family = "Avenir Next",
+      weight = "DemiBold",
+    })
+  }
 else
   config.window_frame = {
     font = wezterm.font({
@@ -33,10 +35,6 @@ else
     }),
     font_size = 11.0,
   }
-end
-
-if kernel_name == "Linux" then
-  config.command_palette_font_size = 12.0
 end
 
 config.color_scheme = "One Half Black (Gogh)"
@@ -66,6 +64,8 @@ config.inactive_pane_hsb = {
   saturation = 0.64,
   brightness = 0.24,
 }
+
+config.window_background_opacity = 0.8
 
 -- This function returns the suggested title for a tab. It prefers the title
 -- that was set via `tab:set_title()` or `wezterm cli set-tab-title`, but falls

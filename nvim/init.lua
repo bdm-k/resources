@@ -1,3 +1,10 @@
+--[[
+Must-know commands:
+
+* 'zt', 'zz', 'zb': These commands make the current line at the top, center, or
+  bottom of the window, respectively.
+--]]
+
 vim.opt.number = true
 vim.opt.relativenumber = true
 
@@ -61,22 +68,26 @@ vim.api.nvim_set_keymap('i', '<S-Enter>', '<Esc>O', noremap)
 -- LSP client key bindings
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, noremap)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, noremap)
-vim.keymap.set('n', '<leader>i', vim.lsp.buf.hover, noremap) -- mnemonic: inspect
+-- vim.keymap.set('n', '<leader>i', vim.lsp.buf.hover, noremap) -- mnemonic: inspect
 vim.keymap.set('n', 'gd', vim.lsp.buf.definition, noremap)
 vim.keymap.set('n', 'g<C-d>', ':split | lua vim.lsp.buf.definition()<CR>', noremap)
 vim.keymap.set('n', '<F2>', ':lua vim.lsp.buf.rename()<CR>', noremap)
 
 -- Window key bindings
+-- Go to last accessed window
 vim.api.nvim_set_keymap('n', '<leader><Space>', '<C-w>p', noremap)
+-- window navigation
 vim.api.nvim_set_keymap('n', '<leader>h', '<C-w>h', noremap)
-vim.api.nvim_set_keymap('n', '<leader>j', '<C-w>j', noremap)
-vim.api.nvim_set_keymap('n', '<leader>k', '<C-w>k', noremap)
-vim.api.nvim_set_keymap('n', '<leader>l', '<C-w>l', noremap)
-vim.api.nvim_set_keymap('n', '<leader>e', '<C-w>q', noremap)
-vim.api.nvim_set_keymap('n', '<C-[>', ':vertical resize -10<CR>', noremap)
-vim.api.nvim_set_keymap('n', '<C-]>', ':vertical resize +10<CR>', noremap)
-vim.api.nvim_set_keymap('n', '(', ':resize -10<CR>', noremap)
-vim.api.nvim_set_keymap('n', ')', ':resize +10<CR>', noremap)
+vim.api.nvim_set_keymap('n', '<leader>n', '<C-w>j', noremap)
+vim.api.nvim_set_keymap('n', '<leader>e', '<C-w>k', noremap)
+vim.api.nvim_set_keymap('n', '<leader>i', '<C-w>l', noremap)
+-- Close the window
+vim.api.nvim_set_keymap('n', '<leader>x', '<C-w>q', noremap)
+-- Resize the window
+vim.api.nvim_set_keymap('n', '<C-->', ':vertical resize -5<CR>', noremap)
+vim.api.nvim_set_keymap('n', '<C-=>', ':vertical resize +5<CR>', noremap)
+vim.api.nvim_set_keymap('n', '(', ':resize -3<CR>', noremap)
+vim.api.nvim_set_keymap('n', ')', ':resize +3<CR>', noremap)
 
 -- Folding key bindings
 vim.api.nvim_set_keymap('n', '<leader>a', 'za', noremap)
@@ -96,6 +107,16 @@ vim.api.nvim_set_keymap('n', 'L', '$', noremap)
 vim.api.nvim_set_keymap('i', '<S-Enter>', '<Esc>O', noremap)
 vim.api.nvim_set_keymap('n', 'p', ']p', noremap)
 vim.api.nvim_set_keymap('n', 'P', '[p', noremap)
+--[[
+usage note of telescope
+
+Press <C-/> to view key mappings for picker actions. Below is a list of common
+operations.
+
+### 'pick_files' picker
+* Press <C-X> to open the file in horizontal split
+* Press <C-V> to open the file in vertical split
+--]]
 
 -- Custom commands
 vim.api.nvim_create_user_command('Q', 'wqa', {})
