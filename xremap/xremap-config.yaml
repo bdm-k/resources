@@ -16,7 +16,7 @@ modmap:
   - name: Use Space as a layer key
     remap:
       KEY_SPACE:
-        held: KEY_YEN
+        held: KEY_YEN # KEY_YEN is set as a virtual modifier
         alone: KEY_SPACE
         alone_timeout_millis: 300
 
@@ -80,6 +80,18 @@ keymap:
     remap:
       KEY_UP: KEY_DOWN
       KEY_DOWN: KEY_UP
+
+  - name: Brave Rule
+    application:
+      only: Brave-browser
+    remap:
+      CTRL_L-KEY_MINUS: ALT-KEY_LEFT  # Back
+      CTRL_L-KEY_EQUAL: ALT-KEY_RIGHT # Forward
+
+      SUPER_R-KEY_RIGHTBRACE: CTRL-KEY_PAGEDOWN # Next tab
+      SUPER_R-KEY_LEFTBRACE:  CTRL-KEY_PAGEUP   # Previous tab
+
+      SUPER_R-KEY_E: CTRL-KEY_F # Find
 
   - name: My original keyboard layout based on colemak
     remap:

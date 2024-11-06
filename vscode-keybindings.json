@@ -11,6 +11,10 @@
   { "key": "meta+v", "command": "editor.action.clipboardPasteAction" }, { "key": "ctrl+v", "command": "-editor.action.clipboardPasteAction" },
   { "key": "meta+x", "command": "editor.action.clipboardCutAction" }, { "key": "ctrl+x", "command": "-editor.action.clipboardCutAction" },
   { "key": "meta+z", "command": "undo" }, { "key": "ctrl+z", "command": "-undo" },
+  { "key": "shift+meta+z", "command": "redo" }, { "key": "ctrl+shift+z", "command": "-redo" },
+  { "key": "meta+w", "command": "workbench.action.closeActiveEditor" }, { "key": "ctrl+w", "command": "-workbench.action.closeActiveEditor" },
+  { "key": "meta+f", "command": "actions.find", "when": "editorFocus || editorIsOpen" }, { "key": "ctrl+f", "command": "-actions.find", "when": "editorFocus || editorIsOpen" },
+  { "key": "meta+p", "command": "workbench.action.quickOpen" }, { "key": "ctrl+p", "command": "-workbench.action.quickOpen" },
   { "key": "shift+meta+p", "command": "workbench.action.showCommands" }, { "key": "ctrl+shift+p", "command": "-workbench.action.showCommands" },
 
   // tab navigation
