@@ -65,6 +65,7 @@ const AppSwitchRule = layer(
   map('o').to$(`${APP_SWITCHER_BIN} 'ChatGPT'`),
   map('g').to$(`${APP_SWITCHER_BIN} 'Dictionary'`),
   map('d').to$(`${APP_SWITCHER_BIN} 'Slack'`),
+  map('r').to$(`${APP_SWITCHER_BIN} 'Structured'`),
 ]);
 
 // NOTE: Spacebar also triggers open-app-mode
@@ -92,6 +93,7 @@ const AerospaceRule = layer(
   // change layout
   map('/').to$(`${AEROSPACE_BIN} layout tiles horizontal vertical`),
   map(',').to$(`${AEROSPACE_BIN} layout accordion horizontal vertical`),
+  map('e').to$(`${AEROSPACE_BIN} macos-native-fullscreen`),
 
   // move windows
   map('left_arrow').to$(`${AEROSPACE_BIN} move left`),

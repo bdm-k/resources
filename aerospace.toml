@@ -23,6 +23,7 @@ on-focused-monitor-changed = ['move-mouse window-lazy-center']
 
 
 # Open following apps as a floating window
+# NOTE: You can find the app-id using Karabiner-EventViewer
 [[on-window-detected]]
 if.app-id = 'com.openai.chat'
 run = ['layout floating']
@@ -35,24 +36,37 @@ run = ['layout floating']
 if.app-id = 'org.python.python'
 run = ['layout floating']
 
+[[on-window-detected]]
+if.app-id = 'com.apple.finder'
+run = ['layout floating']
+
+[[on-window-detected]]
+if.app-id = 'com.leomehlig.today'
+run = ['layout floating']
+
+
+# Make workspaces always appear on particular monitors
+[workspace-to-monitor-force-assignment]
+main = 'main'
+
 
 # Gaps between windows (inner-*) and between monitor edges (outer-*).
 [gaps]
 inner.horizontal = 5
-inner.vertical =   5
-outer.left =       5
-outer.bottom =     5
-outer.top =        5
-outer.right =      5
+inner.vertical   = 5
+outer.left       = 5
+outer.bottom     = 5
+outer.top        = 5
+outer.right      = 5
 
 
 # Frequently used key bindings are defined in the Karabiner config
 [mode.main.binding]
 
 # join windows
-alt-shift-left = 'join-with left'
-alt-shift-down = 'join-with down'
-alt-shift-up = 'join-with up'
+alt-shift-left  = 'join-with left'
+alt-shift-down  = 'join-with down'
+alt-shift-up    = 'join-with up'
 alt-shift-right = 'join-with right'
 
 # move the workspace to the next monitor

@@ -8,6 +8,11 @@ Must-know commands:
 vim.opt.number = true
 vim.opt.relativenumber = true
 
+-- If the search pattern contains uppercase characters, the search will be
+-- case-sensitive.
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+
 vim.opt.softtabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
@@ -58,8 +63,10 @@ vim.api.nvim_set_keymap('n', 'gr', '<Nop>', noremap)
 vim.api.nvim_set_keymap('n', 's', '<Nop>', noremap)
 
 -- Common key bindings
-vim.api.nvim_set_keymap('n', '<Left>', '10h', noremap)
-vim.api.nvim_set_keymap('n', '<Right>', '10l', noremap)
+-- vim.api.nvim_set_keymap('n', '<Left>', '10h', noremap)
+-- vim.api.nvim_set_keymap('n', '<Right>', '10l', noremap)
+vim.api.nvim_set_keymap('n', 'H', '^', noremap)
+vim.api.nvim_set_keymap('n', 'L', '$', noremap)
 vim.api.nvim_set_keymap('n', 'p', ']p', noremap)
 vim.api.nvim_set_keymap('n', 'P', '[p', noremap)
 vim.api.nvim_set_keymap('n', 's', 'F', noremap)
@@ -68,7 +75,7 @@ vim.api.nvim_set_keymap('i', '<S-Enter>', '<Esc>O', noremap)
 -- LSP client key bindings
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, noremap)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, noremap)
--- vim.keymap.set('n', '<leader>i', vim.lsp.buf.hover, noremap) -- mnemonic: inspect
+vim.keymap.set('n', '<leader>g', vim.lsp.buf.hover, noremap)
 vim.keymap.set('n', 'gd', vim.lsp.buf.definition, noremap)
 vim.keymap.set('n', 'g<C-d>', ':split | lua vim.lsp.buf.definition()<CR>', noremap)
 vim.keymap.set('n', '<F2>', ':lua vim.lsp.buf.rename()<CR>', noremap)
@@ -102,24 +109,23 @@ vim.keymap.set('n', '<leader>f', tele_conf.pick_files, noremap)
 vim.keymap.set('n', '<leader>t', tele_builtin.help_tags, noremap)
 vim.keymap.set('n', '<leader>p', tele_builtin.registers, noremap)
 vim.keymap.set('n', '<leader>b', tele_builtin.buffers, noremap)
-vim.api.nvim_set_keymap('n', 'H', '^', noremap)
-vim.api.nvim_set_keymap('n', 'L', '$', noremap)
-vim.api.nvim_set_keymap('i', '<S-Enter>', '<Esc>O', noremap)
-vim.api.nvim_set_keymap('n', 'p', ']p', noremap)
-vim.api.nvim_set_keymap('n', 'P', '[p', noremap)
 --[[
 usage note of telescope
+
+To use a picker that does not have a keyboard shortcut, enter :Telescope in the
+command line followed by the picker's name.
 
 Press <C-/> to view key mappings for picker actions. Below is a list of common
 operations.
 
-### 'pick_files' picker
 * Press <C-X> to open the file in horizontal split
 * Press <C-V> to open the file in vertical split
 --]]
 
 -- Custom commands
 vim.api.nvim_create_user_command('Q', 'wqa', {})
+-- Copy the entire buffer
+vim.api.nvim_create_user_command('A', 'normal ggVGy', {})
 
 -- Auto commands
 -- Remove trailing whitespace

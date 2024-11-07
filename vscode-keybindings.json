@@ -28,7 +28,7 @@
 
   // workbench navigation
   { "key": "cmd+e", "command": "workbench.action.focusActiveEditorGroup" },
-  { "key": "shift+cmd+g", "command": "workbench.view.scm", "when": "workbench.scm.active" }, { "key": "ctrl+shift+g", "command": "-workbench.view.scm", "when": "workbench.scm.active" },
+  { "key": "shift+cmd+d", "command": "workbench.view.scm", "when": "workbench.scm.active" }, { "key": "ctrl+shift+g", "command": "-workbench.view.scm", "when": "workbench.scm.active" },
 
   // movement
   { "key": "ctrl+a", "command": "cursorHome", "when": "textInputFocus" }, { "key": "cmd+left", "command": "-cursorHome", "when": "textInputFocus" },

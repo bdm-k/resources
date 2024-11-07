@@ -27,7 +27,7 @@ local noir0 = '#ffffff'
 
 
 -- Common
-vim.api.nvim_set_hl(0, 'Normal', { bg = background })
+vim.api.nvim_set_hl(0, 'Normal', { bg = "none" })
 vim.api.nvim_set_hl(0, 'NormalFloat', { bg = noir9, blend = 24 })
 vim.api.nvim_set_hl(0, 'FloatBorder', { bg = noir9, blend = 24 })
 vim.api.nvim_set_hl(0, 'CursorLineNr', { fg = primary, bold = true })

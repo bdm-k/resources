@@ -66,6 +66,7 @@ config.inactive_pane_hsb = {
 }
 
 config.window_background_opacity = 0.8
+config.window_decorations = "RESIZE"
 
 -- This function returns the suggested title for a tab. It prefers the title
 -- that was set via `tab:set_title()` or `wezterm cli set-tab-title`, but falls
@@ -250,6 +251,9 @@ config.key_tables = {
     { key = "Backspace", mods = "CMD", action = act.CopyMode "ClearPattern" },
     { key = "r", mods = "CTRL", action = act.CopyMode("CycleMatchType") },
   },
+
+  -- NOTE: When you are in copy mode and want to modify the pattern, press CMD+f
+  -- to enter search mode.
   copy_mode = copy_mode,
 }
 
