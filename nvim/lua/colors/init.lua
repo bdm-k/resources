@@ -7,6 +7,7 @@ local comment = '#7f848e'
 
 local diagnostic_error = '#ef596f'
 local diagnostic_hint = '#61afef'
+local diagnostic_warn = orange
 
 local primary = '#e4609b'
 local secondary = '#47bac0'
@@ -63,6 +64,7 @@ local M = {
 
   diagnostic_error = diagnostic_error,
   diagnostic_hint = diagnostic_hint,
+  diagnostic_warn = diagnostic_warn,
 
   primary = primary,
   secondary = secondary,

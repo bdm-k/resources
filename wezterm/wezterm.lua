@@ -153,10 +153,6 @@ config.keys = {
     action = act.SplitPane({ direction = "Left" }),
   },
   {
-    key = "x", mods = "CMD",
-    action = act.CloseCurrentPane({ confirm = false }),
-  },
-  {
     key = "e", mods = "CMD",
     action = act.ActivatePaneDirection("Up"),
   },

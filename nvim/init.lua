@@ -1,6 +1,8 @@
 --[[
 Must-know commands:
 
+* '%': Moves the cursor to the matching character
+
 * 'zt', 'zz', 'zb': These commands make the current line at the top, center, or
   bottom of the window, respectively.
 --]]

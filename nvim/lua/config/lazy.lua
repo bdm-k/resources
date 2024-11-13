@@ -12,6 +12,7 @@ lazy.setup({
         configs.setup({
           ensure_installed = {
             'typescript',
+            'rust',
           },
 
           highlight = { enable = true },
@@ -69,6 +70,7 @@ lazy.setup({
         local lspconfig = require 'lspconfig'
         local coq = require 'coq'
         lspconfig.tsserver.setup(coq.lsp_ensure_capabilities {})
+        lspconfig.rust_analyzer.setup(coq.lsp_ensure_capabilities {})
       end,
     },
     {

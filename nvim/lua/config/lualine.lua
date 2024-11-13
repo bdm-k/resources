@@ -46,6 +46,10 @@ vim.api.nvim_set_hl(0, 'LualineDiagnosticError', {
   fg = palette.diagnostic_error,
   bold = true,
 })
+vim.api.nvim_set_hl(0, 'LualineDiagnosticWarn', {
+  fg = palette.diagnostic_warn,
+  bold = true,
+})
 vim.api.nvim_set_hl(0, 'LualineDiagnosticHint', {
   fg = palette.diagnostic_hint,
   bold = true,
@@ -66,6 +70,7 @@ M.setup = function()
           'diagnostics',
           diagnostics_color = {
             error = 'LualineDiagnosticError',
+            warn = 'LualineDiagnosticWarn',
             hint = 'LualineDiagnosticHint',
           },
         },
