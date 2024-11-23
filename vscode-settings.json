@@ -39,6 +39,8 @@
     "ndim",
     "println",
     "pyplot",
+    "rflags",
+    "syscall",
     "tailwindcss",
     "vectorize",
     "viewsets"

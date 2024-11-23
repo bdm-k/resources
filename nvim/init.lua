@@ -68,10 +68,13 @@ vim.api.nvim_set_keymap('n', 's', '<Nop>', noremap)
 -- vim.api.nvim_set_keymap('n', '<Left>', '10h', noremap)
 -- vim.api.nvim_set_keymap('n', '<Right>', '10l', noremap)
 vim.api.nvim_set_keymap('n', 'H', '^', noremap)
+vim.api.nvim_set_keymap('v', 'H', '^', noremap)
 vim.api.nvim_set_keymap('n', 'L', '$', noremap)
+vim.api.nvim_set_keymap('v', 'L', '$', noremap)
 vim.api.nvim_set_keymap('n', 'p', ']p', noremap)
 vim.api.nvim_set_keymap('n', 'P', '[p', noremap)
 vim.api.nvim_set_keymap('n', 's', 'F', noremap)
+vim.api.nvim_set_keymap('n', '<leader>/', ':noh<CR>', noremap) -- Stop highlighting search hits
 vim.api.nvim_set_keymap('i', '<S-Enter>', '<Esc>O', noremap)
 
 -- LSP client key bindings
