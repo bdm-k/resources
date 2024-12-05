@@ -13,5 +13,11 @@
   ],
   "workspace:previous-tab": [
     { "modifiers": [ "Mod" ], "key": "[" }
+  ],
+  "app:go-back": [
+    { "modifiers": [ "Ctrl" ], "key": "-" }
+  ],
+  "app:go-forward": [
+    { "modifiers": [ "Ctrl" ], "key": "=" }
   ]
 }
