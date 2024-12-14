@@ -29,7 +29,12 @@ unsetopt beep
 # zsh-autosuggestions #
 #=====================#
 # Enable zsh-autosuggestions
-source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+if [ $(uname -s) = 'Darwin' ]
+then
+  source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+else
+  source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+fi
 # keybinding to accept the next part of the suggestion
 bindkey '^ ' forward-word
 # suggestion text color
@@ -40,3 +45,17 @@ export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#6e6f72"
 # Press → to accept the entire suggestion, and press CTRL-space to accept the
 # next part of the suggestion.
 #
+
+
+#====================#
+# other applications #
+#====================#
+# Init Starship
+eval "$(starship init zsh)"
+
+
+#=========#
+# aliases #
+#=========#
+alias amend='git commit --amend --no-edit'
+alias log='git log --oneline'

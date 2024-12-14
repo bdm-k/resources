@@ -69,7 +69,7 @@ lazy.setup({
       config = function()
         local lspconfig = require 'lspconfig'
         local coq = require 'coq'
-        lspconfig.tsserver.setup(coq.lsp_ensure_capabilities {})
+        -- lspconfig.tsserver.setup(coq.lsp_ensure_capabilities {})
         lspconfig.rust_analyzer.setup(coq.lsp_ensure_capabilities {})
       end,
     },

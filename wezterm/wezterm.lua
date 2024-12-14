@@ -3,6 +3,8 @@ local act = wezterm.action
 local nerd = wezterm.nerdfonts
 local config = wezterm.config_builder()
 
+config.debug_key_events = true
+
 local kernel_name = (function()
   local handle = io.popen("uname -s")
   local result = handle:read("*a"):gsub("\n$", "")
@@ -187,10 +189,29 @@ config.keys = {
     action = act.ActivateTabRelative(1),
   },
 
-  -- Assignments for Linux. Adapt some key assignments to macOS style
+  -- Assignments for Linux
+  -- Adapt some key assignments to macOS style
   {
     key = "v", mods = "SUPER",
     action = act.PasteFrom 'Clipboard',
+  },
+  -- When an arrow key is pressed with CTRL, ignore the CTRL.
+  -- These assignments are for compatibility with xremap.
+  {
+    key = "LeftArrow", mods = "CTRL",
+    action = act.SendKey { key = "LeftArrow" },
+  },
+  {
+    key = "DownArrow", mods = "CTRL",
+    action = act.SendKey { key = "DownArrow" },
+  },
+  {
+    key = "UpArrow", mods = "CTRL",
+    action = act.SendKey { key = "UpArrow" },
+  },
+  {
+    key = "RightArrow", mods = "CTRL",
+    action = act.SendKey { key = "RightArrow" },
   },
 
   -- Other assignments

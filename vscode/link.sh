@@ -1,10 +1,12 @@
-kernel_name=$(uname -s)
-if [ $kernel_name = 'Darwin' ]
+kernel=$(uname -s)
+if [ $kernel = 'Darwin' ]
 then
-  target_dir='~/Library/Application Support/Code/User'
+  target_dir="$HOME/Library/Application Support/Code/User"
 else
-  target_dir='~/.config/Code/User'
+  target_dir="$HOME/.config/Code/User"
 fi
 
-ln -s ~/resources/vscode/keybindings.json ${target_dir}/keybindings.json
-ln -s ~/resources/vscode/settings.json ${target_dir}/settings.json
+cd $target_dir
+ln -s ~/resources/vscode/keybindings.json keybindings.json
+ln -s ~/resources/vscode/settings.json settings.json
+cd -
