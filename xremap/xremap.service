@@ -1,8 +1,0 @@
-[Unit]
-Description=xremap
-
-[Service]
-ExecStart=/home/kokus/.local/bin/xremap /home/kokus/resources/xremap/xremap-config.yaml
-
-[Install]
-WantedBy=default.target

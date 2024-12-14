@@ -1,0 +1,8 @@
+[Unit]
+Description=xremap
+
+[Service]
+ExecStart=${HOME}/.local/bin/xremap ${HOME}/resources/xremap/xremap-config.yaml
+
+[Install]
+WantedBy=default.target

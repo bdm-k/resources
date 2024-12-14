@@ -42,6 +42,7 @@
     "println",
     "pyplot",
     "rflags",
+    "rgba",
     "subarray",
     "syscall",
     "tailwindcss",
