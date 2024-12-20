@@ -38,6 +38,16 @@ keymap:
       SUPER_L-KEY_J: CTRL-KEY_N # New window
       SUPER_L-SHIFT_L-KEY_J: CTRL-SHIFT-KEY_N # New private window
 
+  - name: Obsidian Rule
+    application:
+      only: obsidian
+    remap:
+      SUPER_R-KEY_C: CTRL-KEY_C
+      SUPER_R-KEY_V: CTRL-KEY_V
+      SUPER_R-KEY_X: CTRL-KEY_X
+      SUPER_R-KEY_Z: CTRL-KEY_Z
+      SUPER_R-KEY_A: CTRL-KEY_A
+
   - name: Alternative keybinding for Backspace
     remap:
       CTRL_L-KEY_LEFTBRACE: KEY_BACKSPACE

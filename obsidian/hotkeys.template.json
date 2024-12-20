@@ -1,23 +1,23 @@
 {
   "app:toggle-right-sidebar": [
-    { "modifiers": [ "Alt", "Mod" ], "key": "B" }
+    { "modifiers": [ "Alt", "Meta" ], "key": "B" }
   ],
   "app:toggle-left-sidebar": [
     { "modifiers": [ "Alt" ], "key": "B" }
   ],
-  "obsidian-latex-suite:latex-suite-select-equation": [
-    { "modifiers": [ "Shift" ], "key": "Enter" }
-  ],
   "workspace:next-tab": [
-    { "modifiers": [ "Mod" ], "key": "]" }
+    { "modifiers": [ "Meta" ], "key": "]" }
   ],
   "workspace:previous-tab": [
-    { "modifiers": [ "Mod" ], "key": "[" }
+    { "modifiers": [ "Meta" ], "key": "[" }
   ],
   "app:go-back": [
     { "modifiers": [ "Ctrl" ], "key": "-" }
   ],
   "app:go-forward": [
     { "modifiers": [ "Ctrl" ], "key": "=" }
+  ],
+  "command-palette:open": [
+    { "modifiers": [ "Meta" ], "key": "P" }
   ]
 }

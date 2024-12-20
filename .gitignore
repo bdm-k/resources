@@ -3,3 +3,4 @@ _build
 nvim/lazy-lock.json
 Brewfile.lock.json
 gnome/background-image.png
+obsidian/hotkeys.json

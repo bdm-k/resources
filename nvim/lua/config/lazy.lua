@@ -13,6 +13,8 @@ lazy.setup({
           ensure_installed = {
             'typescript',
             'rust',
+            'json',
+            'jsonc',
           },
 
           highlight = { enable = true },
