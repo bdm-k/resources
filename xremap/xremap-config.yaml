@@ -1,6 +1,3 @@
-virtual_modifiers:
-  - KEY_YEN
-
 modmap:
   - name: Physical JIS keyboard with ANSI layout
     remap:
@@ -13,14 +10,34 @@ modmap:
         alone: KEY_ESC
         alone_timeout_millis: 400
 
-  - name: Use Space as a layer key
+  - name: use Space as the Hyper key
     remap:
       KEY_SPACE:
-        held: KEY_YEN # KEY_YEN is set as a virtual modifier
+        held: [KEY_LEFTMETA, KEY_LEFTALT, KEY_LEFTCTRL, KEY_LEFTSHIFT]
         alone: KEY_SPACE
         alone_timeout_millis: 300
 
 keymap:
+  - name: Brave Rule
+    application:
+      only: Brave-browser
+    remap:
+      CTRL_L-KEY_MINUS: ALT-KEY_LEFT  # Back
+      CTRL_L-KEY_EQUAL: ALT-KEY_RIGHT # Forward
+      SUPER_R-KEY_RIGHTBRACE: CTRL-KEY_PAGEDOWN # Next tab
+      SUPER_R-KEY_LEFTBRACE:  CTRL-KEY_PAGEUP   # Previous tab
+      SUPER_R-KEY_E: CTRL-KEY_F # Find
+      SUPER_R-KEY_W: CTRL-KEY_W # Close tab
+      SUPER_R-KEY_F: CTRL-KEY_T # New tab
+      SUPER_R-KEY_A: CTRL-KEY_A # Select all
+      SUPER_R-KEY_S: CTRL-KEY_R # Reload
+      SUPER_R-KEY_C: CTRL-KEY_C # Copy
+      SUPER_L-KEY_MINUS: CTRL-KEY_MINUS # Zoom out
+      SUPER_L-KEY_EQUAL: CTRL-KEY_EQUAL # Zoom in
+      SUPER_L-KEY_U: CTRL-KEY_L # Focus location
+      SUPER_L-KEY_J: CTRL-KEY_N # New window
+      SUPER_L-SHIFT_L-KEY_J: CTRL-SHIFT-KEY_N # New private window
+
   - name: Alternative keybinding for Backspace
     remap:
       CTRL_L-KEY_LEFTBRACE: KEY_BACKSPACE
@@ -36,21 +53,6 @@ keymap:
     remap:
       KEY_UP: KEY_DOWN
       KEY_DOWN: KEY_UP
-
-  - name: Brave Rule
-    application:
-      only: Brave-browser
-    remap:
-      CTRL_L-KEY_MINUS: ALT-KEY_LEFT  # Back
-      CTRL_L-KEY_EQUAL: ALT-KEY_RIGHT # Forward
-      SUPER_R-KEY_RIGHTBRACE: CTRL-KEY_PAGEDOWN # Next tab
-      SUPER_R-KEY_LEFTBRACE:  CTRL-KEY_PAGEUP   # Previous tab
-      SUPER_R-KEY_E: CTRL-KEY_F # Find
-      SUPER_R-KEY_W: CTRL-KEY_W # Close tab
-      SUPER_R-KEY_F: CTRL-KEY_T # New tab
-      SUPER_L-KEY_MINUS: CTRL-KEY_MINUS # Zoom out
-      SUPER_L-KEY_EQUAL: CTRL-KEY_EQUAL # Zoom in
-      SUPER_L-KEY_U: CTRL-KEY_L # Focus location
 
   - name: My original keyboard layout based on colemak
     remap:
