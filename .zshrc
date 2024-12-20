@@ -59,3 +59,9 @@ eval "$(starship init zsh)"
 #=========#
 alias amend='git commit --amend --no-edit'
 alias log='git log --oneline'
+if [ $(uname -s) = 'Darwin' ]
+then
+  alias ls='ls -G'
+else
+  alias ls='ls --color=auto'
+fi
