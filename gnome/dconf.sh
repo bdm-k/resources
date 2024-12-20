@@ -29,6 +29,7 @@ gsettings set org.gnome.shell.keybindings focus-active-notification "[]"
 gsettings set org.gnome.shell.keybindings toggle-application-view "[]"
 gsettings set org.gnome.shell.keybindings toggle-message-tray "[]"
 gsettings set org.gnome.shell.keybindings toggle-overview "[]"
+gsettings set org.gnome.mutter.keybindings switch-monitor "[]"
 
 # General
 gsettings set org.gnome.desktop.wm.keybindings minimize "['<Alt>h']"
