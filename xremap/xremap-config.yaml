@@ -37,16 +37,17 @@ keymap:
       SUPER_L-KEY_U: CTRL-KEY_L # Focus location
       SUPER_L-KEY_J: CTRL-KEY_N # New window
       SUPER_L-SHIFT_L-KEY_J: CTRL-SHIFT-KEY_N # New private window
+      SUPER-KEY_B: CTRL-KEY_B # Toggle sidebar
 
   - name: Obsidian Rule
     application:
       only: obsidian
     remap:
-      SUPER_R-KEY_C: CTRL-KEY_C
-      SUPER_R-KEY_V: CTRL-KEY_V
-      SUPER_R-KEY_X: CTRL-KEY_X
-      SUPER_R-KEY_Z: CTRL-KEY_Z
-      SUPER_R-KEY_A: CTRL-KEY_A
+      SUPER_R-KEY_C: CTRL-KEY_C # Copy
+      SUPER_R-KEY_V: CTRL-KEY_V # Paste
+      SUPER_R-KEY_X: CTRL-KEY_X # Cut
+      SUPER_R-KEY_Z: CTRL-KEY_Z # Undo
+      SUPER_R-KEY_A: CTRL-KEY_A # Select all
 
   - name: Alternative keybinding for Backspace
     remap:

@@ -19,5 +19,11 @@
   ],
   "command-palette:open": [
     { "modifiers": [ "Meta" ], "key": "P" }
+  ],
+  "app:open-settings": [
+    { "modifiers": [ "Meta" ], "key": "," }
+  ],
+  "switcher:open": [
+    { "modifiers": [ "Meta" ], "key": "O" }
   ]
 }
