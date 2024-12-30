@@ -37,6 +37,7 @@
     "karabiner",
     "linalg",
     "matplotlib",
+    "msrs",
     "ndim",
     "nums",
     "println",

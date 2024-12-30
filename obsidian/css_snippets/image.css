@@ -1,0 +1,26 @@
+/*
+* You can align images left, right, or center.
+* For example, to center an image, add "#center" to the end of the image path.
+*/
+div[src$="#left"] {
+  text-align: left;
+}
+
+div[src$="#center"] {
+  text-align: center;
+}
+
+div[src$="#right"] {
+  text-align: right;
+}
+
+
+/*
+* The image's alt text will be displayed as its caption.
+*/
+.image-embed[alt]:after {
+  content: attr(alt);
+  display: block;
+  font-size: 0.84em;
+}
+
