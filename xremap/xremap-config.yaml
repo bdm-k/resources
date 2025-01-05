@@ -32,6 +32,7 @@ keymap:
       SUPER_R-KEY_A: CTRL-KEY_A # Select all
       SUPER_R-KEY_S: CTRL-KEY_R # Reload
       SUPER_R-KEY_C: CTRL-KEY_C # Copy
+      SUPER_R-KEY_V: CTRL-KEY_V # Paste
       SUPER_L-KEY_MINUS: CTRL-KEY_MINUS # Zoom out
       SUPER_L-KEY_EQUAL: CTRL-KEY_EQUAL # Zoom in
       SUPER_L-KEY_U: CTRL-KEY_L # Focus location
