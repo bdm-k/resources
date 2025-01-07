@@ -1,0 +1,185 @@
+@use 'sass:list';
+@use 'assets';
+
+
+/* --------------- */
+/* color variables */
+/* --------------- */
+
+$red-400: #f87171;
+$orange-300: #fdba74;
+$orange-400: #fb923c;
+$yellow-400: #facc15;
+$green-400: #4ade80;
+$sky-400: #38bdf8;
+$purple-400: #c084fc;
+
+$h1-accent-color: $red-400;
+$h2-accent-color: $orange-400;
+$h3-accent-color: $yellow-400;
+$h4-accent-color: $green-400;
+$h5-accent-color: $sky-400;
+$h6-accent-color: $purple-400;
+
+$bold-color: $red-400;
+$italic-color: $orange-300;
+
+
+/* -------------- */
+/* list variables */
+/* -------------- */
+$accent-color-list:
+  $h1-accent-color
+  $h2-accent-color
+  $h3-accent-color
+  $h4-accent-color
+  $h5-accent-color
+  $h6-accent-color;
+
+$collapse-icon-list:
+  assets.$h1-collapse-icon
+  assets.$h2-collapse-icon
+  assets.$h3-collapse-icon
+  assets.$h4-collapse-icon
+  assets.$h5-collapse-icon
+  assets.$h6-collapse-icon;
+
+$heading-indicator-height-list:
+  calc(1.2em - 8px)
+  calc(1.2em - 8px)
+  calc(1.3em - 8px)
+  calc(1.4em - 8px)
+  calc(1.5em - 8px)
+  calc(1.5em - 8px);
+
+
+/* ---------- */
+/* typography */
+/* ---------- */
+
+body {
+  --bold-color: #{$bold-color};
+  --italic-color: #{$italic-color};
+
+  --list-bullet-size: 0.25em;
+  --list-marker-color: var(--text-normal);
+}
+
+// Change the background color of inline code
+.theme-dark :not(pre) > code,
+.theme-dark .cm-s-obsidian span.cm-line-code {
+  background: var(--background-secondary-alt);
+}
+
+
+/* ------------------------- */
+/* additional image features */
+/* ------------------------- */
+
+// You can align images left, right, or center.
+// For example, to center an image, add "#center" to the end of the image path.
+div[src$="#left"] {
+  text-align: left;
+}
+div[src$="#center"] {
+  text-align: center;
+}
+div[src$="#right"] {
+  text-align: right;
+}
+
+// The image's alt text will be displayed its caption.
+.image-embed[alt]:after {
+  content: attr(alt);
+  display: block;
+  font-size: 0.84em;
+}
+
+
+/* ------------------ */
+/* collapse indicator */
+/* ------------------ */
+
+// Adjust the positions
+.is-live-preview .HyperMD-header .collapse-indicator.collapse-icon {
+  transform: translateX(-12px);
+}
+.markdown-preview-view .heading-collapse-indicator {
+  transform: translateX(-20px);
+}
+
+@for $i from 1 through 6 {
+  .is-live-preview .HyperMD-header-#{$i} .collapse-indicator.collapse-icon svg,
+  :is(.markdown-rendered, .markdown-preview-view) h#{$i} .collapse-indicator.collapse-icon svg {
+    transform: translateX(0px); // Do not let it rotate
+    background-color: currentColor;
+    -webkit-mask-image: list.nth($collapse-icon-list, $i);
+    mask-image: list.nth($collapse-icon-list, $i);
+  }
+
+  // when collapsed
+  .is-live-preview .HyperMD-header-#{$i} .is-collapsed .collapse-indicator.collapse-icon svg,
+  :is(.markdown-rendered, .markdown-preview-view) .is-collapsed h#{$i} .collapse-indicator.collapse-icon svg {
+    background-color: list.nth($accent-color-list, $i);
+    color: list.nth($accent-color-list, $i);
+  }
+}
+
+
+/* ----------------- */
+/* heading indicator */
+/* ----------------- */
+
+%heading-indicator-common {
+  margin-right: 6px;
+  content: " ";
+  display: inline-block;
+  width: 3px;
+  border-radius: var(--radius-m);
+}
+
+.is-live-preview {
+  @for $i from 1 through 6 {
+    .HyperMD-header-#{$i}::before {
+      @extend %heading-indicator-common;
+      height: list.nth($heading-indicator-height-list, $i);
+      transform: translateY(4px);
+      background-color: list.nth($accent-color-list, $i);
+    }
+  }
+}
+
+.markdown-rendered,
+.markdown-preview-sizer > div {
+  > :is(h1, h2, h3, h4, h5, h6) {
+    position: relative;
+    text-indent: 9px;
+  }
+  @for $i from 1 through 6 {
+    > h#{$i}::before {
+      @extend %heading-indicator-common;
+      height: list.nth($heading-indicator-height-list, $i);
+      position: absolute;
+      top: 4px;
+      left: 0px;
+      background-color: list.nth($accent-color-list, $i);
+    }
+  }
+}
+
+
+/* ------------------------------ */
+/* editor background grid pattern */
+/* ------------------------------ */
+
+.markdown-reading-view, .markdown-source-view.mod-cm6 {
+  background-image: linear-gradient(to right, var(--background-modifier-border) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--background-modifier-border), 1px, transparent 1px);
+  background-size: 32px 32px;
+  background-position: center center;
+  // Add a gradient mask around the perimeter
+  mask-image: linear-gradient(to bottom, transparent, #fff 50px calc(100% - 50px), transparent),
+    linear-gradient(to right, transparent, #fff 50px calc(100% - 50px), transparent);
+  mask-composite: intersect;
+}
+
