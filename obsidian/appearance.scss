@@ -67,7 +67,7 @@ body {
 
 // Change the background color of inline code
 .theme-dark :not(pre) > code,
-.theme-dark .cm-s-obsidian span.cm-line-code {
+.theme-dark .cm-s-obsidian span.cm-inline-code {
   background: var(--background-secondary-alt);
 }
 
