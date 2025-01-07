@@ -25,5 +25,20 @@
   ],
   "switcher:open": [
     { "modifiers": [ "Meta" ], "key": "O" }
+  ],
+  "workspace:new-tab": [
+    { "modifiers": [ "Meta" ], "key": "T" }
+  ],
+  "editor:open-search": [
+    { "modifiers": [ "Meta" ], "key": "F" }
+  ],
+  "editor:open-search-replace": [
+    { "modifiers": [ "Meta" ], "key": "H" }
+  ],
+  "workspace:close": [
+    { "modifiers": [ "Meta" ], "key": "W" }
+  ],
+  "workspace:close-window": [
+    { "modifiers": [ "Meta", "Shift" ], "key": "W" }
   ]
 }

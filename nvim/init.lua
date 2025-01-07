@@ -1,7 +1,7 @@
 --[[
 Must-know commands:
 
-* '%': Moves the cursor to the matching character
+* '%': Moves the cursor to the matching character.
 
 * 'zt', 'zz', 'zb': These commands make the current line at the top, center, or
   bottom of the window, respectively.
@@ -74,6 +74,7 @@ vim.api.nvim_set_keymap('v', 'L', '$', noremap)
 vim.api.nvim_set_keymap('n', 'p', ']p', noremap)
 vim.api.nvim_set_keymap('n', 'P', '[p', noremap)
 vim.api.nvim_set_keymap('n', 's', 'F', noremap)
+vim.api.nvim_set_keymap('n', '<C-s>', '`.', noremap) -- Move to the position where the last change was made
 vim.api.nvim_set_keymap('n', '<leader>/', ':noh<CR>', noremap) -- Stop highlighting search hits
 vim.api.nvim_set_keymap('i', '<S-Enter>', '<Esc>O', noremap)
 

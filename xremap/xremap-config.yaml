@@ -44,6 +44,7 @@ keymap:
     application:
       only: obsidian
     remap:
+      CTRL_L-SHIFT_L-KEY_L: CTRL-SHIFT-KEY_I # Open the Developer Tools
       SUPER_R-KEY_C: CTRL-KEY_C # Copy
       SUPER_R-KEY_V: CTRL-KEY_V # Paste
       SUPER_R-KEY_X: CTRL-KEY_X # Cut

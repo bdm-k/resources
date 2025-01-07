@@ -1,0 +1,160 @@
+@use 'sass:list';
+@use 'assets';
+
+
+$red-400: #f87171;
+$orange-400: #fb923c;
+$yellow-400: #facc15;
+$green-400: #4ade80;
+$sky-400: #38bdf8;
+$purple-400: #c084fc;
+
+$h1-accent-color: $red-400;
+$h2-accent-color: $orange-400;
+$h3-accent-color: $yellow-400;
+$h4-accent-color: $green-400;
+$h5-accent-color: $sky-400;
+$h6-accent-color: $purple-400;
+
+$accent-color-list: [
+  $h1-accent-color,
+  $h2-accent-color,
+  $h3-accent-color,
+  $h4-accent-color,
+  $h5-accent-color,
+  $h6-accent-color,
+];
+
+$collapse-icon-list: [
+  assets.$h1-collapse-icon,
+  assets.$h2-collapse-icon,
+  assets.$h3-collapse-icon,
+  assets.$h4-collapse-icon,
+  assets.$h5-collapse-icon,
+  assets.$h6-collapse-icon,
+];
+
+
+/* ------------------ */
+/* collapse indicator */
+/* ------------------ */
+
+// Adjust the position
+.is-live-preview .HyperMD-header .collapse-indicator.collapse-icon {
+  transform: translateX(-12px);
+}
+.markdown-preview-view .heading-collapse-indicator {
+  transform: translateX(-20px);
+}
+
+@for $i from 1 through 6 {
+  .is-live-preview .HyperMD-header-#{$i} .collapse-indicator.collapse-icon svg,
+  :is(.markdown-rendered, .markdown-preview-view) h#{$i} .collapse-indicator.collapse-icon svg {
+    transform: translateX(0px); // Do not let it rotate
+    background-color: currentColor;
+    mask-image: list.nth($collapse-icon-list, $i);
+  }
+
+  // when collapsed
+  .is-live-preview .HyperMD-header-#{$i} .is-collapsed .collapse-indicator.collapse-icon svg,
+  :is(.markdown-rendered, .markdown-preview-view) .is-collapsed h#{$i} .collapse-indicator.collapse-icon svg {
+    background-color: list.nth($accent-color-list, $i);
+    color: list.nth($accent-color-list, $i);
+  }
+}
+
+
+/* ----------------- */
+/* heading indicator */
+/* ----------------- */
+
+%heading-indicator-common {
+  margin-right: 6px;
+  content: " ";
+  display: inline-block;
+  width: 3px;
+  border-radius: var(--radius-m);
+}
+
+%heading-indicator-editing-common {
+  @extend %heading-indicator-common;
+  transform: translateY(4px);
+}
+
+%heading-indicator-reading-common {
+  @extend %heading-indicator-common;
+  position: absolute;
+  top: 4px;
+  left: 0px;
+}
+
+.is-live-preview {
+  .HyperMD-header-1::before {
+    @extend %heading-indicator-editing-common;
+    height: calc(1.2em - 8px);
+    background-color: $h1-accent-color;
+  }
+  .HyperMD-header-2::before {
+    @extend %heading-indicator-editing-common;
+    height: calc(1.2em - 8px);
+    background-color: $h2-accent-color;
+  }
+  .HyperMD-header-3::before {
+    @extend %heading-indicator-editing-common;
+    height: calc(1.3em - 8px);
+    background-color: $h3-accent-color;
+  }
+  .HyperMD-header-4::before {
+    @extend %heading-indicator-editing-common;
+    height: calc(1.4em - 8px);
+    background-color: $h4-accent-color;
+  }
+  .HyperMD-header-5::before {
+    @extend %heading-indicator-editing-common;
+    height: calc(1.5em - 8px);
+    background-color: $h5-accent-color;
+  }
+  .HyperMD-header-6::before {
+    @extend %heading-indicator-editing-common;
+    height: calc(1.5em - 8px);
+    background-color: $h6-accent-color;
+  }
+}
+
+.markdown-rendered,
+.markdown-preview-sizer > div {
+  > :is(h1, h2, h3, h4, h5, h6) {
+    position: relative;
+    text-indent: 9px;
+  }
+  > h1::before {
+    @extend %heading-indicator-reading-common;
+    height: calc(1.2em - 8px);
+    background-color: $h1-accent-color;
+  }
+  > h2::before {
+    @extend %heading-indicator-reading-common;
+    height: calc(1.2em - 8px);
+    background-color: $h2-accent-color;
+  }
+  > h3::before {
+    @extend %heading-indicator-reading-common;
+    height: calc(1.3em - 8px);
+    background-color: $h3-accent-color;
+  }
+  > h4::before {
+    @extend %heading-indicator-reading-common;
+    height: calc(1.4em - 8px);
+    background-color: $h4-accent-color;
+  }
+  > h5::before {
+    @extend %heading-indicator-reading-common;
+    height: calc(1.5em - 8px);
+    background-color: $h5-accent-color;
+  }
+  > h6::before {
+    @extend %heading-indicator-reading-common;
+    height: calc(1.5em - 8px);
+    background-color: $h6-accent-color;
+  }
+}
