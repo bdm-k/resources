@@ -172,17 +172,14 @@ div[src$="#right"] {
 /* editor background grid pattern */
 /* ------------------------------ */
 
-.markdown-reading-view, .markdown-source-view.mod-cm6 {
+.workspace-split.mod-root .view-content {
   background-image: linear-gradient(to right, var(--background-modifier-border) 1px, transparent 1px),
     linear-gradient(to bottom, var(--background-modifier-border), 1px, transparent 1px);
   background-size: 32px 32px;
   background-position: center center;
   // Add a gradient mask around the perimeter
-  -webkit-mask-image: linear-gradient(to bottom, transparent, #fff 50px calc(100% - 50px), transparent),
-    linear-gradient(to right, transparent, #fff 50px calc(100% - 50px), transparent);
-  mask-image: linear-gradient(to bottom, transparent, #fff 50px calc(100% - 50px), transparent),
-    linear-gradient(to right, transparent, #fff 50px calc(100% - 50px), transparent);
-  -webkit-composite: source-in, xor;
-  mask-composite: intersect;
+  > div {
+    background-image: linear-gradient(to bottom, var(--background-primary), transparent 50px calc(100% - 50px), var(--background-primary)),
+      linear-gradient(to right, var(--background-primary), transparent 50px calc(100% - 50px), var(--background-primary));
+  }
 }
-
