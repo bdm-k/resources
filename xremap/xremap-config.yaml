@@ -10,15 +10,16 @@ modmap:
         alone: KEY_ESC
         alone_timeout_millis: 400
 
-  - name: use Space as the Hyper key
+  - name: Hold Space to press all modifier keys except for Shift
     remap:
       KEY_SPACE:
-        held: [KEY_LEFTMETA, KEY_LEFTALT, KEY_LEFTCTRL, KEY_LEFTSHIFT]
+        held: [KEY_LEFTMETA, KEY_LEFTALT, KEY_LEFTCTRL]
         alone: KEY_SPACE
         alone_timeout_millis: 300
 
 keymap:
   - name: Brave Rule
+    exact_match: true
     application:
       only: Brave-browser
     remap:
@@ -29,10 +30,12 @@ keymap:
       SUPER_R-KEY_E: CTRL-KEY_F # Find
       SUPER_R-KEY_W: CTRL-KEY_W # Close tab
       SUPER_R-KEY_F: CTRL-KEY_T # New tab
-      SUPER_R-KEY_A: CTRL-KEY_A # Select all
       SUPER_R-KEY_S: CTRL-KEY_R # Reload
       SUPER_R-KEY_C: CTRL-KEY_C # Copy
       SUPER_R-KEY_V: CTRL-KEY_V # Paste
+      SUPER_R-KEY_X: CTRL-KEY_X # Cut
+      SUPER_R-KEY_Z: CTRL-KEY_Z # Undo
+      SUPER_R-KEY_A: CTRL-KEY_A # Select all
       SUPER_L-KEY_MINUS: CTRL-KEY_MINUS # Zoom out
       SUPER_L-KEY_EQUAL: CTRL-KEY_EQUAL # Zoom in
       SUPER_L-KEY_U: CTRL-KEY_L # Focus location
@@ -41,6 +44,7 @@ keymap:
       SUPER-KEY_B: CTRL-KEY_B # Toggle sidebar
 
   - name: Obsidian Rule
+    exact_match: true
     application:
       only: obsidian
     remap:
@@ -51,9 +55,30 @@ keymap:
       SUPER_R-KEY_Z: CTRL-KEY_Z # Undo
       SUPER_R-KEY_A: CTRL-KEY_A # Select all
 
-  - name: Alternative keybinding for Backspace
+  - name: Launch the clipboard manager (Diodon)
+    exact_match: true
     remap:
-      CTRL_L-KEY_LEFTBRACE: KEY_BACKSPACE
+      SUPER_R-SHIFT_R-KEY_V: { launch: ["/usr/bin/diodon"] }
+
+  - name: Alternative keybindings for Backspace and Enter
+    exact_match: true
+    remap:
+      CTRL_L-KEY_N: KEY_BACKSPACE
+      CTRL_L-KEY_M: KEY_ENTER
+
+  - name: Alternative keybindings for numbers and signs
+    remap:
+      SUPER-ALT-CTRL-KEY_F: KEY_GRAVE
+      SUPER-ALT-CTRL-KEY_Z: KEY_1
+      SUPER-ALT-CTRL-KEY_X: KEY_2
+      SUPER-ALT-CTRL-KEY_C: KEY_3
+      SUPER-ALT-CTRL-KEY_A: KEY_4
+      SUPER-ALT-CTRL-KEY_S: KEY_5
+      SUPER-ALT-CTRL-KEY_D: KEY_6
+      SUPER-ALT-CTRL-KEY_Q: KEY_7
+      SUPER-ALT-CTRL-KEY_W: KEY_8
+      SUPER-ALT-CTRL-KEY_E: KEY_9
+      SUPER-ALT-CTRL-KEY_R: KEY_0
 
   - name: Left Ctrl + hjkl to arrow keys
     remap:

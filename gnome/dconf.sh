@@ -23,29 +23,32 @@ gsettings set org.gnome.mutter draggable-border-width 20
 # Keybindings #
 #=============#
 # Disable some keybindings
-gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-left "[]"
-gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-right "[]"
+gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-left "[]"
+gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-right "[]"
+gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-last "[]"
 gsettings set org.gnome.shell.keybindings focus-active-notification "[]"
 gsettings set org.gnome.shell.keybindings toggle-application-view "[]"
 gsettings set org.gnome.shell.keybindings toggle-message-tray "[]"
 gsettings set org.gnome.shell.keybindings toggle-overview "[]"
 gsettings set org.gnome.mutter.keybindings switch-monitor "[]"
+gsettings set org.gnome.shell.keybindings shift-overview-down "[]"
+gsettings set org.gnome.shell.keybindings shift-overview-up "[]"
 
 # General
 gsettings set org.gnome.desktop.wm.keybindings minimize "['<Alt>h']"
 gsettings set org.gnome.desktop.wm.keybindings close "['<Super>q']"
 gsettings set org.gnome.desktop.wm.keybindings cycle-group "['<Control>Left']"
-gsettings set org.gnome.desktop.wm.keybindings toggle-fullscreen "['<Super><Alt><Control><Shift>f']"
+gsettings set org.gnome.desktop.wm.keybindings toggle-fullscreen "['<Super><Alt><Control>f']"
 gsettings set org.gnome.settings-daemon.plugins.media-keys screensaver "['<Super><Control>q']"
 
 # Switch to workspaces
-gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-1 "['<Super><Alt><Control><Shift>exclam']"
-gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-2 "['<Super><Alt><Control><Shift>at']"
-gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-3 "['<Super><Alt><Control><Shift>numbersign']"
+gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-1 "['<Super><Alt><Control>1']"
+gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-2 "['<Super><Alt><Control>2']"
+gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-3 "['<Super><Alt><Control>3']"
 
 # Move window between workspaces
-gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-left "['<Super><Alt><Control><Shift>Left']"
-gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-right "['<Super><Alt><Control><Shift>Right']"
+gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-left "['<Super><Alt><Control>Left']"
+gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-right "['<Super><Alt><Control>Right']"
 
 
 #==============#

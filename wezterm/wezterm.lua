@@ -213,6 +213,96 @@ config.keys = {
     key = "RightArrow", mods = "CTRL",
     action = act.SendKey { key = "RightArrow" },
   },
+  -- When the signs are input with all modifiers, ignore the modifiers.
+  -- These assignments are for compatibility with xremap.
+  {
+    key = "`", mods = "SUPER|ALT|CTRL",
+    action = act.SendKey { key = "`" },
+  },
+  {
+    key = "~", mods = "SUPER|ALT|CTRL|SHIFT",
+    action = act.SendKey { key = "~" },
+  },
+  {
+    key = "1", mods = "SUPER|ALT|CTRL",
+    action = act.SendKey { key = "1" },
+  },
+  {
+    key = "!", mods = "SUPER|ALT|CTRL|SHIFT",
+    action = act.SendKey { key = "!" },
+  },
+  {
+    key = "2", mods = "SUPER|ALT|CTRL",
+    action = act.SendKey { key = "2" },
+  },
+  {
+    key = "@", mods = "SUPER|ALT|CTRL|SHIFT",
+    action = act.SendKey { key = "@" },
+  },
+  {
+    key = "3", mods = "SUPER|ALT|CTRL",
+    action = act.SendKey { key = "3" },
+  },
+  {
+    key = "#", mods = "SUPER|ALT|CTRL|SHIFT",
+    action = act.SendKey { key = "#" },
+  },
+  {
+    key = "4", mods = "SUPER|ALT|CTRL",
+    action = act.SendKey { key = "4" },
+  },
+  {
+    key = "$", mods = "SUPER|ALT|CTRL|SHIFT",
+    action = act.SendKey { key = "$" },
+  },
+  {
+    key = "5", mods = "SUPER|ALT|CTRL",
+    action = act.SendKey { key = "5" },
+  },
+  {
+    key = "%", mods = "SUPER|ALT|CTRL|SHIFT",
+    action = act.SendKey { key = "%" },
+  },
+  {
+    key = "6", mods = "SUPER|ALT|CTRL",
+    action = act.SendKey { key = "6" },
+  },
+  {
+    key = "^", mods = "SUPER|ALT|CTRL|SHIFT",
+    action = act.SendKey { key = "^" },
+  },
+  {
+    key = "7", mods = "SUPER|ALT|CTRL",
+    action = act.SendKey { key = "7" },
+  },
+  {
+    key = "&", mods = "SUPER|ALT|CTRL|SHIFT",
+    action = act.SendKey { key = "&" },
+  },
+  {
+    key = "8", mods = "SUPER|ALT|CTRL",
+    action = act.SendKey { key = "8" },
+  },
+  {
+    key = "*", mods = "SUPER|ALT|CTRL|SHIFT",
+    action = act.SendKey { key = "*" },
+  },
+  {
+    key = "9", mods = "SUPER|ALT|CTRL",
+    action = act.SendKey { key = "9" },
+  },
+  {
+    key = "(", mods = "SUPER|ALT|CTRL|SHIFT",
+    action = act.SendKey { key = "(" },
+  },
+  {
+    key = "0", mods = "SUPER|ALT|CTRL",
+    action = act.SendKey { key = "0" },
+  },
+  {
+    key = ")", mods = "SUPER|ALT|CTRL|SHIFT",
+    action = act.SendKey { key = ")" },
+  },
 
   -- Other assignments
   {
