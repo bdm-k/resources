@@ -41,8 +41,7 @@
   { "key": "ctrl+=", "command": "workbench.action.navigateForward", "when": "canNavigateForward" }, { "key": "ctrl+shift+-", "command": "-workbench.action.navigateForward", "when": "canNavigateForward" },
   { "key": "ctrl+s", "command": "workbench.action.navigateToLastEditLocation" }, { "key": "cmd+k cmd+q", "command": "-workbench.action.navigateToLastEditLocation" },
   { "key": "ctrl+9", "command": "editor.action.jumpToBracket", "when": "editorTextFocus" }, { "key": "shift+cmd+\\", "command": "-editor.action.jumpToBracket", "when": "editorTextFocus" },
-  { "key": "ctrl+m", "command": "workbench.action.editor.nextChange", "when": "editorTextFocus && !textCompareEditorActive" }, { "key": "alt+f5", "command": "-workbench.action.editor.nextChange", "when": "editorTextFocus && !textCompareEditorActive" },
-
+  { "key": "ctrl+]", "command": "workbench.action.compareEditor.nextChange", "when": "textCompareEditorVisible" }, { "key": "alt+f5", "command": "-workbench.action.compareEditor.nextChange", "when": "textCompareEditorVisible" },
   { "key": "cmd+o", "command": "workbench.action.gotoSymbol", "when": "!accessibilityHelpIsShown && !accessibleViewIsShown" }, { "key": "shift+cmd+o", "command": "-workbench.action.gotoSymbol", "when": "!accessibilityHelpIsShown && !accessibleViewIsShown" },
 
   // editing
