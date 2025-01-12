@@ -47,6 +47,22 @@ export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#6e6f72"
 #
 
 
+#=========#
+# zsh-nvm #
+#=========#
+# This plugin allows you to load nvm on demand.
+# Lazy loading of nvm can significantly improve shell startup time.
+#
+# Install the plugin if it's not installed yet
+if [ ! -d $HOME/.zsh-nvm ]
+then
+  git clone https://github.com/lukechilds/zsh-nvm.git $HOME/.zsh-nvm
+fi
+# Enable the lazy loading
+export NVM_LAZY_LOAD=true
+source $HOME/.zsh-nvm/zsh-nvm.plugin.zsh
+
+
 #====================#
 # other applications #
 #====================#

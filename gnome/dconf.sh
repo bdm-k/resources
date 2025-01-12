@@ -42,9 +42,9 @@ gsettings set org.gnome.desktop.wm.keybindings toggle-fullscreen "['<Super><Alt>
 gsettings set org.gnome.settings-daemon.plugins.media-keys screensaver "['<Super><Control>q']"
 
 # Switch to workspaces
-gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-1 "['<Super><Alt><Control>1']"
-gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-2 "['<Super><Alt><Control>2']"
-gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-3 "['<Super><Alt><Control>3']"
+gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-1 "['<Super><Alt><Control>l']"
+gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-2 "['<Super><Alt><Control>u']"
+gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-3 "['<Super><Alt><Control>g']"
 
 # Move window between workspaces
 gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-left "['<Super><Alt><Control>Left']"
