@@ -52,6 +52,7 @@ export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#6e6f72"
 #=========#
 # This plugin allows you to load nvm on demand.
 # Lazy loading of nvm can significantly improve shell startup time.
+# Make sure ~/.zshrc does not load nvm.
 #
 # Install the plugin if it's not installed yet
 if [ ! -d $HOME/.zsh-nvm ]
@@ -75,6 +76,7 @@ eval "$(starship init zsh)"
 #=========#
 alias amend='git commit --amend --no-edit'
 alias log='git log --oneline'
+alias status='git status'
 if [ $(uname -s) = 'Darwin' ]
 then
   alias ls='ls -G'

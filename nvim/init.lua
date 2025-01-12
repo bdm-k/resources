@@ -10,6 +10,8 @@ Must-know commands:
 vim.opt.number = true
 vim.opt.relativenumber = true
 
+vim.opt.wrap = false
+
 -- If the search pattern contains uppercase characters, the search will be
 -- case-sensitive.
 vim.opt.ignorecase = true
@@ -43,18 +45,20 @@ require('colors')
 require('config.lazy')
 
 
+------------------
+-- Key bindings --
+------------------
 --[[
-Key bindings and custom commands from here
-
-key bindings used by plugins:
-* <CR> in normal mode
-* <CR> in visual mode
-* <BS> in normal mode
+Several key bindings used by plugins:
+* <CR> in normal and visual mode
+* <BS> in normal and visual mode
 --]]
 
 local noremap = { noremap = true }
 
+--
 -- Disable some default key bindings
+--
 vim.api.nvim_set_keymap('n', '<Space>', '<Nop>', noremap) -- <Space> is used as the leader
 vim.api.nvim_set_keymap('n', '(', '<Nop>', noremap)
 vim.api.nvim_set_keymap('n', ')', '<Nop>', noremap)
@@ -64,9 +68,9 @@ vim.api.nvim_set_keymap('n', 'gd', '<Nop>', noremap)
 vim.api.nvim_set_keymap('n', 'gr', '<Nop>', noremap)
 vim.api.nvim_set_keymap('n', 's', '<Nop>', noremap)
 
+--
 -- Common key bindings
--- vim.api.nvim_set_keymap('n', '<Left>', '10h', noremap)
--- vim.api.nvim_set_keymap('n', '<Right>', '10l', noremap)
+--
 vim.api.nvim_set_keymap('n', 'H', '^', noremap)
 vim.api.nvim_set_keymap('v', 'H', '^', noremap)
 vim.api.nvim_set_keymap('n', 'L', '$', noremap)
@@ -76,9 +80,11 @@ vim.api.nvim_set_keymap('n', 'P', '[p', noremap)
 vim.api.nvim_set_keymap('n', 's', 'F', noremap)
 vim.api.nvim_set_keymap('n', '<C-s>', '`.', noremap) -- Move to the position where the last change was made
 vim.api.nvim_set_keymap('n', '<leader>/', ':noh<CR>', noremap) -- Stop highlighting search hits
-vim.api.nvim_set_keymap('i', '<S-Enter>', '<Esc>O', noremap)
+vim.api.nvim_set_keymap('i', '<S-Enter>', '<Esc>O', noremap) -- Enable beginning a new line above the cursor in the insert mode
 
+--
 -- LSP client key bindings
+--
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, noremap)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, noremap)
 vim.keymap.set('n', '<leader>g', vim.lsp.buf.hover, noremap)
@@ -86,7 +92,9 @@ vim.keymap.set('n', 'gd', vim.lsp.buf.definition, noremap)
 vim.keymap.set('n', 'g<C-d>', ':split | lua vim.lsp.buf.definition()<CR>', noremap)
 vim.keymap.set('n', '<F2>', ':lua vim.lsp.buf.rename()<CR>', noremap)
 
+--
 -- Window key bindings
+--
 -- Go to last accessed window
 vim.api.nvim_set_keymap('n', '<leader><Space>', '<C-w>p', noremap)
 -- window navigation
@@ -102,13 +110,17 @@ vim.api.nvim_set_keymap('n', '<C-=>', ':vertical resize +5<CR>', noremap)
 vim.api.nvim_set_keymap('n', '(', ':resize -3<CR>', noremap)
 vim.api.nvim_set_keymap('n', ')', ':resize +3<CR>', noremap)
 
+--
 -- Folding key bindings
+--
 vim.api.nvim_set_keymap('n', '<leader>a', 'za', noremap)
 vim.api.nvim_set_keymap('n', '<leader>A', 'zA', noremap)
 vim.api.nvim_set_keymap('n', '<leader>z', 'zR', noremap)
 vim.api.nvim_set_keymap('n', '<leader>Z', 'zM', noremap)
 
+--
 -- Telescope key bindings
+--
 local tele_builtin = require('telescope.builtin')
 local tele_conf = require('config.telescope')
 vim.keymap.set('n', '<leader>f', tele_conf.pick_files, noremap)
@@ -128,12 +140,19 @@ operations.
 * Press <C-V> to open the file in vertical split
 --]]
 
--- Custom commands
+
+---------------------
+-- Custom commands --
+---------------------
 vim.api.nvim_create_user_command('Q', 'wqa', {})
+
 -- Copy the entire buffer
 vim.api.nvim_create_user_command('A', 'normal ggVGy', {})
 
--- Auto commands
+
+-------------------
+-- Auto commands --
+-------------------
 -- Remove trailing whitespace
 vim.api.nvim_create_autocmd(
   { 'BufWritePre' },
