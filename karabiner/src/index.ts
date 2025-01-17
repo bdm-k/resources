@@ -22,7 +22,7 @@ const AppSwitchRule = layer(
   map('v').to$(`${APP_SWITCHER_BIN} 'Visual Studio Code'`),
   map('b').to$(`${APP_SWITCHER_BIN} 'Brave Browser'`),
   map(';').to$(`${APP_SWITCHER_BIN} 'Obsidian'`),
-  map('o').to$(`${APP_SWITCHER_BIN} 'ChatGPT'`),
+  map('q').to$(`${APP_SWITCHER_BIN} 'ChatGPT'`),
   map('g').to$(`${APP_SWITCHER_BIN} 'Dictionary'`),
   map('d').to$(`${APP_SWITCHER_BIN} 'Slack'`),
   map('r').to$(`${APP_SWITCHER_BIN} 'Structured'`),
@@ -42,9 +42,9 @@ const AerospaceRule = layer(
   map('l').to$(`${AEROSPACE_BIN} focus right`),
 
   // navigate workspaces
-  map('1').to$(`${AEROSPACE_BIN} workspace main`),
-  map('2').to$(`${AEROSPACE_BIN} workspace sub`),
-  map('3').to$(`${AEROSPACE_BIN} workspace comm.`),
+  map('u').to$(`${AEROSPACE_BIN} workspace main`),
+  map('i').to$(`${AEROSPACE_BIN} workspace sub`),
+  map('o').to$(`${AEROSPACE_BIN} workspace comm.`),
 
   // resize
   map('-').to$(`${AEROSPACE_BIN} resize smart -50`),
@@ -92,7 +92,7 @@ const JISKeyboardRule = rule(
 ]);
 
 const AlternativeEscBackspaceRule = rule(
-  'Alternative keybindings for Esc and Backspace'
+  'Alternative keybindings for Esc, Backspace, and Enter'
 ).manipulators([
   withCondition(ifDevice(APPLE_INTERNAL_KEYBOARD))([
     map('left_control').to('left_control').toIfAlone('escape'),
@@ -101,7 +101,8 @@ const AlternativeEscBackspaceRule = rule(
     map('caps_lock').to('left_control').toIfAlone('escape'),
   ]),
 
-  map('[', 'left_control' ).to('delete_or_backspace'),
+  map('n', 'left_control' ).to('delete_or_backspace'),
+  map('m', 'left_control').to('return_or_enter'),
 ]);
 
 const ArrowKeyRule = rule(
