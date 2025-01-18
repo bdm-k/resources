@@ -1,11 +1,17 @@
 #===================#
 # Zsh configuration #
 #===================#
+# Use emacs for the default base keymap
+bindkey -e
+
 # For the option meanings, refer to zshoptions(1)
 setopt SHARE_HISTORY
 setopt HIST_IGNORE_ALL_DUPS
 
 setopt AUTO_CD
+
+# Enable compsys
+# autoload -Uz compinit && compinit
 
 
 #===========#
