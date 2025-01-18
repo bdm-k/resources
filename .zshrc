@@ -80,9 +80,13 @@ eval "$(starship init zsh)"
 #=========#
 # aliases #
 #=========#
+# git
 alias amend='git commit --amend --no-edit'
 alias log='git log --oneline'
 alias status='git status'
+
+alias dat='bat --diff'
+
 if [ $(uname -s) = 'Darwin' ]
 then
   alias ls='ls -G'

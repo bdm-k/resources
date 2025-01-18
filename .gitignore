@@ -5,3 +5,4 @@ Brewfile.lock.json
 gnome/background-image.png
 obsidian/hotkeys.json
 obsidian/my-snippet.css
+home-manager/username.nix
