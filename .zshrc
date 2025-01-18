@@ -34,13 +34,13 @@ unsetopt beep
 #=====================#
 # zsh-autosuggestions #
 #=====================#
-# Enable zsh-autosuggestions
-if [ $(uname -s) = 'Darwin' ]
+# Install zsh-autosuggestions if it's not installed yet
+if [ ! -d $HOME/.zsh-autosuggestions ]
 then
-  source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-else
-  source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+  git clone https://github.com/zsh-users/zsh-autosuggestions $HOME/.zsh-autosuggestions
 fi
+# Enable zsh-autosuggestions
+source $HOME/.zsh-autosuggestions/zsh-autosuggestions.zsh
 # keybinding to accept the next part of the suggestion
 bindkey '^ ' forward-word
 # suggestion text color
