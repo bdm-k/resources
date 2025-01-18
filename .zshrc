@@ -23,6 +23,8 @@ export FZF_ALT_C_COMMAND=""
 source <(fzf --zsh)
 # Disable the beep when exiting fzf search
 unsetopt beep
+# Customize the appearance
+export FZF_DEFAULT_OPTS="--height=40% --layout=reverse --info=inline"
 #
 # usage note of fzf
 #
@@ -93,3 +95,20 @@ then
 else
   alias ls='ls --color=auto'
 fi
+
+alias nvim='_nvim'
+
+
+#===========#
+# functions #
+#===========#
+# If nvim is run without arguments, automtically start the pile picker
+_nvim()
+{
+  if [ $# -eq 0 ]
+  then
+    command nvim -c 'PickFiles'
+  else
+    command nvim $@
+  fi
+}

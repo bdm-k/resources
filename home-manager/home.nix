@@ -24,6 +24,8 @@ in
     # pkgs.starship
     # pkgs.fzf
 
+    pkgs.ripgrep
+
     pkgs.bat
     pkgs.neofetch
 

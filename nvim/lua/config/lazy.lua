@@ -50,6 +50,13 @@ lazy.setup({
       end,
     },
     {
+      'nvim-telescope/telescope-frecency.nvim',
+      version = "*", -- Install the latest stable version
+      config = function()
+        require("telescope").load_extension "frecency"
+      end,
+    },
+    {
       'neovim/nvim-lspconfig',
       lazy = false,
       dependencies = {

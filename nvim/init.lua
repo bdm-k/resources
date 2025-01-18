@@ -115,7 +115,7 @@ vim.api.nvim_set_keymap('n', ')', ':resize +3<CR>', noremap)
 --
 vim.api.nvim_set_keymap('n', '<leader>a', 'za', noremap)
 vim.api.nvim_set_keymap('n', '<leader>A', 'zA', noremap)
-vim.api.nvim_set_keymap('n', '<leader>z', 'zR', noremap)
+vim.api.nvim_set_keymap('n', '<leader>z', 'zR', noremap) -- Open all folds
 vim.api.nvim_set_keymap('n', '<leader>Z', 'zM', noremap)
 
 --
@@ -124,6 +124,7 @@ vim.api.nvim_set_keymap('n', '<leader>Z', 'zM', noremap)
 local tele_builtin = require('telescope.builtin')
 local tele_conf = require('config.telescope')
 vim.keymap.set('n', '<leader>f', tele_conf.pick_files, noremap)
+vim.keymap.set('n', '<leader>r', ':Telescope frecency workspace=CWD<CR>', noremap)
 vim.keymap.set('n', '<leader>t', tele_builtin.help_tags, noremap)
 vim.keymap.set('n', '<leader>p', tele_builtin.registers, noremap)
 vim.keymap.set('n', '<leader>b', tele_builtin.buffers, noremap)
@@ -148,6 +149,9 @@ vim.api.nvim_create_user_command('Q', 'wqa', {})
 
 -- Copy the entire buffer
 vim.api.nvim_create_user_command('A', 'normal ggVGy', {})
+
+-- used by the `_nvim` shell function
+vim.api.nvim_create_user_command('PickFiles', tele_conf.pick_files, {})
 
 
 -------------------
