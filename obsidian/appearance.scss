@@ -71,6 +71,16 @@ body {
   background: var(--background-secondary-alt);
 }
 
+// Change the color of bold and italic text within links (editing view)
+.cm-s-obsidian span.cm-link.cm-strong .cm-underline {
+  color: var(--bold-color);
+  text-decoration-color: var(--link-external-color);
+}
+.cm-s-obsidian span.cm-link.cm-em .cm-underline {
+  color: var(--italic-color);
+  text-decoration-color: var(--link-external-color);
+}
+
 
 /* ------------------------- */
 /* additional image features */
