@@ -1,6 +1,7 @@
 { config, pkgs, ... }:
 let
   username = import ./username.nix;
+  resources = "/home/${username}/resources";
 in
 {
   # Home Manager needs a bit of information about you and the paths it should
@@ -25,8 +26,10 @@ in
     pkgs.bat
     pkgs.neofetch
     pkgs.gh
+    pkgs.gccgo
+    pkgs.gnumake
 
-    # pkgs.neovim
+    pkgs.neovim
     pkgs.ripgrep
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
@@ -44,12 +47,13 @@ in
   ];
 
   xdg.configFile = {
-    "starship.toml".source = "/home/${username}/resources/starship.toml";
-    "nvim".source = "/home/${username}/resources/nvim";
+    "starship.toml".source = "${resources}/starship.toml";
+    "nvim" = {
+      source = "${resources}/nvim";
+      recursive = true;
+    };
   };
 
-  # Home Manager is pretty good at managing dotfiles. The primary way to manage
-  # plain files is through 'home.file'.
   home.file = {
     # # You can also set the file content immediately.
     # ".gradle/gradle.properties".text = ''
