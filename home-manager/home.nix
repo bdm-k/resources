@@ -20,14 +20,14 @@ in
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = [
-    # pkgs.zsh
     pkgs.starship
-    # pkgs.fzf
-
-    pkgs.ripgrep
-
+    pkgs.fzf
     pkgs.bat
     pkgs.neofetch
+    pkgs.gh
+
+    # pkgs.neovim
+    pkgs.ripgrep
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -45,6 +45,7 @@ in
 
   xdg.configFile = {
     "starship.toml".source = "/home/${username}/resources/starship.toml";
+    "nvim".source = "/home/${username}/resources/nvim";
   };
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
