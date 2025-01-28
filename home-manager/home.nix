@@ -52,10 +52,13 @@ in
 
   xdg.configFile = {
     "starship.toml".source = "${resources}/starship.toml";
+    "wezterm".source = "${resources}/wezterm";
     "nvim" = {
       source = "${resources}/nvim";
       recursive = true;
     };
+    "Code/User/keybindings.json".source = "${resources}/vscode/keybindings.json";
+    "Code/User/settings.json".source = "${resources}/vscode/settings.json";
   };
 
   home.file = {
