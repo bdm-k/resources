@@ -57,18 +57,6 @@ Several key bindings used by plugins:
 local noremap = { noremap = true }
 
 --
--- Disable some default key bindings
---
-vim.api.nvim_set_keymap('n', '<Space>', '<Nop>', noremap) -- <Space> is used as the leader
-vim.api.nvim_set_keymap('n', '(', '<Nop>', noremap)
-vim.api.nvim_set_keymap('n', ')', '<Nop>', noremap)
-vim.api.nvim_set_keymap('n', '[d', '<Nop>', noremap)
-vim.api.nvim_set_keymap('n', ']d', '<Nop>', noremap)
-vim.api.nvim_set_keymap('n', 'gd', '<Nop>', noremap)
-vim.api.nvim_set_keymap('n', 'gr', '<Nop>', noremap)
-vim.api.nvim_set_keymap('n', 's', '<Nop>', noremap)
-
---
 -- Common key bindings
 --
 vim.api.nvim_set_keymap('n', 'H', '^', noremap)
@@ -77,7 +65,8 @@ vim.api.nvim_set_keymap('n', 'L', '$', noremap)
 vim.api.nvim_set_keymap('v', 'L', '$', noremap)
 vim.api.nvim_set_keymap('n', 'p', ']p', noremap)
 vim.api.nvim_set_keymap('n', 'P', '[p', noremap)
-vim.api.nvim_set_keymap('n', 's', 'F', noremap)
+vim.api.nvim_set_keymap('n', '-', '<C-o>', noremap) -- Navigate back jump list
+vim.api.nvim_set_keymap('n', '=', '<C-i>', noremap) -- Navigate forward jump list
 vim.api.nvim_set_keymap('n', '<C-s>', '`.', noremap) -- Move to the position where the last change was made
 vim.api.nvim_set_keymap('n', '<leader>/', ':noh<CR>', noremap) -- Stop highlighting search hits
 vim.api.nvim_set_keymap('i', '<S-Enter>', '<Esc>O', noremap) -- Enable beginning a new line above the cursor in the insert mode

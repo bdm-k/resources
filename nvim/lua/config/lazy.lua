@@ -72,28 +72,11 @@ lazy.setup({
     },
     {
       'neovim/nvim-lspconfig',
-      lazy = false,
-      dependencies = {
-        { 'ms-jpq/coq_nvim', branch = 'coq' },
-        { 'ms-jpq/coq.artifacts', branch = 'artifacts' },
-        { 'ms-jpq/coq.thirdparty', branch = '3p' },
-      },
-      init = function()
-        vim.g.coq_settings = {
-          auto_start = true,
-          display = {
-            statusline = { helo = false },
-            preview = {
-              border = 'solid',
-            },
-          },
-        }
-      end,
       config = function()
         local lspconfig = require 'lspconfig'
-        local coq = require 'coq'
-        -- lspconfig.tsserver.setup(coq.lsp_ensure_capabilities {})
-        lspconfig.rust_analyzer.setup(coq.lsp_ensure_capabilities {})
+        -- lspconfig.clangd.setup {}
+        -- lspconfig.tsserver.setup {}
+        -- lspconfig.rust_analyzer.setup {}
       end,
     },
     {
