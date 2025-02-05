@@ -32,8 +32,8 @@ if kernel_name == "Darwin" then
 else
   config.window_frame = {
     font = wezterm.font({
-      family = "Mulish",
-      weight = "DemiBold",
+      family = "Noto Sans CJK JP",
+      weight = "Medium",
     }),
     font_size = 11.0,
   }
