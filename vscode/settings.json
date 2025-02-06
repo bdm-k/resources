@@ -8,6 +8,7 @@
   "git.openRepositoryInParentFolders": "never",
 
   // editor
+  "editor.fontFamily": "'Source Code Pro', Menlo, Monaco, 'Courier New', monospace",
   "editor.tabSize": 2,
   "editor.renderWhitespace": "boundary",
   "editor.cursorBlinking": "solid",
@@ -70,5 +71,6 @@
     "*.json": "jsonc"
   },
   "window.customTitleBarVisibility": "windowed",
+  "window.titleBarStyle": "custom",
   "breadcrumbs.enabled": false
 }

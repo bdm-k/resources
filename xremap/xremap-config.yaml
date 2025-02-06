@@ -21,7 +21,7 @@ keymap:
   - name: Brave Rule
     exact_match: true
     application:
-      only: Brave-browser
+      only: [Brave-browser, Brave]
     remap:
       CTRL_L-KEY_MINUS: ALT-KEY_LEFT  # Back
       CTRL_L-KEY_EQUAL: ALT-KEY_RIGHT # Forward

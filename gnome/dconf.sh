@@ -38,7 +38,7 @@ gsettings set org.gnome.shell.keybindings shift-overview-up "[]"
 gsettings set org.gnome.desktop.wm.keybindings minimize "['<Alt>h']"
 gsettings set org.gnome.desktop.wm.keybindings close "['<Super>q']"
 gsettings set org.gnome.desktop.wm.keybindings cycle-group "['<Control>Left']"
-gsettings set org.gnome.desktop.wm.keybindings toggle-fullscreen "['<Super><Alt><Control>f']"
+gsettings set org.gnome.desktop.wm.keybindings toggle-fullscreen "['<Super><Alt><Control>v']"
 gsettings set org.gnome.settings-daemon.plugins.media-keys screensaver "['<Super><Control>q']"
 
 # Switch to workspaces
@@ -59,6 +59,8 @@ then
   gsettings set org.gnome.shell.extensions.dash-to-dock extend-height false
   gsettings set org.gnome.shell.extensions.dash-to-dock dash-max-icon-size 128
   gsettings set org.gnome.shell.extensions.dash-to-dock intellihide-mode ALL_WINDOWS
+  gsettings set org.gnome.shell.extensions.dash-to-dock shortcut "[]"
+  gsettings set org.gnome.shell.extensions.dash-to-dock shortcut-text ""
 else
   echo '[info] Dash to Dock is not installed'
 fi

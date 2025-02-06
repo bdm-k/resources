@@ -38,6 +38,8 @@ in
     pkgs.rustc
     pkgs.rust-analyzer
 
+    pkgs.clang-tools
+
     pkgs.source-code-pro
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
