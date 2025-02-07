@@ -107,7 +107,7 @@ _nvim()
 {
   if [ $# -eq 0 ]
   then
-    command nvim -c 'PickFiles'
+    command nvim -c 'Telescope frecency workspace=CWD'
   else
     command nvim $@
   fi
