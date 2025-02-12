@@ -19,14 +19,22 @@ local lazy = require('lazy')
 lazy.setup({
   spec = {
     {
+      'echasnovski/mini.nvim',
+      version = false, -- Use the main branch
+      config = function()
+        -- When adding surrounding brackets, use closing ones if you do not want
+        -- whitespace padding.
+        require('mini.surround').setup()
+        require('mini.pairs').setup()
+      end
+    },
+    {
       'nvim-treesitter/nvim-treesitter',
       build = ':TSUpdate',
       config = function()
         local configs = require('nvim-treesitter.configs')
         configs.setup({
           ensure_installed = {
-            'typescript',
-            'rust',
             'json',
             'jsonc',
           },
