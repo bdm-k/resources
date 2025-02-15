@@ -2,6 +2,7 @@ local background = '#18181a'
 local foreground = '#dcdfe4'
 local orange = '#d19a66'
 local yellow = '#e5c07b'
+local green = '#98c379'
 local magenta = '#c678dd'
 local comment = '#7f848e'
 
@@ -38,12 +39,16 @@ vim.api.nvim_set_hl(0, 'WinSeparator', { fg = noir5 })
 vim.api.nvim_set_hl(0, '@string', { fg = primary })
 vim.api.nvim_set_hl(0, '@boolean', { fg = orange })
 vim.api.nvim_set_hl(0, '@number', { fg = orange })
-vim.api.nvim_set_hl(0, '@constant.builtin', { fg = orange })
+vim.api.nvim_set_hl(0, '@constant', { fg = orange })
 vim.api.nvim_set_hl(0, '@keyword', { fg = magenta })
 vim.api.nvim_set_hl(0, '@type', { fg = yellow })
+vim.api.nvim_set_hl(0, '@function', { fg = green })
 vim.api.nvim_set_hl(0, '@comment', { fg = comment, italic = true })
 -- lua
 vim.api.nvim_set_hl(0, '@constructor.lua', { fg = foreground })
+-- cpp
+vim.api.nvim_set_hl(0, '@operator.cpp', { link = '@keyword' })
+vim.api.nvim_set_hl(0, '@type.builtin.cpp', { link = '@keyword' })
 
 -- Diagnostic
 vim.api.nvim_set_hl(0, 'DiagnosticUnderlineError', {
