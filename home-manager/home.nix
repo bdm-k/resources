@@ -30,15 +30,21 @@ in
     pkgs.gh
     pkgs.gccgo
     pkgs.gnumake
+    pkgs.clang-tools
 
     pkgs.neovim
     pkgs.ripgrep
 
-    pkgs.cargo
-    pkgs.rustc
-    pkgs.rust-analyzer
-
-    pkgs.clang-tools
+    # To start using the stable toolchain, run:
+    # ```
+    # rustup toolchain install stable
+    # rustup default stable
+    # ```
+    # To use the rust-analyzer, also run:
+    # ```
+    # rustup component add rust-analyzer
+    # ```
+    pkgs.rustup
 
     pkgs.source-code-pro
 
