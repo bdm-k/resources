@@ -25,7 +25,27 @@ lazy.setup({
         -- When adding surrounding brackets, use closing ones if you do not want
         -- whitespace padding.
         require('mini.surround').setup()
+
         require('mini.pairs').setup()
+
+        -- To stage the hunk within which the cursor is located, type 'ghgh'.
+        require('mini.diff').setup({
+          view = {
+            style = 'sign',
+            signs = { add = '▕', change = '▕', delete = '▕' },
+          },
+          delay = { text_change = 1000 },
+          mappings = {
+            goto_first = '',
+            goto_last = '',
+            goto_prev = '<C-[>',
+            goto_next = '<C-]>',
+          },
+        })
+        local palette = require('colors')
+        vim.api.nvim_set_hl(0, 'MiniDiffSignAdd', { fg = palette.secondary })
+        vim.api.nvim_set_hl(0, 'MiniDiffSignChange', { fg = palette.orange })
+        vim.api.nvim_set_hl(0, 'MiniDiffSignDelete', { fg = palette.primary })
       end
     },
     {
@@ -85,17 +105,6 @@ lazy.setup({
         -- lspconfig.clangd.setup {}
         -- lspconfig.tsserver.setup {}
         -- lspconfig.rust_analyzer.setup {}
-      end,
-    },
-    {
-      'Shatur/neovim-session-manager',
-      enabled = false,
-      dependencies = { 'nvim-lua/plenary.nvim' },
-      config = function()
-        local session_manager_config = require('session_manager.config')
-        require('session_manager').setup({
-          autoload_mode = session_manager_config.AutoloadMode.CurrentDir,
-        })
       end,
     },
   }

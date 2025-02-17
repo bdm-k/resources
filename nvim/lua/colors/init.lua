@@ -64,6 +64,8 @@ local M = {
   bg = background,
   fg = foreground,
   orange = orange,
+  yellow = yellow,
+  green = green,
   magenta = magenta,
   comment = comment,
 

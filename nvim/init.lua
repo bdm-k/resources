@@ -52,6 +52,7 @@ require('config.lazy')
 Several key bindings used by plugins:
 * <CR> in normal and visual mode
 * <BS> in normal and visual mode
+* <C-[> and <C-]> in normal mode
 --]]
 
 local noremap = { noremap = true }
@@ -136,6 +137,8 @@ vim.api.nvim_create_user_command('Q', 'wqa', {})
 
 -- Copy the entire buffer
 vim.api.nvim_create_user_command('A', 'normal ggVGy', {})
+
+vim.api.nvim_create_user_command('O', 'lua MiniDiff.toggle_overlay()', {})
 
 
 -------------------
