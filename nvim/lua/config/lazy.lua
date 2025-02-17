@@ -99,8 +99,26 @@ lazy.setup({
       end,
     },
     {
+      'saghen/blink.cmp',
+      version = '*',
+
+      --@module 'blink.cmp'
+      --@type blink.cmp.Config
+      opt = {
+        -- See https://cmp.saghen.dev/configuration/keymap#enter for the preset
+        -- key bindings.
+        keymap = {
+          preset = 'enter',
+          ['<C-p>'] = { 'cancel', 'fallback' }, -- Hides the completion menu
+        },
+      },
+    },
+    {
       'neovim/nvim-lspconfig',
+      dependencies = { 'saghen/blink.cmp' },
+
       config = function()
+        local capabilities = require('blink.cmp').get_lsp_capabilities()
         local lspconfig = require 'lspconfig'
         -- lspconfig.clangd.setup {}
         -- lspconfig.tsserver.setup {}
