@@ -31,6 +31,7 @@ in
     pkgs.gccgo
     pkgs.gnumake
     pkgs.clang-tools
+    pkgs.lua-language-server
 
     pkgs.neovim
     pkgs.ripgrep

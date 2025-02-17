@@ -46,6 +46,8 @@ lazy.setup({
         vim.api.nvim_set_hl(0, 'MiniDiffSignAdd', { fg = palette.secondary })
         vim.api.nvim_set_hl(0, 'MiniDiffSignChange', { fg = palette.orange })
         vim.api.nvim_set_hl(0, 'MiniDiffSignDelete', { fg = palette.primary })
+
+        require('mini.icons').setup() -- used by blink.cmp
       end
     },
     {
@@ -101,15 +103,44 @@ lazy.setup({
     {
       'saghen/blink.cmp',
       version = '*',
+      build = 'cargo build --release', -- requires nightly toolchain
 
       --@module 'blink.cmp'
       --@type blink.cmp.Config
-      opt = {
+      opts = {
         -- See https://cmp.saghen.dev/configuration/keymap#enter for the preset
         -- key bindings.
         keymap = {
           preset = 'enter',
           ['<C-p>'] = { 'cancel', 'fallback' }, -- Hides the completion menu
+        },
+
+        completion = {
+          list = {
+            selection = {
+              -- Do not automatically select the first item in the completion list
+              -- for command-line mode.
+              preselect = function(ctx) return ctx.mode ~= 'cmdline' end,
+            },
+          },
+          menu = {
+            draw = {
+              components = {
+                -- Use mini.icons
+                kind_icon = {
+                  ellipsis = false,
+                  text = function(ctx)
+                    local kind_icon, _, _ = require('mini.icons').get('lsp', ctx.kind)
+                    return kind_icon
+                  end,
+                  highlight = function(ctx)
+                    local _, hl, _ = require('mini.icons').get('lsp', ctx.kind)
+                    return hl
+                  end,
+                }
+              }
+            }
+          }
         },
       },
     },
@@ -120,9 +151,10 @@ lazy.setup({
       config = function()
         local capabilities = require('blink.cmp').get_lsp_capabilities()
         local lspconfig = require 'lspconfig'
-        -- lspconfig.clangd.setup {}
-        -- lspconfig.tsserver.setup {}
-        -- lspconfig.rust_analyzer.setup {}
+        -- lspconfig.clangd.setup { capabilities = capabilities }
+        -- lspconfig.tsserver.setup { capabilities = capabilities }
+        -- lspconfig.rust_analyzer.setup { capabilities = capabilities }
+        -- lspconfig.lua_ls.setup { capabilities = capabilities }
       end,
     },
   }
