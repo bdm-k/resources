@@ -69,7 +69,7 @@ vim.api.nvim_set_keymap('n', 'P', '[p', noremap)
 vim.api.nvim_set_keymap('n', '-', '<C-o>', noremap) -- Navigate back jump list
 vim.api.nvim_set_keymap('n', '=', '<C-i>', noremap) -- Navigate forward jump list
 vim.api.nvim_set_keymap('n', '<C-s>', '`.', noremap) -- Move to the position where the last change was made
-vim.api.nvim_set_keymap('n', '<leader>/', ':noh<CR>', noremap) -- Stop highlighting search hits
+vim.api.nvim_set_keymap('n', '<Esc>', ':noh<CR>', noremap) -- Stop highlighting search hits
 vim.api.nvim_set_keymap('i', '<S-Enter>', '<Esc>O', noremap) -- Enable beginning a new line above the cursor in the insert mode
 
 --
