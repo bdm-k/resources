@@ -48,6 +48,7 @@ lazy.setup({
         vim.api.nvim_set_hl(0, 'MiniDiffSignDelete', { fg = palette.primary })
 
         require('mini.icons').setup() -- used by blink.cmp
+        require('mini.snippets').setup() -- integrated into blink.cmp
       end
     },
     {
@@ -113,6 +114,8 @@ lazy.setup({
         keymap = {
           preset = 'enter',
           ['<C-p>'] = { 'cancel', 'fallback' }, -- Hides the completion menu
+          ['<C-u>'] = { 'scroll_documentation_up', 'fallback' },
+          ['<C-d>'] = { 'scroll_documentation_down', 'fallback' },
         },
 
         completion = {
@@ -137,11 +140,29 @@ lazy.setup({
                     local _, hl, _ = require('mini.icons').get('lsp', ctx.kind)
                     return hl
                   end,
-                }
-              }
-            }
-          }
+                },
+                label = {
+                  width = { max = 45 },
+                },
+              },
+            },
+          },
         },
+
+        snippets = { preset = 'mini_snippets' },
+
+        sources = {
+          -- In command-line mode, hide the completion menu until 3 letters are
+          -- typed.
+          min_keyword_length = function(ctx)
+            if ctx.mode == 'cmdline' and string.find(ctx.line, ' ') == nil then
+              return 3
+            end
+            return 0
+          end,
+        },
+
+        signature = { enabled = true },
       },
     },
     {
