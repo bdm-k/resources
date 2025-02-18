@@ -1,6 +1,7 @@
 node_modules
 _build
 nvim/lazy-lock.json
+nvim/lua/config/lang-servers.lua
 Brewfile.lock.json
 gnome/background-image.png
 obsidian/hotkeys.json

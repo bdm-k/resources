@@ -172,10 +172,12 @@ lazy.setup({
       config = function()
         local capabilities = require('blink.cmp').get_lsp_capabilities()
         local lspconfig = require 'lspconfig'
-        -- lspconfig.clangd.setup { capabilities = capabilities }
-        -- lspconfig.tsserver.setup { capabilities = capabilities }
-        -- lspconfig.rust_analyzer.setup { capabilities = capabilities }
-        -- lspconfig.lua_ls.setup { capabilities = capabilities }
+        local servers = require 'config.lang-servers'
+
+        for server, config in pairs(servers) do
+          config.capabilities = capabilities
+          lspconfig[server].setup(config)
+        end
       end,
     },
   }

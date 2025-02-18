@@ -82,15 +82,11 @@ function tab_title(tab_info)
 end
 
 -- Prefix the tab title with 🔎 if the active pane in the tab is zoomed
--- Append the domain name if it is not the local domain
 wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_width)
   local title = tab_title(tab)
   local pane = tab.active_pane
   if pane.is_zoomed then
     title = "🔎 " .. title
-  end
-  if pane.domain_name ~= "local" then
-    title = title .. " 🌐 " .. pane.domain_name
   end
   return title
 end)
