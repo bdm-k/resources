@@ -65,10 +65,29 @@ body {
   --list-marker-color: var(--text-normal);
 }
 
-// Change the background color of inline code
-.theme-dark :not(pre) > code,
+/* Change the background color of inline code. If it appears in a header, make
+   the background transparent */
+// for editing view
 .theme-dark .cm-s-obsidian span.cm-inline-code {
   background: var(--background-secondary-alt);
+  // Make the background transparent if it's in a header
+  &.cm-header {
+    background: transparent;
+  }
+}
+// for reading view
+.theme-dark :not(pre) {
+  > code {
+    background: var(--background-secondary-alt);
+  }
+  > :is(h1, h2, h3, h4, h5, h6) > code {
+    background: transparent;
+  }
+}
+
+// Do not reduce the font size of inline code if it appears in a header (reading view)
+.theme-dark :not(pre) > :is(h1, h2, h3, h4, h5, h6) > code {
+  font-size: inherit;
 }
 
 // Change the color of bold and italic text within links (editing view)
