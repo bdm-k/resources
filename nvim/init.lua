@@ -140,6 +140,11 @@ vim.api.nvim_create_user_command('A', 'normal ggVGy', {})
 
 vim.api.nvim_create_user_command('O', 'lua MiniDiff.toggle_overlay()', {})
 
+-- Toggle the line wrap
+vim.api.nvim_create_user_command('W', function()
+  vim.opt.wrap = not vim.opt.wrap:get()
+end, {})
+
 
 -------------------
 -- Auto commands --
