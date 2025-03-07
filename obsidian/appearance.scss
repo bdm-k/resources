@@ -76,18 +76,23 @@ body {
   }
 }
 // for reading view
-.theme-dark :not(pre) {
-  > code {
+.theme-dark {
+  :not(pre) > code {
     background: var(--background-secondary-alt);
   }
-  > :is(h1, h2, h3, h4, h5, h6) > code {
+  :is(h1, h2, h3, h4, h5, h6) > code {
     background: transparent;
   }
 }
 
 // Do not reduce the font size of inline code if it appears in a header (reading view)
-.theme-dark :not(pre) > :is(h1, h2, h3, h4, h5, h6) > code {
+.theme-dark :is(h1, h2, h3, h4, h5, h6) > code {
   font-size: inherit;
+}
+
+// Fix the font color of inline code with a link
+.theme-dark a.external-link > code {
+  color: var(--link-external-color);
 }
 
 // Change the color of bold and italic text within links (editing view)
