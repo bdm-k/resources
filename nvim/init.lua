@@ -79,6 +79,8 @@ vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, noremap)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, noremap)
 vim.keymap.set('n', '<leader>g', vim.lsp.buf.hover, noremap)
 vim.keymap.set('n', 'gd', vim.lsp.buf.definition, noremap)
+vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, noremap)
+vim.keymap.set('n', 'gr', vim.lsp.buf.references, noremap)
 vim.keymap.set('n', 'g<C-d>', ':split | lua vim.lsp.buf.definition()<CR>', noremap)
 vim.keymap.set('n', '<F2>', ':lua vim.lsp.buf.rename()<CR>', noremap)
 
