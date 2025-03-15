@@ -138,13 +138,18 @@ operations.
 vim.api.nvim_create_user_command('Q', 'wqa', {})
 
 -- Copy the entire buffer
-vim.api.nvim_create_user_command('A', 'normal ggVGy', {})
+vim.api.nvim_create_user_command('C', 'normal ggVGy', {})
 
 vim.api.nvim_create_user_command('O', 'lua MiniDiff.toggle_overlay()', {})
 
 -- Toggle the line wrap
 vim.api.nvim_create_user_command('W', function()
   vim.opt.wrap = not vim.opt.wrap:get()
+end, {})
+
+-- Toggle the inlay hints
+vim.api.nvim_create_user_command('H', function()
+  vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
 end, {})
 
 
