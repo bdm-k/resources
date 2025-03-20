@@ -17,6 +17,10 @@ config.unix_domains = {
   {
     name = "kokus-lab",
     proxy_command = { "ssh", "-T", "kokus-lab", "wezterm", "cli", "proxy" },
+  },
+  {
+    name = "tier4-pc",
+    proxy_command = { "ssh", "-T", "tier4-pc", "wezterm", "cli", "proxy" },
   }
 }
 
@@ -83,10 +87,17 @@ end
 
 -- Prefix the tab title with 🔎 if the active pane in the tab is zoomed
 wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_width)
+  function starts_with(str, prefix)
+    return string.find(str, "^" .. prefix) ~= nil
+  end
+
   local title = tab_title(tab)
   local pane = tab.active_pane
   if pane.is_zoomed then
     title = "🔎 " .. title
+  end
+  if pane.domain_name ~= "local" and not starts_with(pane.domain_name, "SSH:") then
+    title = title .. " 🌐 " .. pane.domain_name
   end
   return title
 end)
