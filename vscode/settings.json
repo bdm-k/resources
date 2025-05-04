@@ -45,6 +45,7 @@
     "pyplot",
     "rflags",
     "rgba",
+    "significand",
     "subarray",
     "syscall",
     "tailwindcss",
@@ -52,6 +53,11 @@
     "viewsets"
   ],
   "cSpell.enableFiletypes": ["!json"],
+  "cSpell.enabledNotifications": {
+    "Average Word Length too Long": false,
+    "Maximum Word Length Exceeded": false,
+    "Lines too Long": false
+  },
 
   "indentRainbow.includedLanguages": [
     "typescript",
@@ -64,6 +70,13 @@
   "github.copilot.chat.localeOverride": "ja",
 
   "C_Cpp.default.cStandard": "gnu11",
+
+  "markdown-pdf.displayHeaderFooter": false,
+
+  // language specific
+  "[rust]": {
+    "editor.tabSize": 4
+  },
 
   // others
   "files.associations": {
