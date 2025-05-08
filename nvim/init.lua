@@ -83,6 +83,12 @@ vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, noremap)
 vim.keymap.set('n', 'gr', vim.lsp.buf.references, noremap)
 vim.keymap.set('n', 'g<C-d>', ':split | lua vim.lsp.buf.definition()<CR>', noremap)
 vim.keymap.set('n', '<F2>', ':lua vim.lsp.buf.rename()<CR>', noremap)
+--[[
+usage notes for LSP
+
+You can stop all langage servers with :LspStop. Conversely, to restart all stopped
+language servers, use :LspStart.
+--]]
 
 --
 -- Window key bindings
@@ -119,7 +125,7 @@ vim.keymap.set('n', '<leader>p', ':Telescope frecency workspace=CWD<CR>', norema
 vim.keymap.set('n', '<leader>t', tele_builtin.help_tags, noremap)
 vim.keymap.set('n', '<leader>b', tele_builtin.buffers, noremap)
 --[[
-usage note of telescope
+usage notes for Telescope
 
 To use a picker that does not have a keyboard shortcut, enter :Telescope in the
 command line followed by the picker's name.
