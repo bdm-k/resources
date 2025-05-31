@@ -86,6 +86,7 @@ eval "$(starship init zsh)"
 alias amend='git commit --amend --no-edit'
 alias log='git log --oneline'
 alias status='git status'
+alias branch='git branch -v'
 
 alias dat='bat --diff'
 
