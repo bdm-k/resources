@@ -1,39 +1,53 @@
-OUT_DIR = $(HOME)/.config
-SRC_DIR = $(HOME)/resources
+HM_DIR = $(HOME)/.config/home-manager
+CONFIG_DIR = $(HOME)/.config
+ROOT = $(HOME)/resources
 
-TARGETS = $(OUT_DIR)/starship.toml $(OUT_DIR)/Code/User/keybindings.json \
-	  $(OUT_DIR)/Code/User/settings.json $(OUT_DIR)/wezterm/wezterm.lua \
-	  $(OUT_DIR)/nvim/init.lua $(OUT_DIR)/nvim/lua
+SYMLINKS = $(CONFIG_DIR)/starship.toml $(CONFIG_DIR)/Code/User/keybindings.json \
+	  $(CONFIG_DIR)/Code/User/settings.json $(CONFIG_DIR)/wezterm/wezterm.lua \
+	  $(CONFIG_DIR)/nvim/init.lua $(CONFIG_DIR)/nvim/lua
 
-.PHONY: all
-all: $(TARGETS)
+.PHONY: show_targets
+show_targets:
+	@echo "Available targets: symlinks, clean_symlinks, nix-gc"
 
-$(OUT_DIR)/starship.toml: $(SRC_DIR)/starship.toml
+$(HM_DIR)/flake.nix: flake.nix
+	cp @< $@
+
+$(HM_DIR)/home.nix: home.nix
+	cp @< $@
+
+.PHONY: symlinks
+symlinks: $(SYMLINKS) 
+
+$(CONFIG_DIR)/starship.toml: $(ROOT)/starship.toml
 	ln -s $< $@
 
-$(OUT_DIR)/Code/User/keybindings.json: $(SRC_DIR)/vscode/keybindings.json
-	mkdir -p $(OUT_DIR)/Code/User
+$(CONFIG_DIR)/Code/User/keybindings.json: $(ROOT)/vscode/keybindings.json
+	mkdir -p $(CONFIG_DIR)/Code/User
 	ln -s $< $@
 
-$(OUT_DIR)/Code/User/settings.json: $(SRC_DIR)/vscode/settings.json
-	mkdir -p $(OUT_DIR)/Code/User
+$(CONFIG_DIR)/Code/User/settings.json: $(ROOT)/vscode/settings.json
+	mkdir -p $(CONFIG_DIR)/Code/User
 	ln -s $< $@
 
-$(OUT_DIR)/wezterm/wezterm.lua: $(SRC_DIR)/wezterm/wezterm.lua
-	mkdir -p $(OUT_DIR)/wezterm
+$(CONFIG_DIR)/wezterm/wezterm.lua: $(ROOT)/wezterm/wezterm.lua
+	mkdir -p $(CONFIG_DIR)/wezterm
 	ln -s $< $@
 
-$(OUT_DIR)/nvim/init.lua: $(SRC_DIR)/nvim/init.lua
-	mkdir -p $(OUT_DIR)/nvim
+$(CONFIG_DIR)/nvim/init.lua: $(ROOT)/nvim/init.lua
+	mkdir -p $(CONFIG_DIR)/nvim
 	ln -s $< $@
 
-$(OUT_DIR)/nvim/lua: $(SRC_DIR)/nvim/lua
-	mkdir -p $(OUT_DIR)/nvim
+$(CONFIG_DIR)/nvim/lua: $(ROOT)/nvim/lua
+	mkdir -p $(CONFIG_DIR)/nvim
 	ln -s $< $@
 
-$(OUT_DIR):
-	mkdir -p $(OUT_DIR)
+$(CONFIG_DIR):
+	mkdir -p $(CONFIG_DIR)
 
-.PHONY: clean
-clean:
-	rm -rf $(TARGETS)
+.PHONY: clean_symlinks
+clean_symlinks:
+	rm $(SYMLINKS)
+
+.PHONY: nix-gc
+	nix-garbage-collect -d
