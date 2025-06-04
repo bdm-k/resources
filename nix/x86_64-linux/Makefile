@@ -11,7 +11,7 @@ show_targets:
 	@echo "Available targets: symlinks, clean_symlinks, nix-gc"
 
 .PHONY: symlinks
-symlinks: $(SYMLINKS) 
+symlinks: $(SYMLINKS)
 
 $(CONFIG_DIR)/starship.toml: $(ROOT)/starship.toml
 	ln -s $< $@
@@ -44,4 +44,5 @@ clean_symlinks:
 	rm $(SYMLINKS)
 
 .PHONY: nix-gc
-	nix-garbage-collect -d
+nix-gc:
+	nix-collect-garbage -d
