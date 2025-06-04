@@ -22,7 +22,6 @@ const AppSwitchRule = layer(
   map('v').to$(`${APP_SWITCHER_BIN} 'Visual Studio Code'`),
   map('b').to$(`${APP_SWITCHER_BIN} 'Brave Browser'`),
   map(';').to$(`${APP_SWITCHER_BIN} 'Obsidian'`),
-  map('c').to$(`${APP_SWITCHER_BIN} 'ChatGPT'`),
   map('g').to$(`${APP_SWITCHER_BIN} 'Dictionary'`),
   map('d').to$(`${APP_SWITCHER_BIN} 'Slack'`),
   map('r').to$(`${APP_SWITCHER_BIN} 'Structured'`),
