@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, pkgs-stable, ... }:
 let
   username = import ./username.nix;
   resources = "/home/${username}/resources";
@@ -33,7 +33,7 @@ in
     pkgs.clang-tools
     pkgs.lua-language-server
 
-    pkgs.neovim
+    pkgs-stable.neovim
     pkgs.ripgrep
 
     # To start using the stable toolchain, run:
