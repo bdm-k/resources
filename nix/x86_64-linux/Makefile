@@ -8,7 +8,17 @@ SYMLINKS = $(CONFIG_DIR)/starship.toml $(CONFIG_DIR)/Code/User/keybindings.json 
 
 .PHONY: show_targets
 show_targets:
-	@echo "Available targets: symlinks, clean_symlinks, nix-gc"
+	@echo "Available targets: update, symlinks, clean_symlinks, nix-gc"
+
+.PHONY: update
+update: $(HM_DIR)/flake.nix $(HM_DIR)/home.nix
+	home-manager switch
+
+$(HM_DIR)/flake.nix: flake.nix
+	cp $< $@
+
+$(HM_DIR)/home.nix: home.nix
+	cp $< $@
 
 .PHONY: symlinks
 symlinks: $(SYMLINKS)
