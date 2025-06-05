@@ -11,6 +11,7 @@ import {
 
 const APPLE_INTERNAL_KEYBOARD = { is_built_in_keyboard: true };
 const KEYCHRON_K3_MAX = { vendor_id: 13364, product_id: 2613 };
+const KEYCHRON_B1_PRO = { vendor_id: 13364, product_id: 1811 };
 
 // NOTE: Spacebar also triggers aerospace-mode
 const APP_SWITCHER_BIN =
@@ -61,6 +62,10 @@ const AerospaceRule = layer(
     map('down_arrow').to$(`${AEROSPACE_BIN} move down`),
     map('up_arrow').to$(`${AEROSPACE_BIN} move up`),
   ]),
+  withCondition(ifDevice(KEYCHRON_B1_PRO))([
+    map('down_arrow').to$(`${AEROSPACE_BIN} move down`),
+    map('up_arrow').to$(`${AEROSPACE_BIN} move up`),
+  ]),
   withCondition(ifDevice(KEYCHRON_K3_MAX))([
     map('up_arrow').to$(`${AEROSPACE_BIN} move down`),
     map('down_arrow').to$(`${AEROSPACE_BIN} move up`),
@@ -95,6 +100,9 @@ const AlternativeEscBackspaceRule = rule(
 ).manipulators([
   withCondition(ifDevice(APPLE_INTERNAL_KEYBOARD))([
     map('left_control').to('left_control').toIfAlone('escape'),
+  ]),
+  withCondition(ifDevice(KEYCHRON_B1_PRO))([
+    map('caps_lock').to('left_control').toIfAlone('escape'),
   ]),
   withCondition(ifDevice(KEYCHRON_K3_MAX))([
     map('caps_lock').to('left_control').toIfAlone('escape'),
