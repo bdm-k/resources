@@ -11,14 +11,8 @@ show_targets:
 	@echo "Available targets: update, symlinks, clean_symlinks, nix-gc"
 
 .PHONY: update
-update: $(HM_DIR)/flake.nix $(HM_DIR)/home.nix
-	home-manager switch
-
-$(HM_DIR)/flake.nix: flake.nix
-	cp $< $@
-
-$(HM_DIR)/home.nix: home.nix
-	cp $< $@
+update:
+	sh update.sh
 
 .PHONY: symlinks
 symlinks: $(SYMLINKS)

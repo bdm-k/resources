@@ -4,6 +4,10 @@ let
   resources = "/home/${username}/resources";
 in
 {
+  imports = if builtins.pathExists ./desktop.nix
+    then [ ./desktop.nix ]
+    else [];
+
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = username;
@@ -17,8 +21,6 @@ in
   # want to update the value, then make sure to first check the Home Manager
   # release notes.
   home.stateVersion = "24.11"; # Please read the comment before changing.
-
-  fonts.fontconfig.enable = true;
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
@@ -47,7 +49,7 @@ in
     # ```
     pkgs.rustup
 
-    pkgs.source-code-pro
+    pkgs.qemu
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -69,15 +71,6 @@ in
     #   org.gradle.console=verbose
     #   org.gradle.daemon.idletimeout=3600000
     # '';
-  };
-
-  i18n.inputMethod = {
-    type = "fcitx5";
-    enable = true;
-    fcitx5.addons = with pkgs; [
-      fcitx5-mozc
-      fcitx5-gtk
-    ];
   };
 
   programs.git = {
