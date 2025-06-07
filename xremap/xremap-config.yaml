@@ -55,11 +55,6 @@ keymap:
       SUPER_R-KEY_Z: CTRL-KEY_Z # Undo
       SUPER_R-KEY_A: CTRL-KEY_A # Select all
 
-  - name: Launch the clipboard manager (Diodon)
-    exact_match: true
-    remap:
-      SUPER_R-SHIFT_R-KEY_V: { launch: ["/usr/bin/diodon"] }
-
   - name: Alternative keybindings for Backspace and Enter
     exact_match: true
     remap:
