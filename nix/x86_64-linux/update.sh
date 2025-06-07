@@ -7,4 +7,4 @@ then
   cp desktop.nix $HM_DIR
 fi
 
-home-manager switch
+home-manager switch --impure

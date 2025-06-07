@@ -16,6 +16,13 @@
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
       pkgs-stable = nixpkgs-stable.legacyPackages.${system};
+
+      username = import ./username.nix;
+      programs = "/home/${username}/resources/programs";
+
+      starship_agnocast_kmod = import
+        "${programs}/starship_agnocast_kmod/starship_agnocast_kmod.nix"
+        { inherit pkgs; };
     in
     {
       homeConfigurations."guojun" = home-manager.lib.homeManagerConfiguration {
@@ -28,7 +35,7 @@
         # Optionally use extraSpecialArgs
         # to pass through arguments to home.nix
         extraSpecialArgs = {
-          inherit pkgs-stable;
+          inherit pkgs-stable starship_agnocast_kmod;
         };
       };
     };
