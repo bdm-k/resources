@@ -41,7 +41,18 @@ keymap:
       SUPER_L-KEY_U: CTRL-KEY_L # Focus location
       SUPER_L-KEY_J: CTRL-KEY_N # New window
       SUPER_L-SHIFT_L-KEY_J: CTRL-SHIFT-KEY_N # New private window
+      SUPER_R-SHIFT_R-KEY_F: CTRL-SHIFT-KEY_T # Reopen closed tab
       SUPER-KEY_B: CTRL-KEY_B # Toggle sidebar
+      # Select tab N
+      SUPER-KEY_1: CTRL-KEY_1
+      SUPER-KEY_2: CTRL-KEY_2
+      SUPER-KEY_3: CTRL-KEY_3
+      SUPER-KEY_4: CTRL-KEY_4
+      SUPER-KEY_5: CTRL-KEY_5
+      SUPER-KEY_6: CTRL-KEY_6
+      SUPER-KEY_7: CTRL-KEY_7
+      SUPER-KEY_8: CTRL-KEY_8
+      SUPER-KEY_9: CTRL-KEY_9
 
   - name: Obsidian Rule
     exact_match: true
