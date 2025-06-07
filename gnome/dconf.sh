@@ -41,10 +41,11 @@ gsettings set org.gnome.shell.keybindings shift-overview-down "[]"
 gsettings set org.gnome.shell.keybindings shift-overview-up "[]"
 
 # General
-gsettings set org.gnome.desktop.wm.keybindings minimize "['<Alt>h']"
+gsettings set org.gnome.desktop.wm.keybindings minimize "['<Super>m']"
 gsettings set org.gnome.desktop.wm.keybindings close "['<Super>q']"
 gsettings set org.gnome.desktop.wm.keybindings cycle-group "['<Control>Left']"
 gsettings set org.gnome.desktop.wm.keybindings toggle-fullscreen "['<Super><Alt><Control>v']"
+gsettings set org.gnome.desktop.wm.keybindings begin-resize "['<Super><Alt><Control>8']"
 gsettings set org.gnome.settings-daemon.plugins.media-keys screensaver "['<Super><Control>q']"
 
 # Switch to workspaces
