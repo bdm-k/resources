@@ -1,4 +1,9 @@
-set -e
+# To install gnome extensions, use the Extension Manager app, which can be installed by running:
+# ❯ sudo apt update
+# ❯ sudo apt install gnome-shell-extension-manager
+
+
+EXTENSIONS_DIR=$HOME/.local/share/gnome-shell/extensions
 
 
 # Use dark theme
@@ -55,7 +60,7 @@ gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-right "['<Super
 #==============#
 # Dash to Dock #
 #==============#
-if [ -d ~/.local/share/gnome-shell/extensions/dash-to-dock@micxgx.gmail.com ]
+if [ -d $EXTENSIONS_DIR/dash-to-dock@micxgx.gmail.com ]
 then
   gsettings set org.gnome.shell.extensions.dash-to-dock extend-height false
   gsettings set org.gnome.shell.extensions.dash-to-dock dash-max-icon-size 128
@@ -63,5 +68,45 @@ then
   gsettings set org.gnome.shell.extensions.dash-to-dock shortcut "[]"
   gsettings set org.gnome.shell.extensions.dash-to-dock shortcut-text ""
 else
-  echo '[info] Dash to Dock is not installed'
+  echo '[INFO] Dash to Dock is not installed'
+fi
+
+#===================#
+# Clipboard History #
+#===================#
+if [ ! -d $EXTENSIONS_DIR/clipboard-history@alexsaveau.dev ]
+then
+  echo '[INFO] Clipboard History is not installed'
+fi
+
+#===============#
+# Blur my Shell #
+#===============#
+if [ ! -d $EXTENSIONS_DIR/blur-my-shell@aunetx ]
+then
+  echo '[INFO] Blur my Shell is not installed'
+fi
+
+#=========================#
+# Native Window Placement #
+#=========================#
+if [ ! -d $EXTENSIONS_DIR/native-window-placement@gnome-shell-extensions.gcampax.github.com ]
+then
+  echo '[INFO] Native Window Placement is not installed'
+fi
+
+#========#
+# Xremap #
+#========#
+if [ ! -d $EXTENSIONS_DIR/xremap@k0kubun.com ]
+then
+  echo '[INFO] Xremap is not installed'
+fi
+
+#====================#
+# Input Method Panel #
+#====================#
+if [ ! -d $EXTENSIONS_DIR/kimpanel@kde.org ]
+then
+  echo '[INFO] Input Method Panel is not installed'
 fi
