@@ -72,7 +72,11 @@ config.inactive_pane_hsb = {
 }
 
 config.window_background_opacity = 0.8
-config.window_decorations = "RESIZE"
+if kernel_name == "Darwin" then
+  config.window_decorations = "RESIZE"
+else
+  config.window_decorations = "NONE"
+end
 
 -- This function returns the suggested title for a tab. It prefers the title
 -- that was set via `tab:set_title()` or `wezterm cli set-tab-title`, but falls
