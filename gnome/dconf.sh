@@ -111,3 +111,11 @@ if [ ! -d $EXTENSIONS_DIR/kimpanel@kde.org ]
 then
   echo '[INFO] Input Method Panel is not installed'
 fi
+
+#==============#
+# Tiling Shell #
+#==============#
+if [ ! -d $EXTENSIONS_DIR/tilingshell@ferrarodomenico.com ]
+then
+  echo '[INFO] Tiling Shell is not installed'
+fi
