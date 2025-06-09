@@ -25,11 +25,18 @@ end
 -- The setup function
 M.setup = function()
   local tele = require('telescope')
+  local actions = require('telescope.actions')
 
   tele.setup {
     defaults = {
       borderchars = { '-', '╎', '-', '╎', '+', '+', '+', '+' },
       layout_config = { width = 0.9, preview_width = 0.6 },
+      mappings = {
+        i = {
+          ["<C-n>"] = actions.cycle_history_next,
+          ["<C-p>"] = actions.cycle_history_prev,
+        },
+      },
     },
     pickers = {
       buffers = {
