@@ -1,10 +1,21 @@
 --[[
-Must-know commands:
+Tier 1 commands:
 
 * '%': Moves the cursor to the matching character.
 
 * 'zt', 'zz', 'zb': These commands make the current line at the top, center, or
   bottom of the window, respectively.
+
+Tier 2 commands:
+
+* '`0': Jumps to the position of the cursor when you last exited Neovim. Here,
+  '0' is a numbered mark. Likewise, '1' denotes the second to last position, and
+  so on.
+
+* '`"': Jumps to where the cursor was in the current buffer when you last exited
+  Neovim.
+
+* 'gx': open the URL at cursor
 --]]
 
 vim.opt.number = true
@@ -66,6 +77,8 @@ vim.api.nvim_set_keymap('n', 'L', '$', noremap)
 vim.api.nvim_set_keymap('v', 'L', '$', noremap)
 vim.api.nvim_set_keymap('n', 'p', ']p', noremap)
 vim.api.nvim_set_keymap('n', 'P', '[p', noremap)
+vim.api.nvim_set_keymap('n', 'n', '<Cmd>keepjumps normal! n<CR>', noremap)
+vim.api.nvim_set_keymap('n', 'N', '<Cmd>keepjumps normal! N<CR>', noremap)
 vim.api.nvim_set_keymap('n', '-', '<C-o>', noremap) -- Navigate back jump list
 vim.api.nvim_set_keymap('n', '=', '<C-i>', noremap) -- Navigate forward jump list
 vim.api.nvim_set_keymap('n', '<C-s>', '`.', noremap) -- Move to the position where the last change was made
