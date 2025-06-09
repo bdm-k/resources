@@ -60,6 +60,7 @@ lazy.setup({
           ensure_installed = {
             'json',
             'jsonc',
+            'nix',
           },
 
           highlight = { enable = true },
