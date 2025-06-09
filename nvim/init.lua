@@ -137,7 +137,7 @@ vim.keymap.set('n', '<leader>f', tele_builtin.live_grep, noremap)
 vim.keymap.set('n', '<leader>p', ':Telescope frecency workspace=CWD<CR>', noremap)
 vim.keymap.set('n', '<leader>t', tele_builtin.help_tags, noremap)
 vim.keymap.set('n', '<leader>b', tele_builtin.buffers, noremap)
-vim.keymap.set('n', '<leader>r', tele_builtin.registers, noremap)
+vim.keymap.set('n', '<leader>r', tele_builtin.resume, noremap)
 --[[
 usage notes for Telescope
 
