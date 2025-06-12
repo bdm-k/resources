@@ -3,6 +3,8 @@
   fonts.fontconfig.enable = true;
 
   home.packages = [
+    pkgs.dart-sass  # For compiling my Obsidian CSS snippet
+
     pkgs.source-code-pro
   ];
 
