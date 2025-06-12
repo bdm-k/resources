@@ -34,6 +34,20 @@ vim.opt.expandtab = true
 
 vim.opt.cursorline = true
 
+-- Enable the OSC 52 clipboard provider when ssh connected
+if os.getenv("SSH_TTY") then
+  vim.g.clipboard = {
+    name = 'OSC 52',
+    copy = {
+      ['+'] = require('vim.ui.clipboard.osc52').copy('+'),
+      ['*'] = require('vim.ui.clipboard.osc52').copy('*'),
+    },
+    paste = {
+      ['+'] = require('vim.ui.clipboard.osc52').paste('+'),
+      ['*'] = require('vim.ui.clipboard.osc52').paste('*'),
+    },
+  }
+end
 vim.opt.clipboard = 'unnamedplus'
 
 vim.opt.listchars = { tab = ' ', trail = '$' }
