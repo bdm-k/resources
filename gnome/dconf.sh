@@ -39,6 +39,7 @@ gsettings set org.gnome.shell.keybindings toggle-quick-settings "[]"
 gsettings set org.gnome.mutter.keybindings switch-monitor "[]"
 gsettings set org.gnome.shell.keybindings shift-overview-down "[]"
 gsettings set org.gnome.shell.keybindings shift-overview-up "[]"
+gsettings set org.gnome.settings-daemon.plugins.media-keys rotate-video-lock-static "[]"
 
 # General
 gsettings set org.gnome.desktop.wm.keybindings minimize "['<Super>m']"
