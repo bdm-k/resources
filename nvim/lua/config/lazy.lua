@@ -61,6 +61,7 @@ lazy.setup({
             'json',
             'jsonc',
             'nix',
+            'bash',
           },
 
           highlight = { enable = true },
