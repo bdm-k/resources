@@ -18,10 +18,10 @@ modmap:
         alone_timeout_millis: 300
 
 keymap:
-  - name: Brave Rule
+  - name: Browser Rule
     exact_match: true
     application:
-      only: [Brave-browser, Brave]
+      only: [Brave-browser, Brave, Google-chrome]
     remap:
       CTRL_L-KEY_MINUS: ALT-KEY_LEFT  # Back
       CTRL_L-KEY_EQUAL: ALT-KEY_RIGHT # Forward
