@@ -22,6 +22,9 @@ in
     yazi
     tree
     bat
+
+    # The Lean version manager
+    elan
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
