@@ -65,6 +65,7 @@
   },
 
   "indentRainbow.includedLanguages": [
+    "shellscript",
     "typescript",
     "python",
     "jsonc"
