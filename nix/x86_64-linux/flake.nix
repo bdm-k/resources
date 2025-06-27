@@ -21,7 +21,11 @@
       programs = "/home/${username}/resources/programs";
 
       starship_agnocast_kmod = import
-        "${programs}/starship_agnocast_kmod/starship_agnocast_kmod.nix"
+        "${programs}/starship_agnocast_kmod/default.nix"
+        { inherit pkgs; };
+
+      safe-rm = import
+        "${programs}/safe-rm/default.nix"
         { inherit pkgs; };
     in
     {
@@ -35,7 +39,8 @@
         # Optionally use extraSpecialArgs
         # to pass through arguments to home.nix
         extraSpecialArgs = {
-          inherit pkgs-stable starship_agnocast_kmod;
+          inherit pkgs-stable;
+          programs = { inherit starship_agnocast_kmod safe-rm; };
         };
       };
     };

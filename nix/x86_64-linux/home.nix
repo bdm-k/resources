@@ -1,4 +1,4 @@
-{ config, pkgs, pkgs-stable, starship_agnocast_kmod, ... }:
+{ config, pkgs, pkgs-stable, programs, ... }:
 let
   username = import ./username.nix;
   resources = "/home/${username}/resources";
@@ -52,7 +52,8 @@ in
     pkgs.qemu
 
     # my programs
-    starship_agnocast_kmod
+    programs.starship_agnocast_kmod
+    programs.safe-rm
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
