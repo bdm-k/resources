@@ -99,6 +99,12 @@ fi
 
 alias nvim='_nvim'
 
+# On Ubuntu, the Trash folder is located at ~/.local/share/Trash/
+if which safe-rm > /dev/null 2>&1
+then
+  alias rm='safe-rm'
+fi
+
 
 #===========#
 # functions #
