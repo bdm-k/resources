@@ -15,6 +15,12 @@
     let
       system = "aarch64-darwin";
       pkgs = nixpkgs.legacyPackages.${system};
+
+      programs = "/Users/kokus/resources/programs";
+
+      safe-rm = import
+        "${programs}/safe-rm/default.nix"
+        { inherit pkgs; };
     in
     {
       homeConfigurations."kokus" = home-manager.lib.homeManagerConfiguration {
@@ -26,6 +32,9 @@
 
         # Optionally use extraSpecialArgs
         # to pass through arguments to home.nix
+        extraSpecialArgs = {
+          programs = { inherit safe-rm; };
+        };
       };
     };
 }

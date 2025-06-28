@@ -5,7 +5,7 @@ show_targets:
 .PHONY: update
 update:
 	cp flake.nix home.nix ~/.config/home-manager/
-	home-manager switch
+	home-manager switch --impure
 
 .PHONY: symlinks
 symlinks:

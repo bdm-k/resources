@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, programs, ... }:
 let
   username = import ./username.nix;
   resources = "/home/${username}/resources";
@@ -25,6 +25,9 @@ in
 
     # The Lean version manager
     elan
+
+    # my programs
+    programs.safe-rm
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
