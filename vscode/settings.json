@@ -32,6 +32,10 @@
     "editor.insertSpaces": true,
   },
 
+  "[rust]": {
+    "editor.tabSize": 4
+  },
+
   // extensions
   "extensions.ignoreRecommendations": true,
 
@@ -57,7 +61,9 @@
     "vectorize",
     "viewsets"
   ],
-  "cSpell.enableFiletypes": ["!json"],
+  "cSpell.enabledFileTypes": {
+    "json": false
+  },
   "cSpell.enabledNotifications": {
     "Average Word Length too Long": false,
     "Maximum Word Length Exceeded": false,
@@ -72,17 +78,12 @@
   ],
   "indentRainbow.colorOnWhiteSpaceOnly": true,
 
-  "github.copilot.editor.enableAutoCompletions": false,
   "github.copilot.chat.localeOverride": "ja",
+  "github.copilot.enable": {
+    "*": false
+  },
 
   "C_Cpp.default.cStandard": "gnu11",
-
-  "markdown-pdf.displayHeaderFooter": false,
-
-  // language specific
-  "[rust]": {
-    "editor.tabSize": 4
-  },
 
   // others
   "files.associations": {
