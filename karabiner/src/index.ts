@@ -42,8 +42,8 @@ const AerospaceRule = layer(
   map('l').to$(`${AEROSPACE_BIN} focus right`),
 
   // navigate workspaces
-  map('i').to$(`${AEROSPACE_BIN} workspace main`),
-  map('u').to$(`${AEROSPACE_BIN} workspace sub`),
+  map('u').to$(`${AEROSPACE_BIN} workspace main`),
+  map('i').to$(`${AEROSPACE_BIN} workspace sub`),
   map('o').to$(`${AEROSPACE_BIN} workspace comm.`),
 
   // resize
