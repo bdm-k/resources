@@ -48,6 +48,8 @@ run = ['layout floating']
 # Make workspaces always appear on particular monitors
 [workspace-to-monitor-force-assignment]
 main = 'main'
+sub = 'sidecar'
+'comm.' = 'built-in'
 
 
 # Gaps between windows (inner-*) and between monitor edges (outer-*).
