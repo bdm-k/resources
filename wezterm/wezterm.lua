@@ -25,7 +25,10 @@ config.unix_domains = {
 }
 
 -- Setup the fonts
-config.font = wezterm.font("Source Code Pro")
+config.font = wezterm.font_with_fallback {
+  "Source Code Pro",
+  "YuGothic",
+}
 if kernel_name == "Darwin" then
   config.window_frame = {
     font = wezterm.font({
