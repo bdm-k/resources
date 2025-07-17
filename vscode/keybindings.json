@@ -19,6 +19,7 @@
   { "key": "meta+f", "command": "actions.find", "when": "editorFocus || editorIsOpen" }, { "key": "ctrl+f", "command": "-actions.find", "when": "editorFocus || editorIsOpen" },
   { "key": "meta+p", "command": "workbench.action.quickOpen" }, { "key": "ctrl+p", "command": "-workbench.action.quickOpen" },
   { "key": "meta+j", "command": "workbench.action.togglePanel" }, { "key": "ctrl+j", "command": "-workbench.action.togglePanel" },
+  { "key": "meta+b", "command": "workbench.action.toggleSidebarVisibility" },
   { "key": "shift+meta+p", "command": "workbench.action.showCommands" }, { "key": "ctrl+shift+p", "command": "-workbench.action.showCommands" },
   { "key": "shift+meta+e", "command": "workbench.view.explorer", "when": "viewContainer.workbench.view.explorer.enabled" }, { "key": "ctrl+shift+e", "command": "-workbench.view.explorer", "when": "viewContainer.workbench.view.explorer.enabled" },
   { "key": "shift+meta+f", "command": "workbench.action.findInFiles" }, { "key": "ctrl+shift+f", "command": "-workbench.action.findInFiles" },
@@ -66,11 +67,11 @@
   { "key": "ctrl+z", "command": "editor.toggleFold", "when": "editorTextFocus && foldingEnabled" }, { "key": "cmd+k cmd+l", "command": "-editor.toggleFold", "when": "editorTextFocus && foldingEnabled" },
 
   // GitHub Copilot
-  { "key": "ctrl+o", "command": "editor.action.inlineSuggest.trigger", "when": "config.github.copilot.inlineSuggest.enable && editorTextFocus && !editorHasSelection && !inlineSuggestionsVisible" }, { "key": "alt+\\", "command": "-editor.action.inlineSuggest.trigger", "when": "config.github.copilot.inlineSuggest.enable && editorTextFocus && !editorHasSelection && !inlineSuggestionsVisible" },
+  { "key": "ctrl+o", "command": "editor.action.inlineSuggest.trigger", "when": "editorTextFocus && !editorHasSelection && !inlineSuggestionsVisible" }, { "key": "alt+\\", "command": "-editor.action.inlineSuggest.trigger", "when": "editorTextFocus && !editorHasSelection && !inlineSuggestionsVisible" },
   { "key": "ctrl+.", "command": "editor.action.inlineSuggest.commit", "when": "inlineSuggestionHasIndentationLessThanTabSize && inlineSuggestionVisible && !editorHoverFocused && !editorTabMovesFocus && !suggestWidgetVisible" }, { "key": "tab", "command": "-editor.action.inlineSuggest.commit", "when": "inlineSuggestionHasIndentationLessThanTabSize && inlineSuggestionVisible && !editorHoverFocused && !editorTabMovesFocus && !suggestWidgetVisible" },
   { "key": "tab", "command": "editor.action.inlineSuggest.acceptNextWord", "when": "inlineSuggestionVisible && !editorReadonly" }, { "key": "cmd+right", "command": "-editor.action.inlineSuggest.acceptNextWord", "when": "inlineSuggestionVisible && !editorReadonly" },
   { "key": "shift+cmd+a", "command": "workbench.panel.chat.view.copilot.focus" }, { "key": "shift+cmd+a", "command": "-notification.acceptPrimaryAction", "when": "notificationFocus || notificationToastsVisible" },
 
   // others
-  { "key": "cmd+g", "command": "git.stageSelectedRanges", "when": "!operationInProgress" }, { "key": "meta+b", "command": "workbench.action.toggleSidebarVisibility" }
+  { "key": "cmd+g", "command": "git.stageSelectedRanges", "when": "!operationInProgress" }
 ]
