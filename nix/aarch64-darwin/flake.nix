@@ -1,5 +1,5 @@
 {
-  description = "Home Manager configuration of kokus";
+  description = "My Home Manager configuration";
 
   inputs = {
     # Specify the source of Home Manager and Nixpkgs.
@@ -16,14 +16,15 @@
       system = "aarch64-darwin";
       pkgs = nixpkgs.legacyPackages.${system};
 
-      programs = "/Users/kokus/resources/programs";
+      username = import ./username.nix;
+      programs = "/Users/${username}/resources/programs";
 
       safe-rm = import
         "${programs}/safe-rm/default.nix"
         { inherit pkgs; };
     in
     {
-      homeConfigurations."kokus" = home-manager.lib.homeManagerConfiguration {
+      homeConfigurations."${username}" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
 
         # Specify your home configuration modules here, for example,
