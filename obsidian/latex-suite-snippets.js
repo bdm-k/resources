@@ -107,6 +107,7 @@
   { trigger: "nn", replacement: "_{n}", options: "mA" },
   { trigger: "ii", replacement: "_{i}", options: "mA" },
   { trigger: "jj", replacement: "_{j}", options: "mA" },
+  { trigger: "tt", replacement: "_{t}", options: "mA" },
   { trigger: "npp", replacement: "_{n+1}", options: "mA" },
   { trigger: "ipp", replacement: "_{i+1}", options: "mA" },
   { trigger: "jpp", replacement: "_{j+1}", options: "mA" },
