@@ -29,8 +29,7 @@ in
     pkgs.fzf
     pkgs.bat
     pkgs.neofetch
-    pkgs.gh
-    pkgs.gccgo
+    pkgs.gcc
     pkgs.gnumake
     pkgs.clang-tools
     pkgs.lua-language-server
