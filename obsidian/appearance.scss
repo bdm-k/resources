@@ -63,6 +63,8 @@ body {
 
   --list-bullet-size: 0.25em;
   --list-marker-color: var(--text-normal);
+
+  --table-border-color: #{$purple-400};
 }
 
 /* Change the background color of inline code. If it appears in a header, make
