@@ -102,6 +102,7 @@ alias nvim='_nvim'
 # On Ubuntu, the Trash folder is located at ~/.local/share/Trash/
 if which safe-rm > /dev/null 2>&1
 then
+  export SAFE_RM_USE_APPLESCRIPT=no
   alias rm='safe-rm'
 fi
 
@@ -118,4 +119,9 @@ _nvim()
   else
     command nvim $@
   fi
+}
+
+sleep-record()
+{
+  npx tsx $HOME/resources/programs/sleep-record/src/index.ts
 }
