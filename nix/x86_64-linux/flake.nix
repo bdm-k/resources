@@ -2,6 +2,10 @@
   description = "My Home Manager configuration";
 
   inputs = {
+    # To update nixpkgs, run:
+    # ```
+    # nix flake update nixpkgs
+    # ```
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.11";
     home-manager = {

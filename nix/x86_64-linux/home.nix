@@ -18,14 +18,15 @@ in
     pkgs.fzf
     pkgs.bat
     pkgs.neofetch
+
+    pkgs-stable.neovim
+    pkgs.ripgrep
+
     pkgs.gcc
     pkgs.gnumake
     pkgs.cmake
     pkgs.clang-tools
-    pkgs.lua-language-server
-
-    pkgs-stable.neovim
-    pkgs.ripgrep
+    pkgs.gtest pkgs.gtest.dev
 
     # To start using the stable toolchain, run:
     # ```
@@ -37,6 +38,8 @@ in
     # rustup component add rust-analyzer
     # ```
     pkgs.rustup
+
+    pkgs.lua-language-server
 
     pkgs.qemu
 
