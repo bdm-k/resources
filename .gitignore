@@ -1,5 +1,6 @@
 .worktree
 node_modules
+dist
 _build
 
 nvim/lazy-lock.json

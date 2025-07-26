@@ -1,4 +1,6 @@
 {
+  "name": "sleep-record",
+  "bin": "./dist/index.mjs",
   "devDependencies": {
     "@types/node": "^24.1.0"
   }

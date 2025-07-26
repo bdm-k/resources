@@ -123,5 +123,5 @@ _nvim()
 
 sleep-record()
 {
-  npx tsx $HOME/resources/programs/sleep-record/src/index.ts
+  node $HOME/resources/programs/sleep-record/dist/index.mjs
 }
