@@ -15,13 +15,41 @@ const filePath = XDG_STATE_HOME + '/sleep-record.log'
 const fileContent = fs.readFileSync(filePath, 'utf8');
 const records = parse(fileContent);
 
-for (const lookbackHours of [24, 48, 72]) {
-  const sleepTime = getSleepTime(records, hoursToMilliseconds(lookbackHours));
-  console.log(`last ${lookbackHours}h: ${sprintUnixTime(sleepTime)}`);
+describe(records);
+newline();
+visualize(records);
+
+function describe(records: Record[]) {
+  for (const lookbackHours of [24, 48, 72]) {
+    const sleepTime = getSleepTime(records, hoursToMilliseconds(lookbackHours));
+    console.log(`last ${lookbackHours}h: ${sprintUnixTime(sleepTime)}`);
+  }
 }
 
-function getSleepTime(records: Record[], lookbackTime: number): number {
-  const nowTime = Date.now();
+function visualize(records: Record[]) {
+  console.log('72h ago'.padEnd(48, ' ') + '48h ago'.padEnd(48, ' ') + '24h ago'.padEnd(48, ' '));
+  console.log('-'.repeat(144));
+
+  let nowTime = Date.now();
+  let windowEndTime = nowTime - hoursToMilliseconds(71.5);
+  for (; windowEndTime <= nowTime; windowEndTime += hoursToMilliseconds(0.5)) {
+    const sleepTime = getSleepTime(records, hoursToMilliseconds(0.5), windowEndTime);
+    if (sleepTime >= hoursToMilliseconds(0.25)) {
+      process.stdout.write('█');
+    } else {
+      process.stdout.write(' ');
+    }
+  }
+
+  newline();
+  console.log('-'.repeat(144));
+}
+
+function getSleepTime(
+  records: Record[],
+  lookbackTime: number,
+  nowTime: number = Date.now()
+): number {
   const startTime = nowTime - lookbackTime;
 
   let sleepTime = 0;
@@ -32,13 +60,14 @@ function getSleepTime(records: Record[], lookbackTime: number): number {
     const record = records[i];
 
     if (
-      record.timestamp.getTime() >= startTime &&
-      record.action ==  'wake'                &&
+      record.timestamp.getTime() > startTime  &&
+      prevRecord.timestamp.getTime() < nowTime &&
+      record.action ==  'wake'                 &&
       prevRecord.action == 'sleep'
     ) {
       const recordTime = record.timestamp.getTime();
       const prevRecordTime = prevRecord.timestamp.getTime();
-      sleepTime += recordTime - max(startTime, prevRecordTime);
+      sleepTime += min(nowTime, recordTime) - max(startTime, prevRecordTime);
     }
 
     prevRecord = record;
@@ -102,10 +131,18 @@ function sprintUnixTime(unixTime: number): string {
   return `${hoursText}:${minutesText}`;
 }
 
-function hoursToMilliseconds(days: number): number {
-  return days * 60 * 60 * 1000;
+function hoursToMilliseconds(hours: number): number {
+  return hours * 60 * 60 * 1000;
+}
+
+function min(a: number, b: number): number {
+  return a < b ? a : b;
 }
 
 function max(a: number, b: number): number {
   return a > b ? a : b;
+}
+
+function newline() {
+  console.log();
 }
