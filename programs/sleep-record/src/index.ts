@@ -28,7 +28,7 @@ function describe(records: Record[]) {
 
 function visualize(records: Record[]) {
   console.log('72h ago'.padEnd(48, ' ') + '48h ago'.padEnd(48, ' ') + '24h ago'.padEnd(48, ' '));
-  console.log('-'.repeat(144));
+  console.log(('┳' + '━'.repeat(47)).repeat(3));
 
   let nowTime = Date.now();
   let windowEndTime = nowTime - hoursToMilliseconds(71.5);
@@ -42,7 +42,7 @@ function visualize(records: Record[]) {
   }
 
   newline();
-  console.log('-'.repeat(144));
+  console.log(('┻' + '━'.repeat(47)).repeat(3));
 }
 
 function getSleepTime(
