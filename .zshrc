@@ -78,6 +78,10 @@ source $HOME/.zsh-nvm/zsh-nvm.plugin.zsh
 # Init Starship
 eval "$(starship init zsh)"
 
+# C/C++ compilers
+export CPATH="$HOME/.nix-profile/include${CPATH+:$CPATH}"
+export LIBRARY_PATH="$HOME/.nix-profile/lib${LIBRARY_PATH+:$LIBRARY_PATH}"
+
 
 #=========#
 # aliases #
