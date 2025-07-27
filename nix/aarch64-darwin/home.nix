@@ -29,6 +29,7 @@ in
 
     # my programs
     programs.safe-rm
+    programs.app-switcher
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage

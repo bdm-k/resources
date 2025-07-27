@@ -22,6 +22,10 @@
       safe-rm = import
         "${programs}/safe-rm/default.nix"
         { inherit pkgs; };
+
+      app-switcher = import
+        "${programs}/app-switcher/default.nix"
+        { inherit (pkgs) stdenv; };
     in
     {
       homeConfigurations."${username}" = home-manager.lib.homeManagerConfiguration {
@@ -34,7 +38,7 @@
         # Optionally use extraSpecialArgs
         # to pass through arguments to home.nix
         extraSpecialArgs = {
-          programs = { inherit safe-rm; };
+          programs = { inherit safe-rm app-switcher; };
         };
       };
     };
