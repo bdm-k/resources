@@ -15,7 +15,7 @@ const KEYCHRON_B1_PRO = { vendor_id: 13364, product_id: 1811 };
 
 // NOTE: Spacebar also triggers aerospace-mode
 const APP_SWITCHER_BIN =
-  '~/resources/app_switcher/_build/default/bin/main.exe';
+  '~/.nix-profile/bin/app-switcher';
 const AppSwitchRule = layer(
   'spacebar', 'app-switch-mode'
 ).manipulators([
@@ -25,7 +25,6 @@ const AppSwitchRule = layer(
   map(';').to$(`${APP_SWITCHER_BIN} 'Obsidian'`),
   map('g').to$(`${APP_SWITCHER_BIN} 'Dictionary'`),
   map('d').to$(`${APP_SWITCHER_BIN} 'Slack'`),
-  map('r').to$(`${APP_SWITCHER_BIN} 'Structured'`),
 ]);
 
 // NOTE: Spacebar also triggers open-app-mode
