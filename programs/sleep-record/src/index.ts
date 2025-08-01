@@ -94,7 +94,7 @@ function parse(content: string): Record[] {
 }
 
 function parseTimestampText(timestampText: string): Date {
-  const [, monthText, dateText, timeText, , yearText] = timestampText.split(' ');
+  const [, monthText, dateText, timeText, , yearText] = timestampText.split(/\s+/);
   const [hourText, minuteText, secondText] = timeText.split(':');
 
   const year = Number(yearText);
