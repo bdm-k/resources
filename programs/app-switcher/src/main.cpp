@@ -80,8 +80,8 @@ struct window parse_line(const char * line)
   struct window w;
   w.app = static_cast<char *>(malloc(strlen(line)));
   if (sscanf(line, "%i | %[^|]", &w.id, w.app) != 2) {
-    fprintf(stderr, "[app-switcher] [ERROR] Invalid line format: \"%s\"\n", line);
-    exit(EXIT_FAILURE);
+    fprintf(stderr, "[app-switcher] [INFO] Invalid line format: \"%s\". Ignoring the line\n", line);
+    return window{0, nullptr};
   }
   trim_end(w.app);
   return w;
@@ -109,7 +109,10 @@ std::vector<struct window> parse(FILE * input)
       offset = line_capacity / 2 - 1;
     }
 
-    ws.push_back(parse_line(line));
+    auto && w = parse_line(line);
+    if (w.app) {
+      ws.push_back(std::move(w));
+    }
   }
 }
 
