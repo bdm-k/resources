@@ -21,7 +21,7 @@ keymap:
   - name: Browser Rule
     exact_match: true
     application:
-      only: [Brave-browser, Brave, Google-chrome]
+      only: [Brave-browser, brave-browser, Brave, Google-chrome]
     remap:
       CTRL_L-KEY_MINUS: ALT-KEY_LEFT  # Back
       CTRL_L-KEY_EQUAL: ALT-KEY_RIGHT # Forward
@@ -39,6 +39,7 @@ keymap:
       SUPER_L-KEY_MINUS: CTRL-KEY_MINUS # Zoom out
       SUPER_L-KEY_EQUAL: CTRL-KEY_EQUAL # Zoom in
       SUPER_L-KEY_U: CTRL-KEY_L # Focus location
+      SUPER_L-KEY_B: CTRL-SHIFT-KEY_B # Show bookmarks
       SUPER_L-KEY_J: CTRL-KEY_N # New window
       SUPER_L-SHIFT_L-KEY_J: CTRL-SHIFT-KEY_N # New private window
       SUPER_R-SHIFT_R-KEY_F: CTRL-SHIFT-KEY_T # Reopen closed tab
@@ -92,11 +93,6 @@ keymap:
       CTRL_L-KEY_J: KEY_DOWN
       CTRL_L-KEY_K: KEY_UP
       CTRL_L-KEY_L: KEY_RIGHT
-
-  - name: Adapt the order of arrow keys to Vim style
-    remap:
-      KEY_UP: KEY_DOWN
-      KEY_DOWN: KEY_UP
 
   - name: My original keyboard layout based on colemak
     remap:
