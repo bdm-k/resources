@@ -15,12 +15,12 @@ end)()
 -- Setup domains
 config.unix_domains = {
   {
-    name = "kokus-lab",
-    proxy_command = { "ssh", "-T", "kokus-lab", "wezterm", "cli", "proxy" },
-  },
-  {
     name = "tier4-pc",
     proxy_command = { "ssh", "-T", "tier4-pc", "wezterm", "cli", "proxy" },
+  },
+  {
+    name = "kokus-epyc",
+    proxy_command = { "ssh", "-T", "kokus-epyc", "wezterm", "cli", "proxy" },
   }
 }
 
