@@ -56,10 +56,10 @@
   { "key": "cmd+\\", "command": "editor.action.triggerSuggest", "when": "editorHasCompletionItemProvider && textInputFocus && !editorReadonly && !suggestWidgetVisible" }, { "key": "ctrl+space", "command": "-editor.action.triggerSuggest", "when": "editorHasCompletionItemProvider && textInputFocus && !editorReadonly && !suggestWidgetVisible" },
 
   // split editors
-  { "key": "alt+cmd+h", "command": "workbench.action.splitEditorLeft" }, { "key": "cmd+k cmd+\\", "command": "-workbench.action.splitEditorLeft" },
-  { "key": "alt+cmd+e", "command": "workbench.action.splitEditorUp" }, { "key": "cmd+k cmd+\\", "command": "-workbench.action.splitEditorUp" },
-  { "key": "alt+cmd+i", "command": "workbench.action.splitEditorRight" }, { "key": "cmd+k cmd+\\", "command": "-workbench.action.splitEditorRight" },
-  { "key": "alt+cmd+n", "command": "workbench.action.splitEditorDown" }, { "key": "cmd+k cmd+\\", "command": "-workbench.action.splitEditorDown" },
+  { "key": "alt+cmd+h", "command": "workbench.action.moveEditorToLeftGroup" },
+  { "key": "alt+cmd+n", "command": "workbench.action.moveEditorToBelowGroup" }
+  { "key": "alt+cmd+e", "command": "workbench.action.moveEditorToAboveGroup" },
+  { "key": "alt+cmd+i", "command": "workbench.action.moveEditorToRightGroup" }, { "key": "alt+cmd+i", "command": "-workbench.action.toggleDevTools", "when": "isDevelopment" },
 
   // fold
   { "key": "ctrl+c", "command": "editor.foldAll", "when": "editorTextFocus && foldingEnabled" }, { "key": "cmd+k cmd+0", "command": "-editor.foldAll", "when": "editorTextFocus && foldingEnabled" },
