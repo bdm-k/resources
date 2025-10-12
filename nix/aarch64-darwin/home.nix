@@ -24,6 +24,8 @@ in
     tree
     bat
 
+    pre-commit
+
     # The Lean version manager
     elan
 
