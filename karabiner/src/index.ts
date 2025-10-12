@@ -52,7 +52,7 @@ const AerospaceRule = layer(
   // change layout
   map('/').to$(`${AEROSPACE_BIN} layout tiles horizontal vertical`),
   map(',').to$(`${AEROSPACE_BIN} layout accordion horizontal vertical`),
-  map('e').to$(`${AEROSPACE_BIN} macos-native-fullscreen`),
+  map('e').to$(`${AEROSPACE_BIN} layout tiling floating`),
 
   // move windows
   map('left_arrow').to$(`${AEROSPACE_BIN} move left`),
