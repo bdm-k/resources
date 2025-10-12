@@ -110,6 +110,8 @@ then
   alias rm='safe-rm'
 fi
 
+alias sleep-record='node $HOME/resources/programs/sleep-record/dist/index.mjs'
+
 
 #===========#
 # functions #
@@ -123,9 +125,4 @@ _nvim()
   else
     command nvim $@
   fi
-}
-
-sleep-record()
-{
-  node $HOME/resources/programs/sleep-record/dist/index.mjs
 }
