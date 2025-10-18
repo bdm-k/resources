@@ -17,6 +17,7 @@
   "editor.minimap.enabled": false,
   "editor.lightbulb.enabled": "off",
   "editor.inlayHints.enabled": "offUnlessPressed",
+  "editor.rulers": [ 100 ],
   "files.insertFinalNewline": true,
   "diffEditor.hideUnchangedRegions.enabled": true,
   "diffEditor.ignoreTrimWhitespace": false,
@@ -87,6 +88,7 @@
   "C_Cpp.default.cStandard": "gnu11",
 
   // others
+  "zenMode.fullScreen": false,
   "files.associations": {
     "*.pl": "prolog",
     "*.json": "jsonc"
