@@ -61,7 +61,8 @@
     "syscall",
     "tailwindcss",
     "vectorize",
-    "viewsets"
+    "viewsets",
+    "vmar"
   ],
   "cSpell.enabledFileTypes": {
     "json": false
@@ -89,6 +90,7 @@
 
   // others
   "zenMode.fullScreen": false,
+  "zenMode.centerLayout": false,
   "files.associations": {
     "*.pl": "prolog",
     "*.json": "jsonc"
