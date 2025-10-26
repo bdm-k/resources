@@ -18,6 +18,7 @@ in
     pkgs.fzf
     pkgs.bat
     pkgs.neofetch
+    pkgs.pass
 
     pkgs-stable.neovim
     pkgs.ripgrep

@@ -20,9 +20,9 @@ in
   home.packages = with pkgs; [
     starship
     fzf
-    yazi
     tree
     bat
+    pass
 
     pre-commit
 

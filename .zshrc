@@ -1,17 +1,13 @@
-#===================#
-# Zsh configuration #
-#===================#
-# Use emacs for the default base keymap
-bindkey -e
-
-# For the option meanings, refer to zshoptions(1)
-setopt SHARE_HISTORY
-setopt HIST_IGNORE_ALL_DUPS
-
-setopt AUTO_CD
-
-# Enable compsys
-# autoload -Uz compinit && compinit
+#============#
+# pass setup #
+#============#
+# Download the completion file if it hasn't been downloaded yet.
+if [ ! -f $HOME/.zsh-completions/_pass ]
+then
+  mkdir -p $HOME/.zsh-completions
+  curl -o $HOME/.zsh-completions/_pass \
+    https://git.zx2c4.com/password-store/plain/src/completion/pass.zsh-completion
+fi
 
 
 #===========#
@@ -81,6 +77,23 @@ eval "$(starship init zsh)"
 # C/C++ compilers
 export CPATH="$HOME/.nix-profile/include${CPATH+:$CPATH}"
 export LIBRARY_PATH="$HOME/.nix-profile/lib${LIBRARY_PATH+:$LIBRARY_PATH}"
+
+
+#===================#
+# Zsh configuration #
+#===================#
+# Use emacs for the default base keymap
+bindkey -e
+
+# For the option meanings, refer to zshoptions(1)
+setopt SHARE_HISTORY
+setopt HIST_IGNORE_ALL_DUPS
+
+setopt AUTO_CD
+
+# Enable compsys
+fpath=($HOME/.zsh-completions $fpath)
+autoload -Uz compinit && compinit
 
 
 #=========#
