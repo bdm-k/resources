@@ -81,10 +81,11 @@
   ],
   "indentRainbow.colorOnWhiteSpaceOnly": true,
 
-  "github.copilot.chat.localeOverride": "ja",
   "github.copilot.enable": {
     "*": false
   },
+  "github.copilot.chat.localeOverride": "ja",
+  "github.copilot.nextEditSuggestions.enabled": true,
 
   "C_Cpp.default.cStandard": "gnu11",
 
