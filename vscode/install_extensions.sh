@@ -65,3 +65,10 @@ else
   code --install-extension tamasfe.even-better-toml
   echo [✓] Even Better TOML
 fi
+
+if echo $extensions | greq -q alefragnani.bookmarks; then
+  echo [✓] Bookmarks
+else
+  code --install-extension alefragnani.bookmarks
+  echo [✓] Bookmarks
+fi
