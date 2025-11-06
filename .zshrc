@@ -109,9 +109,9 @@ alias dat='bat --diff'
 
 if [ $(uname -s) = 'Darwin' ]
 then
-  alias ls='ls -G'
+  alias ls='ls -Gh'
 else
-  alias ls='ls --color=auto'
+  alias ls='ls --color=auto -h'
 fi
 
 alias nvim='_nvim'
