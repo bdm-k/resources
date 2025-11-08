@@ -4,6 +4,9 @@ disabled = true
 [git_status]
 disabled = true
 
+[nix_shell]
+symbol = '󱄅 '
+
 [custom.agnocast_kmod_version]
 command = 'starship_agnocast_kmod'
 when = 'starship_agnocast_kmod when'
