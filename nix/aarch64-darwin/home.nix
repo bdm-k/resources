@@ -69,6 +69,15 @@ in
     # EDITOR = "emacs";
   };
 
+  programs.git = {
+    enable = true;
+    userName = "bdm-k";
+    userEmail = "kokusyunn@gmail.com";
+    extraConfig = {
+      core.editor = "nvim";
+    };
+  };
+
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 }
