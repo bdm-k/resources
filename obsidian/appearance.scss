@@ -123,6 +123,15 @@ div[src$="#center"] {
 div[src$="#right"] {
   text-align: right;
 }
+p:has(> span[src$="#left"]) {
+  text-align: left;
+}
+p:has(> span[src$="#center"]) {
+  text-align: center;
+}
+p:has(> span[src$="#right"]) {
+  text-align: right;
+}
 
 // The image's alt text will be displayed its caption.
 .image-embed[alt]:after {
