@@ -101,9 +101,10 @@ autoload -Uz compinit && compinit
 #=========#
 # git
 alias amend='git commit --amend --no-edit'
+alias branch='git branch -v'
+alias checkout='git checkout'
 alias log='git log --oneline'
 alias status='git status'
-alias branch='git branch -v'
 
 alias dat='bat --diff'
 
