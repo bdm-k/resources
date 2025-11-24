@@ -4,6 +4,7 @@
   "workbench.iconTheme": "vscode-icons",
   "workbench.startupEditor": "none",
   "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
   "explorer.sortOrder": "type",
   "git.openRepositoryInParentFolders": "never",
 
@@ -44,6 +45,7 @@
     "concat",
     "cumsum",
     "deque",
+    "futex",
     "headlessui",
     "karabiner",
     "linalg",
@@ -87,7 +89,11 @@
   "github.copilot.chat.localeOverride": "ja",
   "github.copilot.nextEditSuggestions.enabled": true,
 
+  "githubPullRequests.createOnPublishBranch": "never",
+  "githubPullRequests.fileListLayout": "tree",
+
   "C_Cpp.default.cStandard": "gnu11",
+  "C_Cpp.default.cppStandard": "c++17",
 
   // others
   "zenMode.fullScreen": false,
