@@ -86,7 +86,8 @@ export LIBRARY_PATH="$HOME/.nix-profile/lib${LIBRARY_PATH+:$LIBRARY_PATH}"
 bindkey -e
 
 # For the option meanings, refer to zshoptions(1)
-setopt SHARE_HISTORY
+# Hint: run `fc -RI` to reload commands from the history file
+setopt INC_APPEND_HISTORY
 setopt HIST_IGNORE_ALL_DUPS
 
 setopt AUTO_CD
