@@ -1,4 +1,4 @@
-{ config, pkgs, programs, ... }:
+{ config, pkgs, pkgs-stable, programs, ... }:
 let
   username = import ./username.nix;
 in
@@ -26,6 +26,8 @@ in
     neofetch
 
     pre-commit
+
+    pkgs-stable.neovim
 
     # The Lean version manager
     elan

@@ -4,6 +4,7 @@
   inputs = {
     # Specify the source of Home Manager and Nixpkgs.
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/25.05";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -11,10 +12,11 @@
   };
 
   outputs =
-    { nixpkgs, home-manager, ... }:
+    { nixpkgs, nixpkgs-stable, home-manager, ... }:
     let
       system = "aarch64-darwin";
       pkgs = nixpkgs.legacyPackages.${system};
+      pkgs-stable = nixpkgs-stable.legacyPackages.${system};
 
       username = import ./username.nix;
       programs = "/Users/${username}/resources/programs";
@@ -38,6 +40,7 @@
         # Optionally use extraSpecialArgs
         # to pass through arguments to home.nix
         extraSpecialArgs = {
+          inherit pkgs-stable;
           programs = { inherit safe-rm app-switcher; };
         };
       };
