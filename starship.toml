@@ -8,6 +8,7 @@ disabled = true
 disabled = true
 
 [nix_shell]
+format = 'via [$symbol\($name\)]($style) '
 symbol = '󱄅 '
 
 [custom.agnocast_kmod_version]
