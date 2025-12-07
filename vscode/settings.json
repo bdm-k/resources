@@ -42,31 +42,6 @@
   // extensions
   "extensions.ignoreRecommendations": true,
 
-  "cSpell.userWords": [
-    "concat",
-    "cumsum",
-    "deque",
-    "futex",
-    "headlessui",
-    "karabiner",
-    "linalg",
-    "lookback",
-    "matplotlib",
-    "msrs",
-    "ndim",
-    "nums",
-    "println",
-    "pyplot",
-    "rflags",
-    "rgba",
-    "significand",
-    "subarray",
-    "syscall",
-    "tailwindcss",
-    "vectorize",
-    "viewsets",
-    "vmar"
-  ],
   "cSpell.enabledFileTypes": {
     "json": false
   },
