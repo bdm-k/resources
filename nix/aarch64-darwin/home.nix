@@ -23,6 +23,7 @@ in
     tree
     bat
     pass
+    neofetch
 
     pre-commit
 
