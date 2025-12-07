@@ -7,6 +7,7 @@
   "explorer.confirmDragAndDrop": false,
   "explorer.sortOrder": "type",
   "git.openRepositoryInParentFolders": "never",
+  "git.suggestSmartCommit": false,
 
   // editor
   "editor.fontFamily": "'Source Code Pro', Menlo, Monaco, 'Courier New', monospace",
@@ -94,6 +95,8 @@
 
   "C_Cpp.default.cStandard": "gnu11",
   "C_Cpp.default.cppStandard": "c++17",
+
+  "markdown-pdf.displayHeaderFooter": false,
 
   // others
   "zenMode.fullScreen": false,
