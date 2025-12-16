@@ -82,5 +82,6 @@
   },
   "window.customTitleBarVisibility": "windowed",
   "window.titleBarStyle": "custom",
-  "breadcrumbs.enabled": false
+  "breadcrumbs.enabled": false,
+  "terminal.integrated.suggest.enabled": false
 }
