@@ -33,6 +33,7 @@ vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
 
 vim.opt.cursorline = true
+vim.opt.colorcolumn = "80,100"
 
 vim.opt.clipboard = 'unnamedplus'
 

@@ -34,6 +34,7 @@ vim.api.nvim_set_hl(0, 'NormalFloat', { bg = noir9, blend = 24 })
 vim.api.nvim_set_hl(0, 'FloatBorder', { bg = noir9, blend = 24 })
 vim.api.nvim_set_hl(0, 'CursorLineNr', { fg = primary, bold = true })
 vim.api.nvim_set_hl(0, 'WinSeparator', { fg = noir5 })
+vim.api.nvim_set_hl(0, 'ColorColumn', { bg = noir8 })
 
 -- Treesitter
 vim.api.nvim_set_hl(0, '@string', { fg = primary })
