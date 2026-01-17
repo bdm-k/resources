@@ -124,7 +124,7 @@ std::vector<struct window> run_and_parse(const char * command)
     exit(EXIT_FAILURE);
   }
   std::vector<struct window> ret = parse(fp);
-  fclose(fp);
+  pclose(fp);
   return ret;
 }
 
