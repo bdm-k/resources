@@ -49,6 +49,7 @@ vim.api.nvim_set_hl(0, '@constructor.lua', { fg = foreground })
 -- cpp
 vim.api.nvim_set_hl(0, '@operator.cpp', { link = '@keyword' })
 vim.api.nvim_set_hl(0, '@type.builtin.cpp', { link = '@keyword' })
+vim.api.nvim_set_hl(0, '@lsp.type.parameter.cpp', { italic = true })
 
 -- Diagnostic
 vim.api.nvim_set_hl(0, 'DiagnosticUnderlineError', {

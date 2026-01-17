@@ -47,6 +47,7 @@ vim.diagnostic.config({
   -- Add padding to the floating window
   float = { border = 'solid' },
 })
+vim.diagnostic.enable(false)
 
 -- Enable tree-sitter based folding
 vim.opt.foldmethod = 'expr'
@@ -54,6 +55,7 @@ vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
 
 require('colors')
 require('config.lazy')
+require('config.lsp')
 
 
 ------------------
@@ -81,8 +83,8 @@ vim.api.nvim_set_keymap('n', 'n', '<Cmd>keepjumps normal! n<CR>', noremap)
 vim.api.nvim_set_keymap('n', 'N', '<Cmd>keepjumps normal! N<CR>', noremap)
 vim.api.nvim_set_keymap('n', '-', '<C-o>', noremap) -- Navigate back jump list
 vim.api.nvim_set_keymap('n', '=', '<C-i>', noremap) -- Navigate forward jump list
-vim.api.nvim_set_keymap('n', '<C-s>', '`.', noremap) -- Move to the position where the last change was made
-vim.api.nvim_set_keymap('n', '<Esc>', ':noh<CR>', noremap) -- Stop highlighting search hits
+vim.api.nvim_set_keymap('n', '<C-s>', 'g;', noremap) -- Go to older position in change list
+vim.api.nvim_set_keymap('n', 'S', 'g,', noremap) -- Go to newer position in change list
 vim.api.nvim_set_keymap('i', '<S-Enter>', '<Esc>O', noremap) -- Enable beginning a new line above the cursor in the insert mode
 
 --
@@ -116,8 +118,8 @@ vim.api.nvim_set_keymap('n', '<leader>i', '<C-w>l', noremap)
 -- Close the window
 vim.api.nvim_set_keymap('n', '<leader>x', '<C-w>q', noremap)
 -- Resize the window
-vim.api.nvim_set_keymap('n', '<C-->', ':vertical resize -5<CR>', noremap)
-vim.api.nvim_set_keymap('n', '<C-=>', ':vertical resize +5<CR>', noremap)
+vim.api.nvim_set_keymap('n', '_', ':vertical resize -5<CR>', noremap)
+vim.api.nvim_set_keymap('n', '+', ':vertical resize +5<CR>', noremap)
 vim.api.nvim_set_keymap('n', '(', ':resize -3<CR>', noremap)
 vim.api.nvim_set_keymap('n', ')', ':resize +3<CR>', noremap)
 
@@ -171,6 +173,19 @@ end, {})
 -- Toggle the inlay hints
 vim.api.nvim_create_user_command('H', function()
   vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+end, {})
+
+-- Toggle diagnostic
+vim.api.nvim_create_user_command('D', function()
+  local lualine = require 'config.lualine'
+  local is_enabled = vim.diagnostic.is_enabled()
+  if is_enabled then
+    vim.diagnostic.enable(false)
+    lualine.setup_wo_diagnostic()
+  else
+    vim.diagnostic.enable(true)
+    lualine.setup()
+  end
 end, {})
 
 

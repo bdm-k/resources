@@ -80,7 +80,7 @@ lazy.setup({
       'nvim-lualine/lualine.nvim',
       dependencies = { 'nvim-tree/nvim-web-devicons' },
       config = function()
-        require('config.lualine').setup()
+        require('config.lualine').setup_wo_diagnostic()
       end,
     },
     {
@@ -166,21 +166,6 @@ lazy.setup({
 
         signature = { enabled = true },
       },
-    },
-    {
-      'neovim/nvim-lspconfig',
-      dependencies = { 'saghen/blink.cmp' },
-
-      config = function()
-        local capabilities = require('blink.cmp').get_lsp_capabilities()
-        local lspconfig = require 'lspconfig'
-        local servers = require 'config.lang-servers'
-
-        for server, config in pairs(servers) do
-          config.capabilities = capabilities
-          lspconfig[server].setup(config)
-        end
-      end,
     },
   }
 })

@@ -56,7 +56,7 @@ vim.api.nvim_set_hl(0, 'LualineDiagnosticHint', {
 })
 
 
--- The setup function
+-- The setup functions
 M.setup = function()
   require('lualine').setup({
     options = { theme = theme },
@@ -92,5 +92,30 @@ M.setup = function()
   })
 end
 
+M.setup_wo_diagnostic = function()
+  require('lualine').setup({
+    options = { theme = theme },
+    sections = {
+      lualine_a = { 'mode' },
+      lualine_b = {
+        { 'filename', path = 1 },
+      },
+      lualine_c = {},
+      lualine_x = {},
+      lualine_y = { 'progress' },
+      lualine_z = { 'location' },
+    },
+    inactive_sections = {
+      lualine_a = {},
+      lualine_b = {},
+      lualine_c = {
+        { 'filename', path = 1 },
+      },
+      lualine_x = { 'location' },
+      lualine_y = {},
+      lualine_z = {},
+    },
+  })
+end
 
 return M
