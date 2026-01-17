@@ -68,6 +68,20 @@ export NVM_LAZY_LOAD=true
 source $HOME/.zsh-nvm/zsh-nvm.plugin.zsh
 
 
+#========#
+# ccache #
+#========#
+# If ccache is installed, make sure the symbolic links are set up.
+which ccache > /dev/null 2>&1
+if [ $? -eq 0 ]
+then
+  if [ ! -f $HOME/.local/bin/ccache ]
+  then
+    ln -s $(which ccache) $HOME/.local/bin/ccache
+  fi
+fi
+
+
 #====================#
 # other applications #
 #====================#
