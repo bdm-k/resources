@@ -88,6 +88,8 @@ vim.api.nvim_set_keymap('n', '<C-s>', 'g;', noremap) -- Go to older position in 
 vim.api.nvim_set_keymap('n', 'S', 'g,', noremap) -- Go to newer position in change list
 vim.api.nvim_set_keymap('i', '<S-Enter>', '<Esc>O', noremap) -- Enable beginning a new line above the cursor in the insert mode
 
+vim.keymap.set('n', '\\', ':nohlsearch<CR>', { silent = true })
+
 --
 -- LSP client key bindings
 --
@@ -135,13 +137,38 @@ vim.api.nvim_set_keymap('n', '<leader>Z', 'zM', noremap)
 --
 -- Telescope key bindings
 --
+local tele = require('telescope')
 local tele_builtin = require('telescope.builtin')
+
 vim.keymap.set('n', '<leader>f', tele_builtin.live_grep, noremap)
-vim.keymap.set('n', '<leader>p', ':Telescope frecency workspace=CWD<CR>', noremap)
-vim.keymap.set('n', '<leader>t', tele_builtin.help_tags, noremap)
 vim.keymap.set('n', '<leader>b', tele_builtin.buffers, noremap)
 vim.keymap.set('n', '<leader>r', tele_builtin.resume, noremap)
 vim.keymap.set('n', '<leader>m', tele_builtin.marks, noremap)
+
+vim.keymap.set('n', '<leader>o', function()
+  tele_builtin.lsp_document_symbols {
+    prompt_title = '  Document Symbols',
+  }
+end, noremap)
+
+vim.keymap.set('n', '<leader>O', function()
+  tele_builtin.lsp_workspace_symbols {
+    prompt_title = '  Workspace Symbols',
+  }
+end, noremap)
+
+vim.keymap.set('n', '<leader>p', function()
+  tele.extensions.frecency.frecency {
+    workspace = 'CWD',
+    prompt_title = '  Frecent Files',
+  }
+end, noremap)
+
+vim.keymap.set('n', '<leader>t', function()
+  tele_builtin.git_status {
+    prompt_title = '  Git Status',
+  }
+end, noremap)
 --[[
 usage notes for Telescope
 
