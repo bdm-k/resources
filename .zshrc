@@ -121,8 +121,6 @@ alias checkout='git checkout'
 alias log='git log --oneline'
 alias status='git status'
 
-alias dat='bat --diff'
-
 if [ $(uname -s) = 'Darwin' ]
 then
   alias ls='ls -Gh'
