@@ -164,11 +164,7 @@ vim.keymap.set('n', '<leader>p', function()
   }
 end, noremap)
 
-vim.keymap.set('n', '<leader>t', function()
-  tele_builtin.git_status {
-    prompt_title = '  Git Status',
-  }
-end, noremap)
+vim.keymap.set('n', '<leader>s', tele.extensions.difftastic.picker, noremap)
 --[[
 usage notes for Telescope
 
