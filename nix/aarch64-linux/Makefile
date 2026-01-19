@@ -2,8 +2,9 @@ HM_DIR = $(HOME)/.config/home-manager
 CONFIG_DIR = $(HOME)/.config
 ROOT = $(HOME)/resources
 
-SYMLINKS = $(CONFIG_DIR)/starship.toml $(CONFIG)/nvim/init.lua \
-	   $(CONFIG_DIR)/nvim/lua
+SYMLINKS = $(CONFIG_DIR)/starship.toml $(CONFIG_DIR)/nvim/init.lua \
+	   $(CONFIG_DIR)/nvim/lua $(CONFIG_DIR)/opencode/command \
+	   $(CONFIG_DIR)/opencode/commands $(CONFIG_DIR)/opencode/opencode.jsonc
 
 .PHONY: show_targets
 show_targets:
@@ -17,20 +18,36 @@ update:
 .PHONY: symlinks
 symlinks: $(SYMLINKS)
 
-$(CONFIG_DIR)/starship.toml: $(ROOT)/starship.toml
-	ln -s $< $@
+$(CONFIG_DIR):
+	mkdir -p $@
 
-$(CONFIG_DIR)/nvim/init.lua: $(ROOT)/nvim/init.lua
-	mkdir -p $(CONFIG_DIR)/nvim
-	ln -s $< $@
+$(CONFIG_DIR)/starship.toml: | $(CONFIG_DIR) $(ROOT)/starship.toml
+	ln -s $(ROOT)/starship.toml $@
 
-$(CONFIG_DIR)/nvim/lua: $(ROOT)/nvim/lua
+$(CONFIG_DIR)/nvim/init.lua: | $(ROOT)/nvim/init.lua
 	mkdir -p $(CONFIG_DIR)/nvim
-	ln -s $< $@
+	ln -s $(ROOT)/nvim/init.lua $@
+
+$(CONFIG_DIR)/nvim/lua: | $(ROOT)/nvim/lua
+	mkdir -p $(CONFIG_DIR)/nvim
+	ln -s $(ROOT)/nvim/lua $@
+
+# for backward compatibility
+$(CONFIG_DIR)/opencode/command: | $(ROOT)/opencode/commands
+	mkdir -p $(CONFIG_DIR)/opencode
+	ln -s $(ROOT)/opencode/commands $@
+
+$(CONFIG_DIR)/opencode/commands: | $(ROOT)/opencode/commands
+	mkdir -p $(CONFIG_DIR)/opencode
+	ln -s $(ROOT)/opencode/commands $@
+
+$(CONFIG_DIR)/opencode/opencode.jsonc: | $(ROOT)/opencode/opencode.jsonc
+	mkdir -p $(CONFIG_DIR)/opencode
+	ln -s $(ROOT)/opencode/opencode.jsonc $@
 
 .PHONY: clean_symlinks
 clean_symlinks:
-	rm $(SYMLINKS)
+	rm -rf $(SYMLINKS)
 
 .PHONY: nix-gc
 nix-gc:

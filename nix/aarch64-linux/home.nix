@@ -30,6 +30,8 @@ in
 
     pkgs-stable.neovim
 
+    opencode
+
     # my programs
     programs.safe-rm
   ];
