@@ -146,7 +146,7 @@ _nvim()
 {
   if [ $# -eq 0 ]
   then
-    command nvim -c 'Telescope frecency workspace=CWD'
+    command nvim -c 'Telescope difftastic picker'
   else
     command nvim $@
   fi
