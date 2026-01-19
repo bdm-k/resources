@@ -17,6 +17,7 @@ in
     pkgs.starship
     pkgs.fzf
     pkgs.bat
+    pkgs.difftastic
     pkgs.neofetch
     pkgs.pass
 
@@ -49,6 +50,7 @@ in
     userEmail = "kokusyunn@gmail.com";
     extraConfig = {
       core.editor = "nvim";
+      diff.external="difft --color always"
     };
   };
 

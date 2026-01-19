@@ -22,6 +22,7 @@ in
     fzf
     tree
     bat
+    difftastic
     pass
     neofetch
 
@@ -59,6 +60,7 @@ in
         email = "kokusyunn@gmail.com";
       };
       core.editor = "nvim";
+      diff.external="difft --color always";
     };
   };
 
