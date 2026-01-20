@@ -29,11 +29,14 @@ in
     pre-commit
 
     pkgs-stable.neovim
+    ripgrep
 
     opencode
 
     # my programs
     programs.safe-rm
+    programs.starship_agnocast_kmod
+    programs.repo-sync
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage

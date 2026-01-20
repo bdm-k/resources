@@ -25,9 +25,13 @@
         "${programs}/safe-rm/default.nix"
         { inherit pkgs; };
 
-      app-switcher = import
-        "${programs}/app-switcher/default.nix"
-        { inherit (pkgs) stdenv; };
+      starship_agnocast_kmod = import
+        "${programs}/starship_agnocast_kmod/default.nix"
+        { inherit pkgs; };
+
+      repo-sync = import
+        "${programs}/repo-sync/default.nix"
+        { inherit pkgs; };
     in
     {
       homeConfigurations."${username}" = home-manager.lib.homeManagerConfiguration {
@@ -41,7 +45,7 @@
         # to pass through arguments to home.nix
         extraSpecialArgs = {
           inherit pkgs-stable;
-          programs = { inherit safe-rm app-switcher; };
+          programs = { inherit safe-rm starship_agnocast_kmod repo-sync; };
         };
       };
     };
