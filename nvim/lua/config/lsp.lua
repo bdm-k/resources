@@ -1,3 +1,5 @@
+-- Use `:checkhealth vim.lsp` to check active LSP clients.
+
 local capabilities = require('blink.cmp').get_lsp_capabilities()
 local ok, servers = pcall(require, 'config.lang-servers')
 local servers = ok and servers or {}
