@@ -60,7 +60,7 @@ in
         email = "kokusyunn@gmail.com";
       };
       core.editor = "nvim";
-      diff.external="difft --color always";
+      diff.external = "difft --color always";
     };
   };
 
