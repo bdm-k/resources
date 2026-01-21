@@ -15,17 +15,23 @@ function symlinks()
   mkdir -p $CONFIG_DIR/nvim
   ln -s $ROOT/nvim/init.lua $CONFIG_DIR/nvim/init.lua
   ln -s $ROOT/nvim/lua $CONFIG_DIR/nvim/lua
+
+  mkdir -p $CONFIG_DIR/opencode
+  ln -s $ROOT/opencode/commands $CONFIG_DIR/opencode/commands
+  ln -s $ROOT/opencode/opencode.jsonc $CONFIG_DIR/opencode/opencode.jsonc
 }
 
 function clean_symlinks()
 {
-  rm \
+  rm -rf \
     $CONFIG_DIR/starship.toml \
     "$HOME/Library/Application Support/Code/User/keybindings.json" \
     "$HOME/Library/Application Support/Code/User/settings.json" \
     $CONFIG_DIR/wezterm/wezterm.lua \
     $CONFIG_DIR/nvim/init.lua \
-    $CONFIG_DIR/nvim/lua
+    $CONFIG_DIR/nvim/lua \
+    $CONFIG_DIR/opencode/commands \
+    $CONFIG_DIR/opencode/opencode.jsonc
 }
 
 if [ $1 = "symlinks" ]; then

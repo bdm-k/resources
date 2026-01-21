@@ -33,9 +33,9 @@ in
     # The Lean version manager
     elan
 
-    # my programs
     programs.safe-rm
     programs.app-switcher
+    programs.opencode
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
