@@ -44,6 +44,10 @@ run = ['layout floating']
 if.app-id = 'com.leomehlig.today'
 run = ['layout floating']
 
+[[on-window-detected]]
+if.app-id = 'com.github.wez.wezterm'
+run = ['layout floating']
+
 
 # Make workspaces always appear on particular monitors
 [workspace-to-monitor-force-assignment]
