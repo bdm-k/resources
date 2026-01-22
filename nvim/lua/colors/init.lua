@@ -16,6 +16,8 @@ local secondary = '#47bac0'
 local vibrant_green = '#6af376'
 local vibrant_yellow = '#f1ff5e'
 
+local colorless_yellow = '#2d2805'
+
 local noir9 = '#000000'
 local noir8 = background
 local noir7 = '#434852'
@@ -35,6 +37,7 @@ vim.api.nvim_set_hl(0, 'FloatBorder', { bg = noir9, blend = 24 })
 vim.api.nvim_set_hl(0, 'CursorLineNr', { fg = primary, bold = true })
 vim.api.nvim_set_hl(0, 'WinSeparator', { fg = noir5 })
 vim.api.nvim_set_hl(0, 'ColorColumn', { bg = noir8 })
+vim.api.nvim_set_hl(0, 'Folded', { bg = colorless_yellow })
 
 -- Treesitter
 vim.api.nvim_set_hl(0, '@string', { fg = primary })

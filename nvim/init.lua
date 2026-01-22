@@ -53,6 +53,8 @@ vim.diagnostic.enable(false)
 -- Enable tree-sitter based folding
 vim.opt.foldmethod = 'expr'
 vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
+vim.opt.foldtext = ''
+vim.opt.foldlevelstart = 99
 
 require('colors')
 require('config.lazy')
