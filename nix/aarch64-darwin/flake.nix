@@ -31,6 +31,10 @@
       app-switcher = import
         "${programs}/app-switcher/default.nix"
         { inherit (pkgs) stdenv; };
+
+      repo-sync = import
+        "${programs}/repo-sync/default.nix"
+        { inherit pkgs; };
     in
     {
       homeConfigurations."${username}" = home-manager.lib.homeManagerConfiguration {
@@ -43,8 +47,8 @@
         # Optionally use extraSpecialArgs
         # to pass through arguments to home.nix
         extraSpecialArgs = {
-          inherit pkgs-stable opencode;
-          programs = { inherit safe-rm app-switcher opencode; };
+          inherit pkgs-stable;
+          programs = { inherit safe-rm app-switcher repo-sync opencode; };
         };
       };
     };

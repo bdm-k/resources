@@ -35,6 +35,7 @@ in
 
     programs.safe-rm
     programs.app-switcher
+    programs.repo-sync
     programs.opencode
   ];
 
