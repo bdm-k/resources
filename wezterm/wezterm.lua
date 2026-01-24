@@ -1,3 +1,5 @@
+-- To debug your wezterm config, use wezterm.log_info and the debug overlay
+
 local wezterm = require("wezterm")
 local act = wezterm.action
 local nerd = wezterm.nerdfonts
@@ -13,16 +15,16 @@ local kernel_name = (function()
 end)()
 
 -- Setup domains
-config.unix_domains = {
-  {
-    name = "tier4-pc",
-    proxy_command = { "ssh", "-T", "tier4-pc", "wezterm", "cli", "proxy" },
-  },
-  {
-    name = "kokus-epyc",
-    proxy_command = { "ssh", "-T", "kokus-epyc", "wezterm", "cli", "proxy" },
-  }
-}
+local ok, hosts = pcall(require, "hosts")
+local hosts = ok and hosts or {}
+
+config.unix_domains = {}
+for _, host in ipairs(hosts) do
+  table.insert(config.unix_domains, {
+    name = host,
+    proxy_command = { "ssh", "-T", host, "wezterm", "cli", "proxy" },
+  })
+end
 
 -- Setup the fonts
 config.font = wezterm.font_with_fallback {
