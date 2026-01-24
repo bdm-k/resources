@@ -72,12 +72,16 @@ source $HOME/.zsh-nvm/zsh-nvm.plugin.zsh
 # ccache #
 #========#
 # If ccache is installed, make sure the symbolic links are set up.
-which ccache > /dev/null 2>&1
+command -v ccache > /dev/null 2>&1
 if [ $? -eq 0 ]
 then
-  if [ ! -f $HOME/.local/bin/ccache ]
+  if [ ! -d $HOME/.local/bin/ccache ]
   then
-    ln -s $(which ccache) $HOME/.local/bin/ccache
+    mkdir -p $HOME/.local/bin/ccache
+    ccache_bin=$(command -v ccache)
+    ln -s $ccache_bin $HOME/.local/bin/ccache/ccache
+    ln -s $ccache_bin $HOME/.local/bin/ccache/gcc
+    ln -s $ccache_bin $HOME/.local/bin/ccache/g++
   fi
 fi
 
