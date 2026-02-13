@@ -30,13 +30,14 @@ in
 
     pkgs-stable.neovim
 
+    opencode
+
     # The Lean version manager
     elan
 
     programs.safe-rm
     programs.app-switcher
     programs.repo-sync
-    programs.opencode
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -76,9 +77,11 @@ in
 
   programs.git = {
     enable = true;
-    userName = "bdm-k";
-    userEmail = "kokusyunn@gmail.com";
-    extraConfig = {
+    settings = {
+      user = {
+        name = "bdm-k";
+        email = "kokusyunn@gmail.com";
+      };
       core.editor = "nvim";
       diff.external = "difft --color always";
     };
