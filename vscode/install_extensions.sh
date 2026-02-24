@@ -66,7 +66,7 @@ else
   echo [✓] Even Better TOML
 fi
 
-if echo $extensions | greq -q alefragnani.bookmarks; then
+if echo $extensions | grep -q alefragnani.bookmarks; then
   echo [✓] Bookmarks
 else
   code --install-extension alefragnani.bookmarks
