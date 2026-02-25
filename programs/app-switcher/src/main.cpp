@@ -48,7 +48,9 @@ int main(int argc, char * argv[])
   asprintf(&command, "%s list-windows --all", AEROSPACE_BIN);
   std::vector<struct window> target_app_ws;
   for (auto && w : run_and_parse(command)) {
-    target_app_ws.push_back(std::move(w));
+    if (strcmp(w.app, app_to_focus) == 0) {
+      target_app_ws.push_back(std::move(w));
+    }
   }
 
   std::sort(target_app_ws.begin(), target_app_ws.end(),
