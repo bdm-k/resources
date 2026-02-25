@@ -19,9 +19,20 @@ struct window {
   char * app;
 };
 
+struct app_map_entry {
+  const char * key;
+  const char * val;
+};
+
+constexpr app_map_entry app_map[1] = {
+  {"Visual Studio Code", "Code"}
+};
+
 void setup_logging();
 std::vector<struct window> run_and_parse(const char * command);
 struct window & next_window(std::vector<struct window> & ws, int id);
+// Convert the app name to the name recognized by Aerospace.
+const char * app_map_get(const char *);
 
 int main(int argc, char * argv[])
 {
@@ -32,18 +43,20 @@ int main(int argc, char * argv[])
     exit(EXIT_FAILURE);
   }
 
-  char * app_to_focus = argv[1];
+  const char * app_to_focus = argv[1];
   char * command;
 
   asprintf(&command, "%s list-windows --focused", AEROSPACE_BIN);
   struct window curr_window = run_and_parse(command)[0];
 
-  if (strcmp(curr_window.app, app_to_focus) != 0) {
+  if (strcmp(curr_window.app, app_map_get(app_to_focus)) != 0) {
     if (execl(OPEN_BIN, "open", "-a", app_to_focus, nullptr) == -1) {
       fprintf(stderr, "[app-switcher] [ERROR] execl failed: %s\n", strerror(errno));
       exit(EXIT_FAILURE);
     };
   }
+
+  app_to_focus = app_map_get(app_to_focus);
 
   asprintf(&command, "%s list-windows --all", AEROSPACE_BIN);
   std::vector<struct window> target_app_ws;
@@ -66,6 +79,17 @@ int main(int argc, char * argv[])
   }
 
   return 0;
+}
+
+const char * app_map_get(const char * key)
+{
+  constexpr size_t app_map_size = sizeof(app_map) / sizeof(app_map_entry);
+  for (size_t i = 0; i < app_map_size; ++i) {
+    if (strcmp(key, app_map[i].key) == 0) {
+      return app_map[i].val;
+    }
+  }
+  return key;
 }
 
 void trim_end(char * s)
