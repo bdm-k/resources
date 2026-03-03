@@ -78,7 +78,8 @@
   "zenMode.centerLayout": false,
   "files.associations": {
     "*.pl": "prolog",
-    "*.json": "jsonc"
+    "*.json": "jsonc",
+    "justfile": "text"
   },
   "window.customTitleBarVisibility": "windowed",
   "window.titleBarStyle": "custom",
