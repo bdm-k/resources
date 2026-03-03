@@ -122,6 +122,7 @@ autoload -Uz compinit && compinit
 alias amend='git commit --amend --no-edit'
 alias branch='git branch -v'
 alias checkout='git checkout'
+alias commit='git commit -s'
 alias log='git log --oneline'
 alias status='git status'
 
