@@ -68,18 +68,16 @@ body {
   --table-border-color: #{$purple-400};
 }
 
-/* Change the background color of inline code. If it appears in a header, make
-   the background transparent */
-// for editing view
-.theme-dark .cm-s-obsidian span.cm-inline-code {
+// Change the background color of inline code. If it appears in a header, make
+// the background transparent.
+.theme-dark .cm-s-obsidian span.cm-inline-code {  // for editing view
   background: var(--background-secondary-alt);
   // Make the background transparent if it's in a header
   &.cm-header {
     background: transparent;
   }
 }
-// for reading view
-.theme-dark {
+.theme-dark {  // for reading view
   :not(pre) > code {
     background: var(--background-secondary-alt);
   }
@@ -132,6 +130,13 @@ p:has(> span[src$="#center"]) {
 }
 p:has(> span[src$="#right"]) {
   text-align: right;
+}
+.markdown-source-view.mod-cm6 .cm-content > div.image-embed {
+  display: block;
+  width: auto;
+  > div.image-wrapper {
+    display: block;
+  }
 }
 
 // The image's alt text will be displayed its caption.
