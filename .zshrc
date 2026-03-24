@@ -96,6 +96,8 @@ eval "$(starship init zsh)"
 export CPATH="$HOME/.nix-profile/include${CPATH+:$CPATH}"
 export LIBRARY_PATH="$HOME/.nix-profile/lib${LIBRARY_PATH+:$LIBRARY_PATH}"
 
+export EDITOR=nvim
+
 
 #===================#
 # Zsh configuration #
