@@ -25,6 +25,7 @@ const AppSwitchRule = layer(
   map(';').to$(`${APP_SWITCHER_BIN} 'Obsidian'`),
   map('g').to$(`${APP_SWITCHER_BIN} 'Dictionary'`),
   map('d').to$(`${APP_SWITCHER_BIN} 'Slack'`),
+  map('z').to$(`${APP_SWITCHER_BIN} 'Zed'`),
 ]);
 
 // NOTE: Spacebar also triggers open-app-mode
