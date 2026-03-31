@@ -71,6 +71,9 @@
     "--header-insertion=never"
   ],
 
+  "rust-analyzer.check.command": "clippy",
+  "rust-analyzer.cargo.allTargets": false,
+
   "markdown-pdf.displayHeaderFooter": false,
 
   // others
