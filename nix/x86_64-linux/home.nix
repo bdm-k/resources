@@ -20,6 +20,10 @@ in
     pkgs.difftastic
     pkgs.neofetch
     pkgs.pass
+    pkgs.just
+    pkgs.gh
+
+    pkgs.pre-commit
 
     pkgs-stable.neovim
     pkgs.ripgrep
@@ -36,8 +40,6 @@ in
     # rustup component add rust-analyzer
     # ```
     pkgs.rustup
-
-    pkgs.qemu
 
     # my programs
     programs.starship_agnocast_kmod
