@@ -19,6 +19,7 @@ function symlinks()
   mkdir -p $CONFIG_DIR/opencode
   ln -s $ROOT/opencode/commands $CONFIG_DIR/opencode/commands
   ln -s $ROOT/opencode/opencode.jsonc $CONFIG_DIR/opencode/opencode.jsonc
+  ln -s $ROOT/opencode/tui.json $CONFIG_DIR/opencode/tui.json
 }
 
 function clean_symlinks()
@@ -31,7 +32,8 @@ function clean_symlinks()
     $CONFIG_DIR/nvim/init.lua \
     $CONFIG_DIR/nvim/lua \
     $CONFIG_DIR/opencode/commands \
-    $CONFIG_DIR/opencode/opencode.jsonc
+    $CONFIG_DIR/opencode/opencode.jsonc \
+    $CONFIG_DIR/opencode/tui.json
 }
 
 if [ $1 = "symlinks" ]; then

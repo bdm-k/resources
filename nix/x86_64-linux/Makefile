@@ -3,8 +3,9 @@ CONFIG_DIR = $(HOME)/.config
 ROOT = $(HOME)/resources
 
 SYMLINKS = $(CONFIG_DIR)/starship.toml $(CONFIG_DIR)/Code/User/keybindings.json \
-	  $(CONFIG_DIR)/Code/User/settings.json $(CONFIG_DIR)/wezterm/wezterm.lua \
-	  $(CONFIG_DIR)/nvim/init.lua $(CONFIG_DIR)/nvim/lua
+	   $(CONFIG_DIR)/Code/User/settings.json $(CONFIG_DIR)/wezterm/wezterm.lua \
+	   $(CONFIG_DIR)/nvim/init.lua $(CONFIG_DIR)/nvim/lua $(CONFIG_DIR)/opencode/commands \
+	   $(CONFIG_DIR)/opencode/opencode.jsonc $(CONFIG_DIR)/opencode/tui.json
 
 .PHONY: show_targets
 show_targets:
@@ -17,28 +18,40 @@ update:
 .PHONY: symlinks
 symlinks: $(SYMLINKS)
 
-$(CONFIG_DIR)/starship.toml: $(ROOT)/starship.toml
-	ln -s $< $@
+$(CONFIG_DIR)/starship.toml: | $(CONFIG_DIR) $(ROOT)/starship.toml
+	ln -s $(ROOT)/starship.toml $@
 
-$(CONFIG_DIR)/Code/User/keybindings.json: $(ROOT)/vscode/keybindings.json
+$(CONFIG_DIR)/Code/User/keybindings.json: | $(ROOT)/vscode/keybindings.json
 	mkdir -p $(CONFIG_DIR)/Code/User
-	ln -s $< $@
+	ln -s $(ROOT)/vscode/keybindings.json $@
 
-$(CONFIG_DIR)/Code/User/settings.json: $(ROOT)/vscode/settings.json
+$(CONFIG_DIR)/Code/User/settings.json: | $(ROOT)/vscode/settings.json
 	mkdir -p $(CONFIG_DIR)/Code/User
-	ln -s $< $@
+	ln -s $(ROOT)/vscode/settings.json $@
 
-$(CONFIG_DIR)/wezterm/wezterm.lua: $(ROOT)/wezterm/wezterm.lua
+$(CONFIG_DIR)/wezterm/wezterm.lua: | $(ROOT)/wezterm/wezterm.lua
 	mkdir -p $(CONFIG_DIR)/wezterm
-	ln -s $< $@
+	ln -s $(ROOT)/wezterm/wezterm.lua $@
 
-$(CONFIG_DIR)/nvim/init.lua: $(ROOT)/nvim/init.lua
+$(CONFIG_DIR)/nvim/init.lua: | $(ROOT)/nvim/init.lua
 	mkdir -p $(CONFIG_DIR)/nvim
-	ln -s $< $@
+	ln -s $(ROOT)/nvim/init.lua $@
 
-$(CONFIG_DIR)/nvim/lua: $(ROOT)/nvim/lua
+$(CONFIG_DIR)/nvim/lua: | $(ROOT)/nvim/lua
 	mkdir -p $(CONFIG_DIR)/nvim
-	ln -s $< $@
+	ln -s $(ROOT)/nvim/lua $@
+
+$(CONFIG_DIR)/opencode/commands: | $(ROOT)/opencode/commands
+	mkdir -p $(CONFIG_DIR)/opencode
+	ln -s $(ROOT)/opencode/commands $@
+
+$(CONFIG_DIR)/opencode/opencode.jsonc: | $(ROOT)/opencode/opencode.jsonc
+	mkdir -p $(CONFIG_DIR)/opencode
+	ln -s $(ROOT)/opencode/opencode.jsonc $@
+
+$(CONFIG_DIR)/opencode/tui.json: | $(ROOT)/opencode/tui.json
+	mkdir -p $(CONFIG_DIR)/opencode
+	ln -s $(ROOT)/opencode/tui.json $@
 
 $(CONFIG_DIR):
 	mkdir -p $(CONFIG_DIR)

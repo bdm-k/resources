@@ -30,8 +30,6 @@ in
 
     pkgs-stable.neovim
 
-    opencode
-
     # The Lean version manager
     elan
 

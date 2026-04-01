@@ -31,8 +31,6 @@ in
     pkgs-stable.neovim
     ripgrep
 
-    opencode
-
     # my programs
     programs.safe-rm
     programs.starship_agnocast_kmod
