@@ -136,6 +136,7 @@ else
 fi
 
 alias nvim='_nvim'
+alias autossh='_autossh'
 
 # The -c flag continues the last session.
 alias oc='opencode -c'
@@ -160,4 +161,22 @@ _nvim()
   else
     command nvim $@
   fi
+}
+
+_autossh()
+{
+  local port=$1
+  local host=$2
+
+  if [ -z $port -o -z $host ]; then
+    echo "usage: autossh <port> <hostname>"
+    return 1
+  fi
+
+  command autossh -f -N -M 0 \
+    -o "ServerAliveInterval=30" \
+    -o "ServerAliveCountMax=2" \
+    -o "ExitOnForwardFailure=yes" \
+    -L "${port}:localhost:${port}" \
+    "$host"
 }

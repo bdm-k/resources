@@ -25,6 +25,7 @@ in
     difftastic
     pass
     neofetch
+    autossh
 
     pre-commit
 
