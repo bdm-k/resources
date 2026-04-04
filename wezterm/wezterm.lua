@@ -84,17 +84,24 @@ else
 end
 
 -- This function returns the suggested title for a tab. It prefers the title
--- that was set via `tab:set_title()` or `wezterm cli set-tab-title`, but falls
--- back to the title of the active pane in that tab.
+-- that was set via `tab:set_title()` or `wezterm cli set-tab-title`, then falls
+-- back to the title of the active pane in that tab, and finally to `tab <id>`.
 function tab_title(tab_info)
   local title = tab_info.tab_title
   if title and #title > 0 then
     return title
   end
-  return tab_info.active_pane.title
+
+  local pane_title = tab_info.active_pane.title
+  if pane_title and #pane_title > 0 then
+    return pane_title
+  end
+
+  return string.format("tab %d", tab_info.tab_id)
 end
 
--- Prefix the tab title with 🔎 if the active pane in the tab is zoomed
+-- Prefix 🔎 if the active pane in the tab is zoomed.
+-- Also, suffix 🌐 and the domain name if it is not the local domain.
 wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_width)
   function starts_with(str, prefix)
     return string.find(str, "^" .. prefix) ~= nil
