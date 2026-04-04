@@ -98,6 +98,8 @@ export LIBRARY_PATH="$HOME/.nix-profile/lib${LIBRARY_PATH+:$LIBRARY_PATH}"
 
 export EDITOR=nvim
 
+export PATH="$HOME/.local/bin${PATH+:$PATH}"
+
 
 #===================#
 # Zsh configuration #
