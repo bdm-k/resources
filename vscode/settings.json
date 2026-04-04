@@ -36,7 +36,7 @@
   },
 
   "[rust]": {
-    "editor.tabSize": 4
+    "editor.tabSize": 2
   },
 
   // extensions
@@ -86,6 +86,7 @@
   },
   "window.customTitleBarVisibility": "windowed",
   "window.titleBarStyle": "custom",
+  "window.zoomLevel": -1
   "breadcrumbs.enabled": false,
   "terminal.integrated.suggest.enabled": false
 }
