@@ -1,6 +1,8 @@
 {
   // workbench
-  "workbench.colorTheme": "One Dark Pro",
+  "workbench.colorTheme": "Solarized Light",
+  "workbench.preferredLightColorTheme": "Solarized Light",
+  "workbench.preferredDarkColorTheme": "One Dark Pro Darker",
   "workbench.iconTheme": "vscode-icons",
   "workbench.startupEditor": "none",
   "explorer.confirmDelete": false,
@@ -86,7 +88,7 @@
   },
   "window.customTitleBarVisibility": "windowed",
   "window.titleBarStyle": "custom",
-  "window.zoomLevel": -1
+  "window.zoomLevel": -1,
   "breadcrumbs.enabled": false,
   "terminal.integrated.suggest.enabled": false
 }
