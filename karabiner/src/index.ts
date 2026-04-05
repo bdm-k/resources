@@ -12,6 +12,7 @@ import {
 const APPLE_INTERNAL_KEYBOARD = { is_built_in_keyboard: true };
 const KEYCHRON_K3_MAX = { vendor_id: 13364, product_id: 2613 };
 const KEYCHRON_B1_PRO = { vendor_id: 13364, product_id: 1811 };
+const NUPHY_NODE75_JIS = { vendor_id: 2007 };
 
 // NOTE: Spacebar also triggers aerospace-mode
 const APP_SWITCHER_BIN =
@@ -77,8 +78,8 @@ const AerospaceRule = layer(
   map('6').to$(`${AEROSPACE_BIN} move-node-to-workspace comm.`),
 ]);
 
-const JISKeyboardRule = rule(
-  'Physical JIS keyboard with ANSI layout'
+const PhysicalKeyCorrectionKey = rule(
+  'Fixed key mappings that effectively remap physical keys'
 ).manipulators([
   map('international1').to('right_control'),
   map('japanese_pc_nfer').to('japanese_eisuu'),
@@ -88,15 +89,40 @@ const JISKeyboardRule = rule(
     map('international3', 'optionalAny').to('grave_accent_and_tilde'),
   ]),
 
-  // Adapt the order of arrow keys to Vim style
   withCondition(ifDevice(KEYCHRON_K3_MAX))([
     map('up_arrow', 'optionalAny').to('down_arrow'),
     map('down_arrow', 'optionalAny').to('up_arrow'),
   ]),
+
+  withCondition(ifDevice(NUPHY_NODE75_JIS))([
+    map('japanese_pc_katakana', 'optionalAny').to('right_command'),
+
+    map('right_control', 'optionalAny').to('left_arrow'),
+    map('left_arrow', 'optionalAny').to('down_arrow'),
+    map('down_arrow', 'optionalAny').to('up_arrow'),
+    map('up_arrow', 'optionalAny').to('vk_none'),
+
+    map('page_down', 'optionalAny').to('end'),
+    map('page_up', 'optionalAny').to('home'),
+    map('end', 'optionalAny').to('page_down'),
+    map('home', 'optionalAny').to('page_up'),
+  ]),
 ]);
 
-const AlternativeEscBackspaceRule = rule(
-  'Alternative keybindings for Esc, Backspace, and Enter'
+const CtrlEditingRule = rule(
+  'Ctrl editing shortcuts'
+).manipulators([
+  map('n', 'left_control').to('delete_or_backspace'),
+  map('m', 'left_control').to('return_or_enter'),
+
+  map('h', 'left_control', 'any').to('left_arrow'),
+  map('j', 'left_control', 'any').to('down_arrow'),
+  map('k', 'left_control', 'any').to('up_arrow'),
+  map('l', 'left_control', 'any').to('right_arrow'),
+]);
+
+const CtrlModTapRule = rule(
+  'Escape on Ctrl mod-tap'
 ).manipulators([
   withCondition(ifDevice(APPLE_INTERNAL_KEYBOARD))([
     map('left_control').to('left_control').toIfAlone('escape'),
@@ -107,18 +133,9 @@ const AlternativeEscBackspaceRule = rule(
   withCondition(ifDevice(KEYCHRON_K3_MAX))([
     map('caps_lock').to('left_control').toIfAlone('escape'),
   ]),
-
-  map('n', 'left_control' ).to('delete_or_backspace'),
-  map('m', 'left_control').to('return_or_enter'),
-]);
-
-const ArrowKeyRule = rule(
-  'Left control + hjkl to arrow keys'
-).manipulators([
-  map('h', 'left_control', 'any').to('left_arrow'),
-  map('j', 'left_control', 'any').to('down_arrow'),
-  map('k', 'left_control', 'any').to('up_arrow'),
-  map('l', 'left_control', 'any').to('right_arrow'),
+  withCondition(ifDevice(NUPHY_NODE75_JIS))([
+    map('caps_lock').to('left_control').toIfAlone('escape'),
+  ]),
 ]);
 
 const OriginalLayoutRule = rule(
@@ -164,9 +181,9 @@ writeToProfile(
   [
     AppSwitchRule,
     AerospaceRule,
-    JISKeyboardRule,
-    AlternativeEscBackspaceRule,
-    ArrowKeyRule,
+    PhysicalKeyCorrectionKey,
+    CtrlEditingRule,
+    CtrlModTapRule,
     OriginalLayoutRule,
     BraveRule,
   ]
