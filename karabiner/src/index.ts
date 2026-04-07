@@ -128,6 +128,17 @@ const CtrlModTapRule = rule("Escape on Ctrl mod-tap").manipulators([
   ]),
 ]);
 
+const SplitSpacebarRule = rule(
+  "Make the most of the right spacebar",
+).manipulators([
+  withCondition(ifDevice(NUPHY_NODE75_JIS))([
+    // Backspace is assigned to the right spacebar.
+    map("delete_or_backspace", "optionalAny")
+      .to("right_shift", undefined, { lazy: true })
+      .toIfAlone("delete_or_backspace")
+  ]),
+]);
+
 const OriginalLayoutRule = rule(
   "My original keyboard layout based on colemak",
 ).manipulators([
@@ -173,6 +184,7 @@ writeToProfile(
     PhysicalKeyCorrectionKey,
     CtrlEditingRule,
     CtrlModTapRule,
+    SplitSpacebarRule,
     OriginalLayoutRule,
     BraveRule,
   ],
