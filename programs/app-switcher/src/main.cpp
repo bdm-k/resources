@@ -11,7 +11,7 @@
 #include <vector>
 #include <algorithm>
 
-constexpr char AEROSPACE_BIN[] = "/opt/homebrew/bin/aerospace";
+constexpr char AEROSPACE_BIN[] = "/Users/kokus/.nix-profile/bin/aerospace";
 constexpr char OPEN_BIN[] = "/usr/bin/open";
 
 struct window {

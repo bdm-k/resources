@@ -34,6 +34,8 @@ in
     # The Lean version manager
     elan
 
+    aerospace
+
     programs.safe-rm
     programs.app-switcher
     programs.repo-sync

@@ -1,9 +1,6 @@
-start-at-login = true
+config-version = 2
 
-after-login-command = [
-  # Set the initial workspace to 'main'
-  'workspace main'
-]
+start-at-login = true
 
 after-startup-command = [
   # Start JankyBorders
@@ -20,6 +17,9 @@ enable-normalization-opposite-orientation-for-nested-containers = true
 
 # Mouse follows focus when focused monitor changes
 on-focused-monitor-changed = ['move-mouse window-lazy-center']
+
+
+persistent-workspaces = ['main', 'sub', 'comm.', 'term.']
 
 
 # Open following apps as a floating window
@@ -52,8 +52,7 @@ run = ['layout floating']
 # Make workspaces always appear on particular monitors
 [workspace-to-monitor-force-assignment]
 main = 'main'
-sub = 'sidecar'
-'comm.' = 'built-in'
+'term.' = 'built-in'
 
 
 # Gaps between windows (inner-*) and between monitor edges (outer-*).

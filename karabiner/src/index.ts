@@ -30,7 +30,7 @@ const AppSwitchRule = layer(
 ]);
 
 // NOTE: Spacebar also triggers open-app-mode
-const AEROSPACE_BIN = '/opt/homebrew/bin/aerospace';
+const AEROSPACE_BIN = '~/.nix-profile/bin/aerospace';
 const AerospaceRule = layer(
   'spacebar', 'aerospace-mode'
 ).manipulators([
