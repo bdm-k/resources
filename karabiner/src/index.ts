@@ -40,6 +40,7 @@ const AerospaceRule = layer("spacebar", "aerospace-mode").manipulators([
   map("u").to$(`${AEROSPACE_BIN} workspace main`),
   map("i").to$(`${AEROSPACE_BIN} workspace sub`),
   map("o").to$(`${AEROSPACE_BIN} workspace comm.`),
+  map("p").to$(`${AEROSPACE_BIN} workspace term.`),
 
   // resize
   map("-").to$(`${AEROSPACE_BIN} resize smart -50`),
@@ -70,6 +71,7 @@ const AerospaceRule = layer("spacebar", "aerospace-mode").manipulators([
   map("4").to$(`${AEROSPACE_BIN} move-node-to-workspace main`),
   map("5").to$(`${AEROSPACE_BIN} move-node-to-workspace sub`),
   map("6").to$(`${AEROSPACE_BIN} move-node-to-workspace comm.`),
+  map("7").to$(`${AEROSPACE_BIN} move-node-to-workspace term.`),
 ]);
 
 const PhysicalKeyCorrectionKey = rule(
