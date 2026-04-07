@@ -6,8 +6,7 @@ import {
   ifApp,
   withCondition,
   ifDevice,
-} from 'karabiner.ts';
-
+} from "karabiner.ts";
 
 const APPLE_INTERNAL_KEYBOARD = { is_built_in_keyboard: true };
 const KEYCHRON_K3_MAX = { vendor_id: 13364, product_id: 2613 };
@@ -15,169 +14,159 @@ const KEYCHRON_B1_PRO = { vendor_id: 13364, product_id: 1811 };
 const NUPHY_NODE75_JIS = { vendor_id: 2007 };
 
 // NOTE: Spacebar also triggers aerospace-mode
-const APP_SWITCHER_BIN =
-  '~/.nix-profile/bin/app-switcher';
-const AppSwitchRule = layer(
-  'spacebar', 'app-switch-mode'
-).manipulators([
-  map('f').to$(`${APP_SWITCHER_BIN} 'WezTerm'`),
-  map('v').to$(`${APP_SWITCHER_BIN} 'Visual Studio Code'`),
-  map('b').to$(`${APP_SWITCHER_BIN} 'Brave Browser'`),
-  map(';').to$(`${APP_SWITCHER_BIN} 'Obsidian'`),
-  map('g').to$(`${APP_SWITCHER_BIN} 'Dictionary'`),
-  map('d').to$(`${APP_SWITCHER_BIN} 'Slack'`),
-  map('z').to$(`${APP_SWITCHER_BIN} 'Zed'`),
+const APP_SWITCHER_BIN = "~/.nix-profile/bin/app-switcher";
+const AppSwitchRule = layer("spacebar", "app-switch-mode").manipulators([
+  map("f").to$(`${APP_SWITCHER_BIN} 'WezTerm'`),
+  map("v").to$(`${APP_SWITCHER_BIN} 'Visual Studio Code'`),
+  map("b").to$(`${APP_SWITCHER_BIN} 'Brave Browser'`),
+  map(";").to$(`${APP_SWITCHER_BIN} 'Obsidian'`),
+  map("g").to$(`${APP_SWITCHER_BIN} 'Dictionary'`),
+  map("d").to$(`${APP_SWITCHER_BIN} 'Slack'`),
+  map("z").to$(`${APP_SWITCHER_BIN} 'Zed'`),
 ]);
 
 // NOTE: Spacebar also triggers open-app-mode
-const AEROSPACE_BIN = '~/.nix-profile/bin/aerospace';
-const AerospaceRule = layer(
-  'spacebar', 'aerospace-mode'
-).manipulators([
+const AEROSPACE_BIN = "~/.nix-profile/bin/aerospace";
+const AerospaceRule = layer("spacebar", "aerospace-mode").manipulators([
   // Rarely used key bindings are defined in the AeroSpace config
 
   // navigate windows
-  map('h').to$(`${AEROSPACE_BIN} focus left`),
-  map('j').to$(`${AEROSPACE_BIN} focus down`),
-  map('k').to$(`${AEROSPACE_BIN} focus up`),
-  map('l').to$(`${AEROSPACE_BIN} focus right`),
+  map("h").to$(`${AEROSPACE_BIN} focus left`),
+  map("j").to$(`${AEROSPACE_BIN} focus down`),
+  map("k").to$(`${AEROSPACE_BIN} focus up`),
+  map("l").to$(`${AEROSPACE_BIN} focus right`),
 
   // navigate workspaces
-  map('u').to$(`${AEROSPACE_BIN} workspace main`),
-  map('i').to$(`${AEROSPACE_BIN} workspace sub`),
-  map('o').to$(`${AEROSPACE_BIN} workspace comm.`),
+  map("u").to$(`${AEROSPACE_BIN} workspace main`),
+  map("i").to$(`${AEROSPACE_BIN} workspace sub`),
+  map("o").to$(`${AEROSPACE_BIN} workspace comm.`),
 
   // resize
-  map('-').to$(`${AEROSPACE_BIN} resize smart -50`),
-  map('=').to$(`${AEROSPACE_BIN} resize smart +50`),
+  map("-").to$(`${AEROSPACE_BIN} resize smart -50`),
+  map("=").to$(`${AEROSPACE_BIN} resize smart +50`),
 
   // change layout
-  map('/').to$(`${AEROSPACE_BIN} layout tiles horizontal vertical`),
-  map(',').to$(`${AEROSPACE_BIN} layout accordion horizontal vertical`),
-  map('e').to$(`${AEROSPACE_BIN} layout tiling floating`),
+  map("/").to$(`${AEROSPACE_BIN} layout tiles horizontal vertical`),
+  map(",").to$(`${AEROSPACE_BIN} layout accordion horizontal vertical`),
+  map("e").to$(`${AEROSPACE_BIN} layout tiling floating`),
 
   // move windows
-  map('left_arrow').to$(`${AEROSPACE_BIN} move left`),
-  map('right_arrow').to$(`${AEROSPACE_BIN} move right`),
+  map("left_arrow").to$(`${AEROSPACE_BIN} move left`),
+  map("right_arrow").to$(`${AEROSPACE_BIN} move right`),
   withCondition(ifDevice(APPLE_INTERNAL_KEYBOARD))([
-    map('down_arrow').to$(`${AEROSPACE_BIN} move down`),
-    map('up_arrow').to$(`${AEROSPACE_BIN} move up`),
+    map("down_arrow").to$(`${AEROSPACE_BIN} move down`),
+    map("up_arrow").to$(`${AEROSPACE_BIN} move up`),
   ]),
   withCondition(ifDevice(KEYCHRON_B1_PRO))([
-    map('down_arrow').to$(`${AEROSPACE_BIN} move down`),
-    map('up_arrow').to$(`${AEROSPACE_BIN} move up`),
+    map("down_arrow").to$(`${AEROSPACE_BIN} move down`),
+    map("up_arrow").to$(`${AEROSPACE_BIN} move up`),
   ]),
   withCondition(ifDevice(KEYCHRON_K3_MAX))([
-    map('up_arrow').to$(`${AEROSPACE_BIN} move down`),
-    map('down_arrow').to$(`${AEROSPACE_BIN} move up`),
+    map("up_arrow").to$(`${AEROSPACE_BIN} move down`),
+    map("down_arrow").to$(`${AEROSPACE_BIN} move up`),
   ]),
 
   // move windows to different workspaces
-  map('4').to$(`${AEROSPACE_BIN} move-node-to-workspace main`),
-  map('5').to$(`${AEROSPACE_BIN} move-node-to-workspace sub`),
-  map('6').to$(`${AEROSPACE_BIN} move-node-to-workspace comm.`),
+  map("4").to$(`${AEROSPACE_BIN} move-node-to-workspace main`),
+  map("5").to$(`${AEROSPACE_BIN} move-node-to-workspace sub`),
+  map("6").to$(`${AEROSPACE_BIN} move-node-to-workspace comm.`),
 ]);
 
 const PhysicalKeyCorrectionKey = rule(
-  'Fixed key mappings that effectively remap physical keys'
+  "Fixed key mappings that effectively remap physical keys",
 ).manipulators([
-  map('international1').to('right_control'),
-  map('japanese_pc_nfer').to('japanese_eisuu'),
-  map('japanese_pc_xfer').to('japanese_kana'),
+  map("international1").to("right_control"),
+  map("japanese_pc_nfer").to("japanese_eisuu"),
+  map("japanese_pc_xfer").to("japanese_kana"),
 
   withCondition(ifDevice(APPLE_INTERNAL_KEYBOARD))([
-    map('international3', 'optionalAny').to('grave_accent_and_tilde'),
+    map("international3", "optionalAny").to("grave_accent_and_tilde"),
   ]),
 
   withCondition(ifDevice(KEYCHRON_K3_MAX))([
-    map('up_arrow', 'optionalAny').to('down_arrow'),
-    map('down_arrow', 'optionalAny').to('up_arrow'),
+    map("up_arrow", "optionalAny").to("down_arrow"),
+    map("down_arrow", "optionalAny").to("up_arrow"),
   ]),
 
   withCondition(ifDevice(NUPHY_NODE75_JIS))([
-    map('japanese_pc_katakana', 'optionalAny').to('right_command'),
+    map("japanese_pc_katakana", "optionalAny").to("right_command"),
 
-    map('right_control', 'optionalAny').to('left_arrow'),
-    map('left_arrow', 'optionalAny').to('down_arrow'),
-    map('down_arrow', 'optionalAny').to('up_arrow'),
-    map('up_arrow', 'optionalAny').to('vk_none'),
+    map("right_control", "optionalAny").to("left_arrow"),
+    map("left_arrow", "optionalAny").to("down_arrow"),
+    map("down_arrow", "optionalAny").to("up_arrow"),
+    map("up_arrow", "optionalAny").to("vk_none"),
 
-    map('page_down', 'optionalAny').to('end'),
-    map('page_up', 'optionalAny').to('home'),
-    map('end', 'optionalAny').to('page_down'),
-    map('home', 'optionalAny').to('page_up'),
+    map("page_down", "optionalAny").to("end"),
+    map("page_up", "optionalAny").to("home"),
+    map("end", "optionalAny").to("page_down"),
+    map("home", "optionalAny").to("page_up"),
   ]),
 ]);
 
-const CtrlEditingRule = rule(
-  'Ctrl editing shortcuts'
-).manipulators([
-  map('n', 'left_control').to('delete_or_backspace'),
-  map('m', 'left_control').to('return_or_enter'),
+const CtrlEditingRule = rule("Ctrl editing shortcuts").manipulators([
+  map("n", "left_control").to("delete_or_backspace"),
+  map("m", "left_control").to("return_or_enter"),
 
-  map('h', 'left_control', 'any').to('left_arrow'),
-  map('j', 'left_control', 'any').to('down_arrow'),
-  map('k', 'left_control', 'any').to('up_arrow'),
-  map('l', 'left_control', 'any').to('right_arrow'),
+  map("h", "left_control", "any").to("left_arrow"),
+  map("j", "left_control", "any").to("down_arrow"),
+  map("k", "left_control", "any").to("up_arrow"),
+  map("l", "left_control", "any").to("right_arrow"),
 ]);
 
-const CtrlModTapRule = rule(
-  'Escape on Ctrl mod-tap'
-).manipulators([
+const CtrlModTapRule = rule("Escape on Ctrl mod-tap").manipulators([
   withCondition(ifDevice(APPLE_INTERNAL_KEYBOARD))([
-    map('left_control').to('left_control').toIfAlone('escape'),
+    map("left_control").to("left_control").toIfAlone("escape"),
   ]),
   withCondition(ifDevice(KEYCHRON_B1_PRO))([
-    map('caps_lock').to('left_control').toIfAlone('escape'),
+    map("caps_lock").to("left_control").toIfAlone("escape"),
   ]),
   withCondition(ifDevice(KEYCHRON_K3_MAX))([
-    map('caps_lock').to('left_control').toIfAlone('escape'),
+    map("caps_lock").to("left_control").toIfAlone("escape"),
   ]),
   withCondition(ifDevice(NUPHY_NODE75_JIS))([
-    map('caps_lock').to('left_control').toIfAlone('escape'),
+    map("caps_lock").to("left_control").toIfAlone("escape"),
   ]),
 ]);
 
 const OriginalLayoutRule = rule(
-  'My original keyboard layout based on colemak'
+  "My original keyboard layout based on colemak",
 ).manipulators([
-  map('d', 'optionalAny').to('s'),
-  map('e', 'optionalAny').to('f'),
-  map('f', 'optionalAny').to('t'),
-  map('g', 'optionalAny').to('d'),
-  map('i', 'optionalAny').to('u'),
-  map('j', 'optionalAny').to('n'),
-  map('k', 'optionalAny').to('e'),
-  map('l', 'optionalAny').to('i'),
-  map('n', 'optionalAny').to('k'),
-  map('o', 'optionalAny').to('g'),
-  map('p', 'optionalAny').to('y'),
-  map('r', 'optionalAny').to('p'),
-  map('s', 'optionalAny').to('r'),
-  map('t', 'optionalAny').to(';'),
-  map('u', 'optionalAny').to('l'),
-  map('y', 'optionalAny').to('j'),
-  map(';', 'optionalAny').to('o'),
+  map("d", "optionalAny").to("s"),
+  map("e", "optionalAny").to("f"),
+  map("f", "optionalAny").to("t"),
+  map("g", "optionalAny").to("d"),
+  map("i", "optionalAny").to("u"),
+  map("j", "optionalAny").to("n"),
+  map("k", "optionalAny").to("e"),
+  map("l", "optionalAny").to("i"),
+  map("n", "optionalAny").to("k"),
+  map("o", "optionalAny").to("g"),
+  map("p", "optionalAny").to("y"),
+  map("r", "optionalAny").to("p"),
+  map("s", "optionalAny").to("r"),
+  map("t", "optionalAny").to(";"),
+  map("u", "optionalAny").to("l"),
+  map("y", "optionalAny").to("j"),
+  map(";", "optionalAny").to("o"),
 ]);
 
 const BraveRule = rule(
-  'Keyboard shortcuts in Brave Browser',
-  ifApp('com.brave.Browser'),
+  "Keyboard shortcuts in Brave Browser",
+  ifApp("com.brave.Browser"),
 ).manipulators([
   // Open previous/next tab
-  map('[', 'right_command').to('left_arrow', ['left_command', 'left_option']),
-  map(']', 'right_command').to('right_arrow', ['left_command', 'left_option']),
+  map("[", "right_command").to("left_arrow", ["left_command", "left_option"]),
+  map("]", "right_command").to("right_arrow", ["left_command", "left_option"]),
 
   // Go back/forward
-  map('-', 'left_control').to('[', 'left_command'),
-  map('=', 'left_control').to(']', 'left_command'),
+  map("-", "left_control").to("[", "left_command"),
+  map("=", "left_control").to("]", "left_command"),
 ]);
-
 
 writeToProfile(
   // Use '--dry-run' to print the generated JSON to the console
   // '--dry-run',
-  'Default',
+  "Default",
   [
     AppSwitchRule,
     AerospaceRule,
@@ -186,5 +175,5 @@ writeToProfile(
     CtrlModTapRule,
     OriginalLayoutRule,
     BraveRule,
-  ]
+  ],
 );
