@@ -20,6 +20,7 @@ function symlinks()
   ln -s $ROOT/opencode/commands $CONFIG_DIR/opencode/commands
   ln -s $ROOT/opencode/opencode.jsonc $CONFIG_DIR/opencode/opencode.jsonc
   ln -s $ROOT/opencode/tui.json $CONFIG_DIR/opencode/tui.json
+  ln -s $ROOT/opencode/AGENTS.md $CONFIG_DIR/opencode/AGENTS.md
 }
 
 function clean_symlinks()

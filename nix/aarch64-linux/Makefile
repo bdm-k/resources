@@ -4,7 +4,8 @@ ROOT = $(HOME)/resources
 
 SYMLINKS = $(CONFIG_DIR)/starship.toml $(CONFIG_DIR)/nvim/init.lua \
 	   $(CONFIG_DIR)/nvim/lua $(CONFIG_DIR)/opencode/commands \
-	   $(CONFIG_DIR)/opencode/opencode.jsonc $(CONFIG_DIR)/opencode/tui.json
+	   $(CONFIG_DIR)/opencode/opencode.jsonc $(CONFIG_DIR)/opencode/tui.json \
+	   $(CONFIG_DIR)/opencode/AGENTS.md
 
 .PHONY: show_targets
 show_targets:
@@ -43,6 +44,10 @@ $(CONFIG_DIR)/opencode/opencode.jsonc: | $(ROOT)/opencode/opencode.jsonc
 $(CONFIG_DIR)/opencode/tui.json: | $(ROOT)/opencode/tui.json
 	mkdir -p $(CONFIG_DIR)/opencode
 	ln -s $(ROOT)/opencode/tui.json $@
+
+$(CONFIG_DIR)/opencode/AGENTS.md: | $(ROOT)/opencode/AGENTS.md
+	mkdir -p $(CONFIG_DIR)/opencode
+	ln -s $(ROOT)/opencode/AGENTS.md $@
 
 .PHONY: clean_symlinks
 clean_symlinks:
