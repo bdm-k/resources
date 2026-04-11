@@ -1,4 +1,21 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "lsp": false
+  "lsp": false,
+  "provider": {
+    "sakura": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "sakura aipf",
+      "options": {
+        "baseURL": "https://api.ai.sakura.ad.jp/v1"
+      },
+      "models": {
+        "gpt-oss-120b": {
+          "name": "gpt-oss-120b"
+        },
+        "Qwen3-Coder-480B-A35B-Instruct-FP8": {
+          "name": "Qwen3-Coder"
+        },
+      }
+    }
+  }
 }
