@@ -79,6 +79,7 @@
   "markdown-pdf.displayHeaderFooter": false,
 
   // others
+  "chat.agentsControl.enabled": "hidden",
   "zenMode.fullScreen": false,
   "zenMode.centerLayout": false,
   "files.associations": {
