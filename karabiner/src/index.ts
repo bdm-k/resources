@@ -23,6 +23,7 @@ const AppSwitchRule = layer("spacebar", "app-switch-mode").manipulators([
   map("g").to$(`${APP_SWITCHER_BIN} 'Dictionary'`),
   map("d").to$(`${APP_SWITCHER_BIN} 'Slack'`),
   map("z").to$(`${APP_SWITCHER_BIN} 'Zed'`),
+  map("c").to$(`${APP_SWITCHER_BIN} 'Claude'`),
 ]);
 
 // NOTE: Spacebar also triggers open-app-mode
