@@ -53,19 +53,23 @@ const AerospaceRule = layer("spacebar", "aerospace-mode").manipulators([
   map("e").to$(`${AEROSPACE_BIN} layout tiling floating`),
 
   // move windows
-  map("left_arrow").to$(`${AEROSPACE_BIN} move left`),
-  map("right_arrow").to$(`${AEROSPACE_BIN} move right`),
-  withCondition(ifDevice(APPLE_INTERNAL_KEYBOARD))([
+  withCondition(ifDevice([APPLE_INTERNAL_KEYBOARD, KEYCHRON_B1_PRO]))([
+    map("left_arrow").to$(`${AEROSPACE_BIN} move left`),
     map("down_arrow").to$(`${AEROSPACE_BIN} move down`),
     map("up_arrow").to$(`${AEROSPACE_BIN} move up`),
-  ]),
-  withCondition(ifDevice(KEYCHRON_B1_PRO))([
-    map("down_arrow").to$(`${AEROSPACE_BIN} move down`),
-    map("up_arrow").to$(`${AEROSPACE_BIN} move up`),
+    map("right_arrow").to$(`${AEROSPACE_BIN} move right`),
   ]),
   withCondition(ifDevice(KEYCHRON_K3_MAX))([
+    map("left_arrow").to$(`${AEROSPACE_BIN} move left`),
     map("up_arrow").to$(`${AEROSPACE_BIN} move down`),
     map("down_arrow").to$(`${AEROSPACE_BIN} move up`),
+    map("right_arrow").to$(`${AEROSPACE_BIN} move right`),
+  ]),
+  withCondition(ifDevice(NUPHY_NODE75_JIS))([
+    map("right_control").to$(`${AEROSPACE_BIN} move left`),
+    map("left_arrow").to$(`${AEROSPACE_BIN} move down`),
+    map("down_arrow").to$(`${AEROSPACE_BIN} move up`),
+    map("right_arrow").to$(`${AEROSPACE_BIN} move right`),
   ]),
 
   // move windows to different workspaces
@@ -138,7 +142,7 @@ const SplitSpacebarRule = rule(
     // Backspace is assigned to the right spacebar.
     map("delete_or_backspace", "optionalAny")
       .to("right_shift", undefined, { lazy: true })
-      .toIfAlone("delete_or_backspace")
+      .toIfAlone("delete_or_backspace"),
   ]),
 ]);
 
