@@ -1,4 +1,10 @@
 {
+  // window
+  "window.autoDetectColorScheme": true,
+  "window.customTitleBarVisibility": "windowed",
+  "window.titleBarStyle": "custom",
+  "window.zoomLevel": -1,
+
   // workbench
   "workbench.colorTheme": "Solarized Light",
   "workbench.preferredLightColorTheme": "Solarized Light",
@@ -22,9 +28,14 @@
   "editor.lightbulb.enabled": "off",
   "editor.inlayHints.enabled": "offUnlessPressed",
   "editor.rulers": [ 100 ],
+  "editor.pasteAs.preferences": [
+    "chat.attach.text"
+  ],
   "files.insertFinalNewline": true,
   "diffEditor.hideUnchangedRegions.enabled": true,
   "diffEditor.ignoreTrimWhitespace": false,
+  "diffEditor.renderSideBySide": true,
+  "breadcrumbs.enabled": true,
 
   // This setting is assuming assembly
   "[plaintext]": {
@@ -87,9 +98,5 @@
     "*.json": "jsonc",
     "justfile": "text"
   },
-  "window.customTitleBarVisibility": "windowed",
-  "window.titleBarStyle": "custom",
-  "window.zoomLevel": -1,
-  "breadcrumbs.enabled": false,
   "terminal.integrated.suggest.enabled": false
 }
