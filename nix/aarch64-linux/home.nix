@@ -25,11 +25,14 @@ in
     difftastic
     pass
     neofetch
+    gh
 
     pre-commit
 
     pkgs-stable.neovim
     ripgrep
+
+    rustup
 
     # my programs
     programs.safe-rm
