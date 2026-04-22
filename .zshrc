@@ -129,6 +129,7 @@ alias checkout='git checkout'
 alias commit='git commit -s'
 alias log='git log --oneline'
 alias status='git status'
+alias ddiff='git -c diff.external="difft --color always" diff'
 
 if [ $(uname -s) = 'Darwin' ]
 then
