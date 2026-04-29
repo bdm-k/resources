@@ -1,6 +1,13 @@
 {
   "$schema": "https://opencode.ai/config.json",
   "lsp": false,
+  "mcp": {
+    "imcp": {
+      "type": "local",
+      "command": ["/Applications/iMCP.app/Contents/MacOS/imcp-server"],
+      "enabled": true,
+    }
+  },
   "provider": {
     "sakura": {
       "npm": "@ai-sdk/openai-compatible",
