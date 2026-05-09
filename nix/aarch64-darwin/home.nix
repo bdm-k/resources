@@ -26,6 +26,7 @@ in
     pass
     neofetch
     autossh
+    gh
 
     pre-commit
 
