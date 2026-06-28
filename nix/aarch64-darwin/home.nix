@@ -35,6 +35,9 @@ in
     # The Lean version manager
     elan
 
+    gtest
+    gtest.dev
+
     aerospace
 
     programs.safe-rm
