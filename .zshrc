@@ -141,9 +141,6 @@ fi
 alias nvim='_nvim'
 alias autossh='_autossh'
 
-# The -c flag continues the last session.
-alias oc='opencode -c'
-
 # On Ubuntu, the Trash folder is located at ~/.local/share/Trash/
 if which safe-rm > /dev/null 2>&1
 then
