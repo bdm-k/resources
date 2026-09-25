@@ -1,3 +1,8 @@
+#====================#
+# home-manager setup #
+#====================#
+. "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
+
 #============#
 # pass setup #
 #============#
@@ -71,7 +76,8 @@ source $HOME/.zsh-nvm/zsh-nvm.plugin.zsh
 #========#
 # ccache #
 #========#
-# If ccache is installed, make sure the symbolic links are set up.
+# If ccache is installed, make sure the symbolic links and environment variables
+# are set up.
 command -v ccache > /dev/null 2>&1
 if [ $? -eq 0 ]
 then
@@ -83,6 +89,10 @@ then
     ln -s $ccache_bin $HOME/.local/bin/ccache/gcc
     ln -s $ccache_bin $HOME/.local/bin/ccache/g++
   fi
+
+  export CC="$HOME/.local/bin/ccache/gcc"
+  export CXX="$HOME/.local/bin/ccache/g++"
+  export CCACHE_DIR="$HOME/.cache/ccache"
 fi
 
 
