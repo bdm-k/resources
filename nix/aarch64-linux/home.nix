@@ -24,7 +24,7 @@ in
     bat
     difftastic
     pass
-    neofetch
+    fastfetch
     gh
 
     pre-commit

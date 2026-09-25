@@ -18,7 +18,7 @@ in
     pkgs.fzf
     pkgs.bat
     pkgs.difftastic
-    pkgs.neofetch
+    pkgs.fastfetch
     pkgs.pass
     pkgs.just
     pkgs.gh
