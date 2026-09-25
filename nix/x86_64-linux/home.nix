@@ -48,9 +48,11 @@ in
 
   programs.git = {
     enable = true;
-    userName = "bdm-k";
-    userEmail = "kokusyunn@gmail.com";
-    extraConfig = {
+    settings = {
+      user = {
+        name = "bdm-k";
+        email = "kokusyunn@gmail.com";
+      };
       core.editor = "nvim";
     };
   };
