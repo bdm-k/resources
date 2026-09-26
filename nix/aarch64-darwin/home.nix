@@ -24,9 +24,10 @@ in
     bat
     difftastic
     pass
-    neofetch
+    fastfetch
     autossh
     gh
+    imagemagick
 
     pre-commit
 
