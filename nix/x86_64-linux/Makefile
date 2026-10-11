@@ -2,8 +2,8 @@ HM_DIR = $(HOME)/.config/home-manager
 CONFIG_DIR = $(HOME)/.config
 ROOT = $(HOME)/resources
 
-SYMLINKS = $(CONFIG_DIR)/starship.toml $(CONFIG_DIR)/Code/User/keybindings.json \
-	   $(CONFIG_DIR)/Code/User/settings.json $(CONFIG_DIR)/wezterm/wezterm.lua \
+SYMLINKS = $(CONFIG_DIR)/starship.toml \
+	   $(CONFIG_DIR)/wezterm/wezterm.lua \
 	   $(CONFIG_DIR)/nvim/init.lua $(CONFIG_DIR)/nvim/lua
 
 .PHONY: show_targets
@@ -19,14 +19,6 @@ symlinks: $(SYMLINKS)
 
 $(CONFIG_DIR)/starship.toml: | $(CONFIG_DIR) $(ROOT)/starship.toml
 	ln -s $(ROOT)/starship.toml $@
-
-$(CONFIG_DIR)/Code/User/keybindings.json: | $(ROOT)/vscode/keybindings.json
-	mkdir -p $(CONFIG_DIR)/Code/User
-	ln -s $(ROOT)/vscode/keybindings.json $@
-
-$(CONFIG_DIR)/Code/User/settings.json: | $(ROOT)/vscode/settings.json
-	mkdir -p $(CONFIG_DIR)/Code/User
-	ln -s $(ROOT)/vscode/settings.json $@
 
 $(CONFIG_DIR)/wezterm/wezterm.lua: | $(ROOT)/wezterm/wezterm.lua
 	mkdir -p $(CONFIG_DIR)/wezterm

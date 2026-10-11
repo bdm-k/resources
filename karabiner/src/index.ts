@@ -78,7 +78,7 @@ const AerospaceRule = layer("spacebar", "aerospace-mode").manipulators([
   map("7").to$(`${AEROSPACE_BIN} move-node-to-workspace term.`),
 ]);
 
-const PhysicalKeyCorrectionKey = rule(
+const PhysicalKeyCorrectionRule = rule(
   "Fixed key mappings that effectively remap physical keys",
 ).manipulators([
   map("international1").to("right_control"),
@@ -187,7 +187,7 @@ writeToProfile(
   [
     AppSwitchRule,
     AerospaceRule,
-    PhysicalKeyCorrectionKey,
+    PhysicalKeyCorrectionRule,
     CtrlEditingRule,
     CtrlModTapRule,
     SplitSpacebarRule,

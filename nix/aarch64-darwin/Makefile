@@ -3,8 +3,8 @@ CONFIG_DIR = $(HOME)/.config
 ROOT = $(HOME)/resources
 VSCODE_DIR = $(HOME)/Library/Application\ Support/Code/User
 
-SYMLINKS = $(CONFIG_DIR)/starship.toml $(VSCODE_DIR)/keybindings.json \
-	   $(VSCODE_DIR)/settings.json $(CONFIG_DIR)/wezterm/wezterm.lua \
+SYMLINKS = $(CONFIG_DIR)/starship.toml \
+	   $(CONFIG_DIR)/wezterm/wezterm.lua \
 	   $(CONFIG_DIR)/nvim/init.lua $(CONFIG_DIR)/nvim/lua
 
 .PHONY: show_targets
@@ -24,14 +24,6 @@ $(CONFIG_DIR):
 
 $(CONFIG_DIR)/starship.toml: | $(CONFIG_DIR) $(ROOT)/starship.toml
 	ln -s $(ROOT)/starship.toml $@
-
-$(VSCODE_DIR)/keybindings.json: | $(ROOT)/vscode/keybindings.json
-	mkdir -p $(VSCODE_DIR)
-	ln -s $(ROOT)/vscode/keybindings.json $@
-
-$(VSCODE_DIR)/settings.json: | $(ROOT)/vscode/settings.json
-	mkdir -p $(VSCODE_DIR)
-	ln -s $(ROOT)/vscode/settings.json $@
 
 $(CONFIG_DIR)/wezterm/wezterm.lua: | $(ROOT)/wezterm/wezterm.lua
 	mkdir -p $(CONFIG_DIR)/wezterm
