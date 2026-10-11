@@ -29,6 +29,7 @@ in
     pkgs.ripgrep
 
     pkgs.ccache
+    pkgs.quickemu
 
     # To start using the stable toolchain, run:
     # ```
