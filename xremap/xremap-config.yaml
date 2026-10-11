@@ -1,115 +1,117 @@
 modmap:
-  - name: Physical JIS keyboard with ANSI layout
+  - name: physical keyboard normalization (common)
     remap:
-      KEY_RO: KEY_RIGHTCTRL
+      ro: rightctrl
 
-  - name: Alternative keybindings for Ctrl and Esc
+  - name: physical keyboard normalization (NuPhy Node 75 LP JIS)
+    device:
+      only: 'NuPhy Node 75 LP JIS'
     remap:
-      KEY_CAPSLOCK:
-        held: KEY_LEFTCTRL
-        alone: KEY_ESC
+      rightctrl: left
+      left: down
+      down: up
+      up: rightctrl
+      katakanahiragana: rightmeta
+
+  - name: capslock mod-tap rule
+    remap:
+      capslock:
+        held: leftctrl
+        alone: esc
         alone_timeout_millis: 400
 
-  - name: Hold Space to press all modifier keys except for Shift
+  - name: backspace mod-tap rule
+    device:
+      only: 'NuPhy Node 75 LP JIS'
     remap:
-      KEY_SPACE:
-        held: [KEY_LEFTMETA, KEY_LEFTALT, KEY_LEFTCTRL]
-        alone: KEY_SPACE
+      backspace:
+        held: rightshift
+        alone: backspace
         alone_timeout_millis: 300
 
+  - name: space mod-tap rule
+    remap:
+      space:
+        held: [leftmeta, leftalt, leftctrl]
+        alone: space
+        alone_timeout_millis: 300
+
+  - name: original keyboard layout based on colemak
+    remap:
+      d: s
+      e: f
+      f: t
+      g: d
+      i: u
+      j: n
+      k: e
+      l: i
+      n: k
+      o: g
+      p: y
+      r: p
+      s: r
+      t: semicolon
+      u: l
+      y: j
+      semicolon: o
+
 keymap:
-  - name: Browser Rule
+  - name: copy, paste, cut, undo, redo, select all
     exact_match: true
     application:
-      only: [Brave-browser, brave-browser, Brave, Google-chrome]
+      # wezterm sets up application-level key bindings
+      not: org.wezfurlong.wezterm
     remap:
-      CTRL_L-KEY_MINUS: ALT-KEY_LEFT  # Back
-      CTRL_L-KEY_EQUAL: ALT-KEY_RIGHT # Forward
-      SUPER_R-KEY_RIGHTBRACE: CTRL-KEY_PAGEDOWN # Next tab
-      SUPER_R-KEY_LEFTBRACE:  CTRL-KEY_PAGEUP   # Previous tab
-      SUPER_R-KEY_E: CTRL-KEY_F # Find
-      SUPER_R-KEY_W: CTRL-KEY_W # Close tab
-      SUPER_R-KEY_F: CTRL-KEY_T # New tab
-      SUPER_R-KEY_S: CTRL-KEY_R # Reload
-      SUPER_R-KEY_C: CTRL-KEY_C # Copy
-      SUPER_R-KEY_V: CTRL-KEY_V # Paste
-      SUPER_R-KEY_X: CTRL-KEY_X # Cut
-      SUPER_R-KEY_Z: CTRL-KEY_Z # Undo
-      SUPER_R-KEY_A: CTRL-KEY_A # Select all
-      SUPER_L-KEY_MINUS: CTRL-KEY_MINUS # Zoom out
-      SUPER_L-KEY_EQUAL: CTRL-KEY_EQUAL # Zoom in
-      SUPER_L-KEY_U: CTRL-KEY_L # Focus location
-      SUPER_L-KEY_B: CTRL-SHIFT-KEY_B # Show bookmarks
-      SUPER_L-KEY_J: CTRL-KEY_N # New window
-      SUPER_L-SHIFT_L-KEY_J: CTRL-SHIFT-KEY_N # New private window
-      SUPER_R-SHIFT_R-KEY_F: CTRL-SHIFT-KEY_T # Reopen closed tab
-      SUPER-KEY_B: CTRL-KEY_B # Toggle sidebar
+      super-c: ctrl-c
+      super-v: ctrl-v
+      super-x: ctrl-x
+      super-z: ctrl-z
+      super-shift-z: ctrl-shift-z
+      super-a: ctrl-a
+
+  - name: ctrl editing rule
+    exact_match: true
+    remap:
+      ctrl_l-k: backspace
+      ctrl_l-m: enter
+      ctrl_l-h: left
+      ctrl_l-n: down
+      ctrl_l-e: up
+      ctrl_l-i: right
+
+  - name: hyper-mod rule
+    remap:
+      super-alt-ctrl-t: grave
+
+  - name: browser rule
+    exact_match: true
+    application:
+      only: [brave-origin]
+    remap:
+      ctrl-minus: alt-left            # Back
+      ctrl-equal: alt-right           # Forward
+      super-rightbrace: ctrl-pagedown # Next tab
+      super-leftbrace: ctrl-pageup    # Previous tab
+      super-f: ctrl-f                 # Find
+      super-w: ctrl-w                 # Close tab
+      super-t: ctrl-t                 # New tab
+      super-r: ctrl-r                 # Reload
+      super-minus: ctrl-minus         # Zoom out
+      super-equal: ctrl-equal         # Zoom in
+      super-l: ctrl-l                 # Focus location
+      super-b: ctrl-shift-b           # Show bookmarks
+      super-n: ctrl-n                 # New window
+      super-shift-n: ctrl-shift-n     # New private window
+      super-shift-t: ctrl-shift-t     # Reopen closed tab
+      super-b: ctrl-b                 # Toggle sidebar
       # Select tab N
-      SUPER-KEY_1: CTRL-KEY_1
-      SUPER-KEY_2: CTRL-KEY_2
-      SUPER-KEY_3: CTRL-KEY_3
-      SUPER-KEY_4: CTRL-KEY_4
-      SUPER-KEY_5: CTRL-KEY_5
-      SUPER-KEY_6: CTRL-KEY_6
-      SUPER-KEY_7: CTRL-KEY_7
-      SUPER-KEY_8: CTRL-KEY_8
-      SUPER-KEY_9: CTRL-KEY_9
-
-  - name: Obsidian Rule
-    exact_match: true
-    application:
-      only: obsidian
-    remap:
-      CTRL_L-SHIFT_L-KEY_L: CTRL-SHIFT-KEY_I # Open the Developer Tools
-      SUPER_R-KEY_C: CTRL-KEY_C # Copy
-      SUPER_R-KEY_V: CTRL-KEY_V # Paste
-      SUPER_R-KEY_X: CTRL-KEY_X # Cut
-      SUPER_R-KEY_Z: CTRL-KEY_Z # Undo
-      SUPER_R-KEY_A: CTRL-KEY_A # Select all
-
-  - name: Alternative keybindings for Backspace and Enter
-    exact_match: true
-    remap:
-      CTRL_L-KEY_N: KEY_BACKSPACE
-      CTRL_L-KEY_M: KEY_ENTER
-
-  - name: Alternative keybindings for numbers and signs
-    remap:
-      SUPER-ALT-CTRL-KEY_F: KEY_GRAVE
-      SUPER-ALT-CTRL-KEY_Z: KEY_1
-      SUPER-ALT-CTRL-KEY_X: KEY_2
-      SUPER-ALT-CTRL-KEY_C: KEY_3
-      SUPER-ALT-CTRL-KEY_A: KEY_4
-      SUPER-ALT-CTRL-KEY_S: KEY_5
-      SUPER-ALT-CTRL-KEY_D: KEY_6
-      SUPER-ALT-CTRL-KEY_Q: KEY_7
-      SUPER-ALT-CTRL-KEY_W: KEY_8
-      SUPER-ALT-CTRL-KEY_E: KEY_9
-      SUPER-ALT-CTRL-KEY_R: KEY_0
-
-  - name: Left Ctrl + hjkl to arrow keys
-    remap:
-      CTRL_L-KEY_H: KEY_LEFT
-      CTRL_L-KEY_J: KEY_DOWN
-      CTRL_L-KEY_K: KEY_UP
-      CTRL_L-KEY_L: KEY_RIGHT
-
-  - name: My original keyboard layout based on colemak
-    remap:
-      KEY_D: KEY_S
-      KEY_E: KEY_F
-      KEY_F: KEY_T
-      KEY_G: KEY_D
-      KEY_I: KEY_U
-      KEY_J: KEY_N
-      KEY_K: KEY_E
-      KEY_L: KEY_I
-      KEY_N: KEY_K
-      KEY_O: KEY_G
-      KEY_P: KEY_Y
-      KEY_R: KEY_P
-      KEY_S: KEY_R
-      KEY_T: KEY_SEMICOLON
-      KEY_U: KEY_L
-      KEY_Y: KEY_J
-      KEY_SEMICOLON: KEY_O
+      super-1: ctrl-1
+      super-2: ctrl-2
+      super-3: ctrl-3
+      super-4: ctrl-4
+      super-5: ctrl-5
+      super-6: ctrl-6
+      super-7: ctrl-7
+      super-8: ctrl-8
+      super-9: ctrl-9

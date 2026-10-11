@@ -8,6 +8,7 @@
     # ```
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:nixos/nixpkgs/12a55407652e04dcf2309436eb06fef0d3713ef3";
+    xremap.url = "github:xremap/nix-flake";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -15,7 +16,7 @@
   };
 
   outputs =
-    { nixpkgs, nixpkgs-stable, home-manager, ... }:
+    { nixpkgs, nixpkgs-stable, xremap, home-manager, ... }:
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
@@ -36,9 +37,10 @@
       homeConfigurations."${username}" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
 
-        # Specify your home configuration modules here, for example,
-        # the path to your home.nix.
-        modules = [ ./home.nix ];
+        modules = [
+          ./home.nix
+          xremap.homeManagerModules.default
+        ];
 
         # Optionally use extraSpecialArgs
         # to pass through arguments to home.nix
