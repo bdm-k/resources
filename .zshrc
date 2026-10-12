@@ -1,7 +1,10 @@
 #====================#
 # home-manager setup #
 #====================#
-. "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
+if [ -e "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh" ]; then
+  . "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
+fi
+
 
 #============#
 # pass setup #
@@ -119,6 +122,9 @@ bindkey -e
 
 # For the option meanings, refer to zshoptions(1)
 # Hint: run `fc -RI` to reload commands from the history file
+HISTFILE=~/.zsh_history
+HISTSIZE=1000
+SAVEHIST=1000
 setopt INC_APPEND_HISTORY
 setopt HIST_IGNORE_ALL_DUPS
 
