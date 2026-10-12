@@ -12,6 +12,10 @@ modmap:
       down: up
       up: rightctrl
       katakanahiragana: rightmeta
+      home: pageup
+      end: pagedown
+      pageup: home
+      pagedown: end
 
   - name: capslock mod-tap rule
     remap:
@@ -60,8 +64,8 @@ keymap:
   - name: copy, paste, cut, undo, redo, select all
     exact_match: true
     application:
-      # wezterm sets up application-level key bindings
-      not: org.wezfurlong.wezterm
+      # wezterm and zed sets up application-level key bindings
+      not: [org.wezfurlong.wezterm, dev.zed.Zed]
     remap:
       super-c: ctrl-c
       super-v: ctrl-v
@@ -100,7 +104,7 @@ keymap:
       super-minus: ctrl-minus         # Zoom out
       super-equal: ctrl-equal         # Zoom in
       super-l: ctrl-l                 # Focus location
-      super-b: ctrl-shift-b           # Show bookmarks
+      super-shift-b: ctrl-shift-b     # Show bookmarks
       super-n: ctrl-n                 # New window
       super-shift-n: ctrl-shift-n     # New private window
       super-shift-t: ctrl-shift-t     # Reopen closed tab
