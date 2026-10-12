@@ -1,4 +1,7 @@
 { config, pkgs, ... }:
+let
+  bibata = "${pkgs.bibata-cursors}/share/icons";
+in
 {
   targets.genericLinux.enable = true;
 
@@ -10,8 +13,27 @@
 
     pkgs.dart-sass  # For compiling my Obsidian CSS snippet
 
+    pkgs.bibata-cursors
+
+    pkgs.noto-fonts
+    pkgs.noto-fonts-cjk-sans
+    pkgs.noto-fonts-cjk-serif
+    pkgs.noto-fonts-color-emoji
     pkgs.source-code-pro
   ];
+
+  fonts.fontconfig.defaultFonts = {
+    sansSerif = [ "Noto Sans" "Noto Sans CJK JP" ];
+    serif     = [ "Noto Serif" "Noto Serif CJK JP" ];
+    monospace = [ "Noto Sans Mono" "Noto Sans Mono CJK JP" ];
+    emoji     = [ "Noto Color Emoji" ];
+  };
+
+  # Link the cursor theme
+  xdg.dataFile."icons" = {
+    source = "${pkgs.bibata-cursors}/share/icons";
+    recursive = true;
+  };
 
   services.xremap = {
     enable = true;
@@ -24,11 +46,14 @@
   };
 
   i18n.inputMethod = {
-    type = "fcitx5";
     enable = true;
-    fcitx5.addons = with pkgs; [
-      fcitx5-mozc
-      fcitx5-gtk
-    ];
+    type = "fcitx5";
+    fcitx5 = {
+      waylandFrontend = true;
+      addons = with pkgs; [
+        fcitx5-mozc
+        fcitx5-gtk
+      ];
+    };
   };
 }
