@@ -3,9 +3,9 @@ modmap:
     remap:
       ro: rightctrl
 
-  - name: physical keyboard normalization (NuPhy Node 75 LP JIS)
+  - name: physical keyboard normalization (NuPhy Node 75 JIS)
     device:
-      only: 'NuPhy Node 75 LP JIS'
+      only: 'Node 75 LP JIS'
     remap:
       rightctrl: left
       left: down
@@ -26,7 +26,7 @@ modmap:
 
   - name: backspace mod-tap rule
     device:
-      only: 'NuPhy Node 75 LP JIS'
+      only: 'Node 75 LP JIS'
     remap:
       backspace:
         held: rightshift
