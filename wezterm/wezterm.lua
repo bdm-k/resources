@@ -5,7 +5,7 @@ local act = wezterm.action
 local nerd = wezterm.nerdfonts
 local config = wezterm.config_builder()
 
-config.debug_key_events = true
+-- config.debug_key_events = true
 
 local kernel_name = (function()
   local handle = io.popen("uname -s")
@@ -44,9 +44,10 @@ else
       family = "Noto Sans CJK JP",
       weight = "Medium",
     }),
-    font_size = 11.0,
+    font_size = 10.0,
   }
 end
+config.front_end = "WebGpu"
 
 config.color_scheme = "One Half Black (Gogh)"
 local color_scheme_bg = wezterm.color.parse("#000000")
