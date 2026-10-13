@@ -132,6 +132,18 @@ hl.config({
 })
 
 
+------------------
+---- MONITORS ----
+------------------
+
+hl.monitor({
+  output   = "",
+  mode     = "preferred",
+  position = "auto",
+  scale    = 1,
+})
+
+
 ---------------------------
 ---- KEYBINDS / WINDOW ----
 ---------------------------
@@ -209,8 +221,26 @@ hl.bind(
   { description = "Show clipboard history" }
 )
 
+function toggle_embedded_monitor()
+  if hl.get_monitor("eDP-1") ~= nil then
+    -- The embedded monitor is currently enabled. Disable it if the number of
+    -- monitors is greater than 1.
+    if #hl.get_monitors() > 1 then
+      hl.monitor({ output = "eDP-1", disabled = true })
+    end
+  else
+    hl.monitor({
+      output = "eDP-1",
+      disabled = false,
+      mode = "preferred",
+      position = "auto",
+      scale = 1,
+    })
+  end
+end
+
 hl.bind(
   second_mod .. " + F3",
-  hl.dsp.exec_cmd("dms ipc call outputs cycleProfile"),
-  { description = "Cycle monitor profiles" }
+  toggle_embedded_monitor,
+  { description = "Toggle embedded monitor" }
 )
