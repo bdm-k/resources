@@ -36,6 +36,18 @@ vim.opt.cursorline = true
 vim.opt.colorcolumn = "80,100"
 
 vim.opt.clipboard = 'unnamedplus'
+if vim.fn.executable('dms') then
+  vim.g.clipboard = {
+    name = 'DMS',
+    copy = {
+      ['+'] = { 'dms', 'cl', 'copy' },
+    },
+    paste = {
+      ['+'] = { 'dms', 'cl', 'paste' },
+    },
+    cache_enabled = 0,
+  }
+end
 
 vim.opt.listchars = { tab = ' ', trail = '$' }
 vim.opt.list = true

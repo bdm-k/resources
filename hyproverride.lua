@@ -244,3 +244,14 @@ hl.bind(
   toggle_embedded_monitor,
   { description = "Toggle embedded monitor" }
 )
+
+
+-----------------------
+--- KEYBINDS / MISC ---
+-----------------------
+
+hl.bind(
+  second_mod .. " + q",
+  hl.dsp.dpms({ action = "toggle" }),
+  { descrption = "Toggle monitors between on and off" }
+)
