@@ -181,11 +181,21 @@ _nvim()
 
 _autossh()
 {
-  local port=$1
-  local host=$2
+  local lport=$1
+  local target=$2
 
-  if [ -z $port -o -z $host ]; then
-    echo "usage: autossh <port> <hostname>"
+  if [ -z "$lport" ] || [ -z "$target" ]
+  then
+    echo "usage: autossh <local_port> <hostname>:<port>"
+    return 1
+  fi
+
+  local host=${target%:*}
+  local rport=${target##*:}
+
+  if [ -z "$host" ] || [ -z "$rport" ]
+  then
+    echo "usage: autossh <local_port> <hostname>:<port>"
     return 1
   fi
 
@@ -193,6 +203,6 @@ _autossh()
     -o "ServerAliveInterval=30" \
     -o "ServerAliveCountMax=2" \
     -o "ExitOnForwardFailure=yes" \
-    -L "${port}:localhost:${port}" \
+    -L "${lport}:localhost:${rport}" \
     "$host"
 }
